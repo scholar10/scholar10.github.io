@@ -1,58 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title>渗透某企业</title>
-      <link href="/2018/08/09/%E6%B8%97%E9%80%8F%E6%9F%90%E4%BC%81%E4%B8%9A/"/>
-      <url>/2018/08/09/%E6%B8%97%E9%80%8F%E6%9F%90%E4%BC%81%E4%B8%9A/</url>
-      <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 1.png 渗透某企业的说明 %&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-    </entry>
-    
-    <entry>
-      <title>博客测试</title>
-      <link href="/2018/07/31/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/"/>
-      <url>/2018/07/31/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/</url>
-      <content type="html"><![CDATA[<p>博客测试成功</p><p>d</p>]]></content>
-      
+<search>
+  <entry>
+    <title><![CDATA[渗透某企业]]></title>
+    <url>%2F2018%2F08%2F09%2F%E6%B8%97%E9%80%8F%E6%9F%90%E4%BC%81%E4%B8%9A%2F</url>
+    <content type="text"><![CDATA[1&#123;% asset_img 1.png 渗透某企业的说明 %&#125;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[博客测试]]></title>
+    <url>%2F2018%2F07%2F31%2F%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[博客测试成功 d]]></content>
       <categories>
-          
-          <category> -实验 </category>
-          
+        <category>-实验</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> -测试 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>实战某企业</title>
-      <link href="/2018/07/31/hello-world/"/>
-      <url>/2018/07/31/hello-world/</url>
-      <content type="html"><![CDATA[<p>在家无聊，突然想到博客搞上也有数天 平时没时间写文章，想到今天正好无聊不如写篇实战性的文章说搞就搞，我马上放下了打飞机的右手</p><h2 id="实战内容"><a href="#实战内容" class="headerlink" title="实战内容"></a>实战内容</h2><h3 id="确定目标站"><a href="#确定目标站" class="headerlink" title="确定目标站"></a>确定目标站<img src="C:\Users\jht\AppData\Local\Temp\1533777808665.png" alt="1533777808665"></h3><a id="more"></a> <h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><p>相信很多人吧都会忽略信息收集这一块，完整的信息收集应该包括</p><p>收集 whois 邮箱</p><p>收集 子域名 c段 旁站</p><p>收集网站架构 运行的服务 对应的端口 探测 waf</p><p>google hacking 敏感文件</p><p> 收集网站的 cms 信息</p><h3 id="有所发现"><a href="#有所发现" class="headerlink" title="有所发现"></a>有所发现</h3><p>在信息收集的过程中我发现网站右上脚有</p><p><img src="C:\Users\jht\AppData\Local\Temp\1533778392380.png" alt="1533778392380"></p><p>因为主站是伪静态 我本人确实很排斥这种伪静态 我就点了英文版的站 就发现 </p><p>主站的url:<a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a></p><p>英文版url:<a href="http://www.xxx.com/en" target="_blank" rel="noopener">www.xxx.com/en</a></p><p>原来是分目录 English的站并没有做伪静态</p><p>准备对准他下手 习惯性的先扫描一番</p><p><img src="C:\Users\jht\AppData\Local\Temp\1533778709826.png" alt="1533778709826"></p><p>我发现了此文件 ,打开一看我尼玛 管理员真的粗心</p><p><img src="C:\Users\jht\AppData\Local\Temp\1533778858477.png" alt="1533778858477"></p><p>是一个密码重置 因为我知道有admin 所以第一步直接填了admin 第二步即可重置，改完密码直接进入后台</p><p><img src="C:\Users\jht\AppData\Local\Temp\1533778964356.png" alt="1533778964356"></p><h3 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h3><p>dede cms拿shell很简单 有个文件管理器直接可上传马get shell</p><p><img src="C:\Users\jht\AppData\Local\Temp\1533779064848.png" alt="1533779064848"></p><p>拿到shell后可直接跨目录</p><p>因为信息收集我发现是apache 还有.htacces文件 可以更好的隐藏我们的shell 这里我就不演示了</p><p>此篇没有什么技术含量 只当是做个笔记而已</p>]]></content>
-      
+      <tags>
+        <tag>-测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[实战某企业]]></title>
+    <url>%2F2018%2F07%2F31%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[在家无聊，突然想到博客搞上也有数天 平时没时间写文章，想到今天正好无聊不如写篇实战性的文章说搞就搞，我马上放下了打飞机的右手 实战内容确定目标站 信息收集相信很多人吧都会忽略信息收集这一块，完整的信息收集应该包括 收集 whois 邮箱 收集 子域名 c段 旁站 收集网站架构 运行的服务 对应的端口 探测 waf google hacking 敏感文件 收集网站的 cms 信息 有所发现在信息收集的过程中我发现网站右上脚有 因为主站是伪静态 我本人确实很排斥这种伪静态 我就点了英文版的站 就发现 主站的url:www.xxx.com 英文版url:www.xxx.com/en 原来是分目录 English的站并没有做伪静态 准备对准他下手 习惯性的先扫描一番 我发现了此文件 ,打开一看我尼玛 管理员真的粗心 是一个密码重置 因为我知道有admin 所以第一步直接填了admin 第二步即可重置，改完密码直接进入后台 拿shelldede cms拿shell很简单 有个文件管理器直接可上传马get shell 拿到shell后可直接跨目录 因为信息收集我发现是apache 还有.htacces文件 可以更好的隐藏我们的shell 这里我就不演示了 此篇没有什么技术含量 只当是做个笔记而已]]></content>
       <categories>
-          
-          <category> -渗透测试 </category>
-          
+        <category>-渗透测试</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> -实战 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-  
-  
+      <tags>
+        <tag>-实战</tag>
+      </tags>
+  </entry>
 </search>
