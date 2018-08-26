@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="phpmyadmin," />
 
 
 
@@ -79,14 +79,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://yoursite.com/tags/index-1.html">
+<meta name="description" content="有时候在渗透测试过程中 我们会得到phpmyadmin 的账号和密码 但是既然登陆了phpmyadmin有些新手朋友却不知道如何通过他来get shell 具体内容">
+<meta name="keywords" content="phpmyadmin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[phpmyadmin写shell]">
+<meta property="og:url" content="http://yoursite.com/2018/08/26/phpmyadmin写shell/index.html">
 <meta property="og:site_name" content="书生 - Blog">
+<meta property="og:description" content="有时候在渗透测试过程中 我们会得到phpmyadmin 的账号和密码 但是既然登陆了phpmyadmin有些新手朋友却不知道如何通过他来get shell 具体内容">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-31T14:59:38.872Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/26/phpmyadmin写shell/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/26/phpmyadmin写shell/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/26/phpmyadmin写shell/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/26/phpmyadmin写shell/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/26/phpmyadmin写shell/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/26/phpmyadmin写shell/6.png">
+<meta property="og:updated_time" content="2018-08-26T09:16:55.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
+<meta name="twitter:title" content="[phpmyadmin写shell]">
+<meta name="twitter:description" content="有时候在渗透测试过程中 我们会得到phpmyadmin 的账号和密码 但是既然登陆了phpmyadmin有些新手朋友却不知道如何通过他来get shell 具体内容">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/26/phpmyadmin写shell/1.png">
 
 
 
@@ -116,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/index-1.html"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/26/phpmyadmin写shell/"/>
 
 
 
 
 
-  <title>标签 | 书生 - Blog</title>
+  <title>[phpmyadmin写shell] | 书生 - Blog</title>
   
 
 
@@ -287,40 +298,185 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/26/phpmyadmin写shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="scholar(书生)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生 - Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">标签</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 2 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/phpmyadmin/" style="font-size: 12px; color: #ccc">phpmyadmin</a> <a href="/tags/实战/" style="font-size: 12px; color: #ccc">实战</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">[phpmyadmin写shell]</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-26T16:34:25+08:00">
+                2018-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/渗透测试/" itemprop="url" rel="index">
+                    <span itemprop="name">渗透测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>有时候在渗透测试过程中 我们会得到phpmyadmin 的账号和密码 但是既然登陆了phpmyadmin有些新手朋友却不知道如何通过他来get shell</p>
+<h2 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h2><p><img src="/2018/08/26/phpmyadmin写shell/1.png" alt=""></p>
+  <a id="more"></a> 
+<h3 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h3><p>登陆进phpmyadmin 有些朋友可能会直接选择去写入一个webshell 执行后会弹出大概无法写入的意思 这里和phpmyadmin的设置有关系 在实战情况下一般都不能直接去写入一个shell的。</p>
+<p>这时候我们需要换个思路</p>
+<h3 id="利用mysql-错误日志写入一句话"><a href="#利用mysql-错误日志写入一句话" class="headerlink" title="利用mysql 错误日志写入一句话"></a>利用mysql 错误日志写入一句话</h3><p>这里需要先设置 general log (日志保存状态)general log file(日志保存路径)</p>
+<p>先执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &apos;general%&apos; a</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/26/phpmyadmin写shell/2.png" alt=""></p>
+<p>我们需要把general log 改为ON 也就是打开状态</p>
+<p>还要把general log file路径改为网站的根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set global general_log = &quot;ON&quot;; </span><br><span class="line"></span><br><span class="line">set global general_log_file=&apos;D:/stduy/PHPTutorial/WWW/infos.php&apos;;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/26/phpmyadmin写shell/3.png" alt=""></p>
+<p>执行完后因为我是本地搭建环境所以可以看到成功创建了</p>
+<p><img src="/2018/08/26/phpmyadmin写shell/4.png" alt=""></p>
+<p>现在我们只需要输入一个错误的sql语句即可 这里我写入一句话 可以看到一句话已经存在于infos.php里面了</p>
+<p><img src="/2018/08/26/phpmyadmin写shell/5.png" alt=""></p>
+<p>之后我们菜刀直接链接即可</p>
+<p><img src="/2018/08/26/phpmyadmin写shell/6.png" alt=""></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>网上有许多相关的文章 不过自己写一遍印象才会更深刻吧</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/phpmyadmin/" rel="tag"><i class="fa fa-tag"></i> phpmyadmin</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/09/渗透某企业/" rel="next" title="渗透某企业">
+                <i class="fa fa-chevron-left"></i> 渗透某企业
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -353,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -458,6 +623,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体内容"><span class="nav-number">1.</span> <span class="nav-text">具体内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单说明"><span class="nav-number">1.1.</span> <span class="nav-text">简单说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用mysql-错误日志写入一句话"><span class="nav-number">1.2.</span> <span class="nav-text">利用mysql 错误日志写入一句话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
