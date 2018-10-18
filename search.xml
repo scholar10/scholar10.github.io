@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python基础整理]]></title>
+    <url>%2F2018%2F10%2F18%2Fpython%E5%9F%BA%E7%A1%80%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[额。。开学了又很久没写博客了 然后进了python社得罪了**社长 还有门槛有什么考试 虽然我稳如老狗 但是想了想很久没写博客就写一篇 整理整理 最近看了看廖雪峰的教程 感觉很不错 文章包括廖雪峰老师讲的一些有用的东西 和自己的一些见解 Python简介:Python是用来编写应用程序的高级编程语言 Python就为我们提供了非常完善的基础代码库，覆盖了网络、文件、GUI、数据库、文本等大量内容，被形象地称作“内置电池（batteries included）”。用Python开发，许多功能不必从零编写，直接使用现成的即可 许多大型网站就是用Python开发的，例如YouTube、Instagram，还有国内的豆瓣。很多大公司，包括Google、Yahoo等，甚至NASA（美国航空航天局）都大量地使用Python。 那Python适合开发哪些类型的应用呢？ 首选是网络应用，包括网站、后台服务等等； 其次是许多日常需要的小工具，包括系统管理员需要的脚本任务等等； 另外就是把其他语言开发的程序再包装起来，方便使用。 Python中文编码:第一个编码问题 Python中默认的编码格式是 ASCII 格式，在没修改编码格式时无法正确打印汉字 比如print(“哇咔咔”)会报错 这里你可能会问 我为什么没事 因为**Python3.X 源码文件默认使用utf-8编码，所以可以正常解析中文，无需指定 UTF-8 编码。 Python基础语法：这里先介绍一下编译和解释 编译:一次性编译，之后不再需要源代码 (适合语法练习) 解释：一行一行翻译 打一句翻译一句 程序基本编写方法 input()程序的输入 ​ Print()程序的输出 以前看过一个教程他例出了解决编程问题的三个步骤： 扯远了]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[php myadmin写shell]]></title>
     <url>%2F2018%2F08%2F26%2Fphp%20myadmin%E5%86%99shell%2F</url>
     <content type="text"><![CDATA[有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。 具体内容 简单说明登陆进php myadmin 有些朋友可能会直接选择去写入一个webshell 执行后会弹出大概无法写入的意思 这里和php myadmin的设置有关系 在实战情况下一般都不能直接去写入一个shell的。 这时候我们需要换个思路 利用mysql 错误日志写入一句话这里需要先设置 general log (日志保存状态)general log file(日志保存路径) 先执行 1show variables like &apos;general%&apos; a 我们需要把general log 改为ON 也就是打开状态 还要把general log file路径改为网站的根目录 123set global general_log = &quot;ON&quot;; set global general_log_file=&apos;D:/stduy/PHPTutorial/WWW/infos.php&apos;; 执行完后因为我是本地搭建环境所以可以看到成功创建了 现在我们只需要输入一个错误的sql语句即可 这里我写入一句话 可以看到一句话已经存在于infos.php里面了 之后我们菜刀直接链接即可 总结网上有许多相关的文章 不过自己写一遍印象才会更深刻吧]]></content>
