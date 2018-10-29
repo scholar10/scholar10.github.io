@@ -1,36 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[Python学习笔记]]></title>
-    <url>%2F2018%2F10%2F29%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[入坑了python3 知识点颇多 看了一遍 看第二遍时候发现 和没看没什么两样 所以把某些知识点 记录一下 加深印象也方便 忘记时候查看 组和数据类型集合类型及操作集合元素之间无序，每个元素唯一 不存在相同元素 ，集合元素是不可变数据类型，在Python中集合用{}表示，元素间用 “,”分隔 也可以用set()建立集合 set()将每个字符单独拆分 变成集合的元素 集合操作符 可能有点难理解 那我们就打一下 a = {&quot;p&quot;,&quot;y&quot;,123}b = set(&quot;pypy123&quot;)a-b{123}b-a{&#39;2&#39;, &#39;3&#39;, &#39;1&#39;}a&amp;b{&#39;y&#39;, &#39;p&#39;}a|b{&#39;3&#39;, &#39;1&#39;, &#39;2&#39;, &#39;y&#39;, 123, &#39;p&#39;} 在四种基本操作符上python提供了增强操作符 通过四种操作符于赋值符号 来完成对集合s的更新 集合处理方法s.add(x) 将x增加到集合s s.discard(x) 从集合s中移除x 如果x不再集合s中，不报错 s.remove(x) 从集合s中移除x 如果x不再集合s中，报出KeyError s.clear()移除s中所有元素 s.pop() 随机返回一个s元素 s为空则 报出KeyError s.copy 返回集合s的一个副本 len(s) 返回集合s的元素个数 x in s 判断x是否在s中 是则True 否则False set(x)将其他类型变量转换为集合 集合类型总结集合类型 适用于包含关系的比较 举个例子 还有一个非常重要的 数据去重 就是利用 集合类型不能重复的特点 例如将一个List 去掉其中的重复元素 这里就可以用集合进行数据去重 非常简单容易 这里先用set 将list转换成集合来达到了 去重的目的 然后将集合在转换为列表。]]></content>
+<search> 
+  
+    
+    <entry>
+      <title>Python学习笔记</title>
+      <link href="/2018/10/29/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2018/10/29/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<p><img src="/2018/10/29/Python学习笔记/1.jpg" alt=""></p><p>入坑了python3 知识点颇多 看了一遍 看第二遍时候发现 和没看没什么两样 所以把某些知识点 记录一下 加深印象也方便 忘记时候查看</p><a id="more"></a><h2 id="组和数据类型"><a href="#组和数据类型" class="headerlink" title="组和数据类型"></a>组和数据类型</h2><h3 id="集合类型及操作"><a href="#集合类型及操作" class="headerlink" title="集合类型及操作"></a>集合类型及操作</h3><p>集合元素之间无序，每个元素唯一 不存在相同元素 ，集合元素是不可变数据类型，在Python中集合用{}表示，元素间用 “,”分隔</p><p>也可以用set()建立集合</p><p><img src="/2018/10/29/Python学习笔记/2.jpg" alt=""></p><p>set()将每个字符单独拆分 变成集合的元素</p><h3 id="集合操作符"><a href="#集合操作符" class="headerlink" title="集合操作符"></a>集合操作符</h3><p><img src="/2018/10/29/Python学习笔记/3.jpg" alt=""></p><p>可能有点难理解 那我们就打一下 </p><blockquote><blockquote><blockquote><p><code>a = {&quot;p&quot;,&quot;y&quot;,123}</code><br><code>b = set(&quot;pypy123&quot;)</code><br><code>a-b</code><br><code>{123}</code><br><code>b-a</code><br><code>{&#39;2&#39;, &#39;3&#39;, &#39;1&#39;}</code><br><code>a&amp;b</code><br><code>{&#39;y&#39;, &#39;p&#39;}</code><br><code>a|b</code><br><code>{&#39;3&#39;, &#39;1&#39;, &#39;2&#39;, &#39;y&#39;, 123, &#39;p&#39;}</code></p></blockquote></blockquote></blockquote><p>在四种基本操作符上python提供了增强操作符</p><p>通过四种操作符于赋值符号 来完成对集合s的更新</p><p><img src="/2018/10/29/Python学习笔记/4.jpg" alt=""></p><h3 id="集合处理方法"><a href="#集合处理方法" class="headerlink" title="集合处理方法"></a>集合处理方法</h3><p>s.add(x) 将x增加到集合s</p><p>s.discard(x) 从集合s中移除x 如果x不再集合s中，不报错</p><p>s.remove(x) 从集合s中移除x 如果x不再集合s中，报出KeyError</p><p>s.clear()移除s中所有元素</p><p>s.pop() 随机返回一个s元素 s为空则 报出KeyError</p><p>s.copy 返回集合s的一个副本</p><p>len(s) 返回集合s的元素个数</p><p>x in s 判断x是否在s中 是则True 否则False</p><p>set(x)将其他类型变量转换为集合</p><h3 id="集合类型总结"><a href="#集合类型总结" class="headerlink" title="集合类型总结"></a>集合类型总结</h3><p>集合类型 适用于包含关系的比较</p><p>举个例子</p><p><img src="/2018/10/29/Python学习笔记/5.jpg" alt=""></p><p>还有一个非常重要的 <u>数据去重</u> 就是利用 集合类型不能重复的特点</p><p>例如将一个List 去掉其中的重复元素 这里就可以用集合进行数据去重 非常简单容易</p><p><img src="/2018/10/29/Python学习笔记/6.jpg" alt=""></p><p>这里先用set 将list转换成集合来达到了 去重的目的 然后将集合在转换为列表。</p>]]></content>
+      
       <categories>
-        <category>Python</category>
+          
+          <category> Python </category>
+          
       </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[php myadmin写shell]]></title>
-    <url>%2F2018%2F08%2F26%2Fphp%20myadmin%E5%86%99shell%2F</url>
-    <content type="text"><![CDATA[有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。 具体内容 简单说明登陆进php myadmin 有些朋友可能会直接选择去写入一个webshell 执行后会弹出大概无法写入的意思 这里和php myadmin的设置有关系 在实战情况下一般都不能直接去写入一个shell的。 这时候我们需要换个思路 利用mysql 错误日志写入一句话这里需要先设置 general log (日志保存状态)general log file(日志保存路径) 先执行 1show variables like &apos;general%&apos; a 我们需要把general log 改为ON 也就是打开状态 还要把general log file路径改为网站的根目录 123set global general_log = &quot;ON&quot;; set global general_log_file=&apos;D:/stduy/PHPTutorial/WWW/infos.php&apos;; 执行完后因为我是本地搭建环境所以可以看到成功创建了 现在我们只需要输入一个错误的sql语句即可 这里我写入一句话 可以看到一句话已经存在于infos.php里面了 之后我们菜刀直接链接即可 总结网上有许多相关的文章 不过自己写一遍印象才会更深刻吧]]></content>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>php myadmin写shell</title>
+      <link href="/2018/08/26/php%20myadmin%E5%86%99shell/"/>
+      <url>/2018/08/26/php%20myadmin%E5%86%99shell/</url>
+      <content type="html"><![CDATA[<p>有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。 </p><h2 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h2><p><img src="/2018/08/26/php myadmin写shell/1.png" alt=""></p>  <a id="more"></a> <h3 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h3><p>登陆进php myadmin 有些朋友可能会直接选择去写入一个webshell 执行后会弹出大概无法写入的意思 这里和php myadmin的设置有关系 在实战情况下一般都不能直接去写入一个shell的。</p><p>这时候我们需要换个思路</p><h3 id="利用mysql-错误日志写入一句话"><a href="#利用mysql-错误日志写入一句话" class="headerlink" title="利用mysql 错误日志写入一句话"></a>利用mysql 错误日志写入一句话</h3><p>这里需要先设置 general log (日志保存状态)general log file(日志保存路径)</p><p>先执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &apos;general%&apos; a</span><br></pre></td></tr></table></figure><p><img src="/2018/08/26/php myadmin写shell/2.png" alt=""></p><p>我们需要把general log 改为ON 也就是打开状态</p><p>还要把general log file路径改为网站的根目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set global general_log = &quot;ON&quot;; </span><br><span class="line"></span><br><span class="line">set global general_log_file=&apos;D:/stduy/PHPTutorial/WWW/infos.php&apos;;</span><br></pre></td></tr></table></figure><p><img src="/2018/08/26/php myadmin写shell/3.png" alt=""></p><p>执行完后因为我是本地搭建环境所以可以看到成功创建了</p><p><img src="/2018/08/26/php myadmin写shell/4.png" alt=""></p><p>现在我们只需要输入一个错误的sql语句即可 这里我写入一句话 可以看到一句话已经存在于infos.php里面了</p><p><img src="/2018/08/26/php myadmin写shell/5.png" alt=""></p><p>之后我们菜刀直接链接即可</p><p><img src="/2018/08/26/php myadmin写shell/6.png" alt=""></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>网上有许多相关的文章 不过自己写一遍印象才会更深刻吧</p>]]></content>
+      
       <categories>
-        <category>渗透测试</category>
+          
+          <category> 渗透测试 </category>
+          
       </categories>
-      <tags>
-        <tag>php myadmin</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[渗透某企业]]></title>
-    <url>%2F2018%2F08%2F09%2F%E6%B8%97%E9%80%8F%E6%9F%90%E4%BC%81%E4%B8%9A%2F</url>
-    <content type="text"><![CDATA[在家无聊，突然想到博客搞上也有数天 没时间写文章，今天正好无聊 实战内容确定目标站 信息收集相信很多人吧都会忽略信息收集这一块，完整的信息收集应该包括 收集 whois 邮箱 收集 子域名 c段 旁站 收集网站架构 运行的服务 对应的端口 探测 waf google hacking 敏感文件 收集网站的 cms 信息 有所发现在信息收集的过程中我发现网站右上脚有 因为主站是伪静态 我本人确实很排斥这种伪静态 我就点了英文版的站 就发现 主站的url:www.xxx.com 英文版url:www.xxx.com/en 原来是分目录 English的站并没有做伪静态 准备对准他下手 习惯性的先扫描一番 我发现了此文件 ,打开一看我尼玛 管理员真的粗心,是一个密码重置，管理员居然没有删 因为我知道有admin 所以第一步直接填了admin 第二步即可重置，改完密码直接进入后台 拿shelldede cms拿shell很简单 有个文件管理器直接可上传get shell 拿到shell后可直接跨目录 因为信息收集我发现是apache 还有.htacces文件 可以更好的隐藏我们的shell 这里我就不演示了 此篇没有什么技术含量 只当是做个笔记而已]]></content>
+      
+      
+        <tags>
+            
+            <tag> php myadmin </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>渗透某企业</title>
+      <link href="/2018/08/09/%E6%B8%97%E9%80%8F%E6%9F%90%E4%BC%81%E4%B8%9A/"/>
+      <url>/2018/08/09/%E6%B8%97%E9%80%8F%E6%9F%90%E4%BC%81%E4%B8%9A/</url>
+      <content type="html"><![CDATA[<p>在家无聊，突然想到博客搞上也有数天 没时间写文章，今天正好无聊</p><h2 id="实战内容"><a href="#实战内容" class="headerlink" title="实战内容"></a>实战内容</h2><h3 id="确定目标站"><a href="#确定目标站" class="headerlink" title="确定目标站"></a>确定目标站</h3><p><img src="/2018/08/09/渗透某企业/1.png" alt=""></p><a id="more"></a><h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><p>相信很多人吧都会忽略信息收集这一块，完整的信息收集应该包括</p><p>收集 whois 邮箱</p><p>收集 子域名 c段 旁站</p><p>收集网站架构 运行的服务 对应的端口 探测 waf</p><p>google hacking 敏感文件</p><p> 收集网站的 cms 信息</p><h3 id="有所发现"><a href="#有所发现" class="headerlink" title="有所发现"></a>有所发现</h3><p>在信息收集的过程中我发现网站右上脚有</p><p><img src="/2018/08/09/渗透某企业/2.png" alt=""></p><p>因为主站是伪静态 我本人确实很排斥这种伪静态 我就点了英文版的站 就发现 </p><p>主站的url:<a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a></p><p>英文版url:<a href="http://www.xxx.com/en" target="_blank" rel="noopener">www.xxx.com/en</a></p><p>原来是分目录 English的站并没有做伪静态</p><p>准备对准他下手 习惯性的先扫描一番</p><p><img src="/2018/08/09/渗透某企业/3.png" alt=""></p><p>我发现了此文件 ,打开一看我尼玛 管理员真的粗心,是一个密码重置，管理员居然没有删</p><p><img src="/2018/08/09/渗透某企业/4.png" alt=""></p><p>因为我知道有admin 所以第一步直接填了admin 第二步即可重置，改完密码直接进入后台</p><p><img src="/2018/08/09/渗透某企业/5.png" alt=""></p><h3 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h3><p>dede cms拿shell很简单 有个文件管理器直接可上传get shell</p><p><img src="/2018/08/09/渗透某企业/6.png" alt=""></p><p>拿到shell后可直接跨目录</p><p>因为信息收集我发现是apache 还有.htacces文件 可以更好的隐藏我们的shell 这里我就不演示了</p><p>此篇没有什么技术含量 只当是做个笔记而已</p>]]></content>
+      
       <categories>
-        <category>渗透测试</category>
+          
+          <category> 渗透测试 </category>
+          
       </categories>
-      <tags>
-        <tag>实战</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> 实战 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
 </search>
