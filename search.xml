@@ -5,7 +5,7 @@
     <url>%2F2018%2F10%2F29%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[入坑了python3 知识点颇多 看了一遍 看第二遍时候发现 和没看没什么两样 所以把某些知识点 记录一下 加深印象也方便 忘记时候查看 组和数据类型集合类型及操作集合元素之间无序，每个元素唯一 不存在相同元素 ，集合元素是不可变数据类型，在Python中集合用{}表示，元素间用 “,”分隔 也可以用set()建立集合 set()将每个字符单独拆分 变成集合的元素 集合操作符 可能有点难理解 那我们就打一下 a = {&quot;p&quot;,&quot;y&quot;,123}b = set(&quot;pypy123&quot;)a-b{123}b-a{&#39;2&#39;, &#39;3&#39;, &#39;1&#39;}a&amp;b{&#39;y&#39;, &#39;p&#39;}a|b{&#39;3&#39;, &#39;1&#39;, &#39;2&#39;, &#39;y&#39;, 123, &#39;p&#39;} 在四种基本操作符上python提供了增强操作符 通过四种操作符于赋值符号 来完成对集合s的更新 集合处理方法s.add(x) 将x增加到集合s s.discard(x) 从集合s中移除x 如果x不再集合s中，不报错 s.remove(x) 从集合s中移除x 如果x不再集合s中，报出KeyError s.clear()移除s中所有元素 s.pop() 随机返回一个s元素 s为空则 报出KeyError s.copy 返回集合s的一个副本 len(s) 返回集合s的元素个数 x in s 判断x是否在s中 是则True 否则False set(x)将其他类型变量转换为集合 集合类型总结集合类型 适用于包含关系的比较 举个例子 还有一个非常重要的 数据去重 就是利用 集合类型不能重复的特点 例如将一个List 去掉其中的重复元素 这里就可以用集合进行数据去重 非常简单容易 这里先用set 将list转换成集合来达到了 去重的目的 然后将集合在转换为列表。]]></content>
       <categories>
-        <category>Python入坑py</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
