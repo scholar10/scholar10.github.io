@@ -93,7 +93,11 @@
 <meta property="og:image" content="http://yoursite.com/2018/10/29/Python学习笔记/4.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/10/29/Python学习笔记/5.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/10/29/Python学习笔记/6.jpg">
-<meta property="og:updated_time" content="2018-10-29T15:30:25.762Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/29/Python学习笔记/7.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/29/Python学习笔记/8.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/29/Python学习笔记/9.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/29/Python学习笔记/10.jpg">
+<meta property="og:updated_time" content="2018-11-01T08:41:17.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记">
 <meta name="twitter:description" content="入坑了python3 知识点颇多 看了一遍 看第二遍时候发现 和没看没什么两样 所以把某些知识点 记录一下 加深印象也方便 忘记时候查看">
@@ -402,7 +406,7 @@
         <p><img src="/2018/10/29/Python学习笔记/1.jpg" alt=""></p>
 <p>入坑了python3 知识点颇多 看了一遍 看第二遍时候发现 和没看没什么两样 所以把某些知识点 记录一下 加深印象也方便 忘记时候查看</p>
 <a id="more"></a>
-<h2 id="组和数据类型"><a href="#组和数据类型" class="headerlink" title="组和数据类型"></a>组和数据类型</h2><h3 id="集合类型及操作"><a href="#集合类型及操作" class="headerlink" title="集合类型及操作"></a>集合类型及操作</h3><p>集合元素之间无序，每个元素唯一 不存在相同元素 ，集合元素是不可变数据类型，在Python中集合用{}表示，元素间用 “,”分隔</p>
+<h1 id="组和数据类型"><a href="#组和数据类型" class="headerlink" title="组和数据类型"></a>组和数据类型</h1><h2 id="集合类型及操作"><a href="#集合类型及操作" class="headerlink" title="集合类型及操作"></a>集合类型及操作</h2><p>集合元素之间无序，每个元素唯一 不存在相同元素 ，集合元素是不可变数据类型，在Python中集合用{}表示，元素间用 “,”分隔</p>
 <p>也可以用set()建立集合</p>
 <p><img src="/2018/10/29/Python学习笔记/2.jpg" alt=""></p>
 <p>set()将每个字符单独拆分 变成集合的元素</p>
@@ -418,15 +422,15 @@
 <p>在四种基本操作符上python提供了增强操作符</p>
 <p>通过四种操作符于赋值符号 来完成对集合s的更新</p>
 <p><img src="/2018/10/29/Python学习笔记/4.jpg" alt=""></p>
-<h3 id="集合处理方法"><a href="#集合处理方法" class="headerlink" title="集合处理方法"></a>集合处理方法</h3><p>s.add(x) 将x增加到集合s</p>
-<p>s.discard(x) 从集合s中移除x 如果x不再集合s中，不报错</p>
-<p>s.remove(x) 从集合s中移除x 如果x不再集合s中，报出KeyError</p>
-<p>s.clear()移除s中所有元素</p>
-<p>s.pop() 随机返回一个s元素 s为空则 报出KeyError</p>
-<p>s.copy 返回集合s的一个副本</p>
-<p>len(s) 返回集合s的元素个数</p>
-<p>x in s 判断x是否在s中 是则True 否则False</p>
-<p>set(x)将其他类型变量转换为集合</p>
+<h3 id="集合处理方法"><a href="#集合处理方法" class="headerlink" title="集合处理方法"></a>集合处理方法</h3><p><code>s.add(x) 将x增加到集合s</code></p>
+<p><code>s.discard(x) 从集合s中移除x 如果x不再集合s中，不报错</code></p>
+<p><code>s.remove(x) 从集合s中移除x 如果x不再集合s中，报出KeyError</code></p>
+<p><code>s.clear()移除s中所有元素</code></p>
+<p><code>s.pop() 随机返回一个s元素 s为空则 报出KeyError</code></p>
+<p><code>s.copy 返回集合s的一个副本</code></p>
+<p><code>len(s) 返回集合s的元素个数</code></p>
+<p><code>x in s 判断x是否在s中 是则True 否则False</code></p>
+<p><code>set(x)将其他类型变量转换为集合</code></p>
 <h3 id="集合类型总结"><a href="#集合类型总结" class="headerlink" title="集合类型总结"></a>集合类型总结</h3><p>集合类型 适用于包含关系的比较</p>
 <p>举个例子</p>
 <p><img src="/2018/10/29/Python学习笔记/5.jpg" alt=""></p>
@@ -434,6 +438,28 @@
 <p>例如将一个List 去掉其中的重复元素 这里就可以用集合进行数据去重 非常简单容易</p>
 <p><img src="/2018/10/29/Python学习笔记/6.jpg" alt=""></p>
 <p>这里先用set 将list转换成集合来达到了 去重的目的 然后将集合在转换为列表。</p>
+<h2 id="序列类型及操作"><a href="#序列类型及操作" class="headerlink" title="序列类型及操作"></a>序列类型及操作</h2><p>序列类型包括 字符串类型 元组类型和列表类型</p>
+<h3 id="序列操作符"><a href="#序列操作符" class="headerlink" title="序列操作符"></a>序列操作符</h3><p><code>x in s 如果x是序列s的元素则返回True 否则返回Fals</code></p>
+<p><code>s+t 链接两个序列 s+t</code></p>
+<p><code>s * n或n * s 将序列s复制n次</code></p>
+<p><code>s[i] 索引返回s中的第i个元素</code></p>
+<p><code>s[i:j:k] 切片返回序列s中 i到j 且步长为k的元素序列</code></p>
+<h3 id="序列函数和方法"><a href="#序列函数和方法" class="headerlink" title="序列函数和方法"></a>序列函数和方法</h3><p>len(s) 返回序列s的长度</p>
+<p>min(s) 返回序列s的最小元素</p>
+<p>max(s) 返回序列s的最大元素</p>
+<p>s.count(x) 返回序列s中出现x的次数</p>
+<h3 id="元组类型及操作"><a href="#元组类型及操作" class="headerlink" title="元组类型及操作"></a>元组类型及操作</h3><p>元组是序列类型的一种,使用() 或tuple()创建 </p>
+<p><img src="/2018/10/29/Python学习笔记/7.jpg" alt=""></p>
+<p>元素间用,分隔。元组创建以后不能修改</p>
+<p>元组继承了序列全部通用操作 </p>
+<h3 id="列表类型及操作"><a href="#列表类型及操作" class="headerlink" title="列表类型及操作"></a>列表类型及操作</h3><p>列表是序列类型的一种,使用[] 或list()创建 </p>
+<p><img src="/2018/10/29/Python学习笔记/8.jpg" alt=""></p>
+<p>元素间用,分隔。列表创建可以随意修改</p>
+<h3 id="列表类型操作函数和方法"><a href="#列表类型操作函数和方法" class="headerlink" title="列表类型操作函数和方法"></a>列表类型操作函数和方法</h3><p>到这里内容很多 一会还要去上课 (其实是懒得打了)就从网上找了两张图 很详细</p>
+<p><img src="/2018/10/29/Python学习笔记/9.jpg" alt=""></p>
+<p><img src="/2018/10/29/Python学习笔记/10.jpg" alt=""></p>
+<h3 id="序列类型总结"><a href="#序列类型总结" class="headerlink" title="序列类型总结"></a>序列类型总结</h3><p>序列类型 包括字符串 列表 元组</p>
+<p>元组操作于序列基本相似，列表的话再序列基础上增加很多 更加灵活 </p>
 
       
     </div>
@@ -652,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组和数据类型"><span class="nav-number">1.</span> <span class="nav-text">组和数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集合类型及操作"><span class="nav-number">1.1.</span> <span class="nav-text">集合类型及操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合操作符"><span class="nav-number">1.2.</span> <span class="nav-text">集合操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合处理方法"><span class="nav-number">1.3.</span> <span class="nav-text">集合处理方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合类型总结"><span class="nav-number">1.4.</span> <span class="nav-text">集合类型总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#组和数据类型"><span class="nav-number">1.</span> <span class="nav-text">组和数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合类型及操作"><span class="nav-number">1.1.</span> <span class="nav-text">集合类型及操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集合操作符"><span class="nav-number">1.1.1.</span> <span class="nav-text">集合操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合处理方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">集合处理方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合类型总结"><span class="nav-number">1.1.3.</span> <span class="nav-text">集合类型总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列类型及操作"><span class="nav-number">1.2.</span> <span class="nav-text">序列类型及操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#序列操作符"><span class="nav-number">1.2.1.</span> <span class="nav-text">序列操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列函数和方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">序列函数和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元组类型及操作"><span class="nav-number">1.2.3.</span> <span class="nav-text">元组类型及操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表类型及操作"><span class="nav-number">1.2.4.</span> <span class="nav-text">列表类型及操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表类型操作函数和方法"><span class="nav-number">1.2.5.</span> <span class="nav-text">列表类型操作函数和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列类型总结"><span class="nav-number">1.2.6.</span> <span class="nav-text">序列类型总结</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
