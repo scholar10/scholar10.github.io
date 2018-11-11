@@ -95,8 +95,11 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/05/css样式那些事/5.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/11/05/css样式那些事/6.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/11/05/css样式那些事/7.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/css样式那些事/8.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/css样式那些事/9.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/11/05/css样式那些事/10.jpg">
-<meta property="og:updated_time" content="2018-11-05T15:47:55.244Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/css样式那些事/11.jpg">
+<meta property="og:updated_time" content="2018-11-11T07:41:03.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css样式那些事">
 <meta name="twitter:description" content="最近学校开了前端 希望通过自己的努力打开web前端的大门 最令人头疼的就是css的各种属性 真心事记住不 所以 写篇文章总结一下">
@@ -440,8 +443,26 @@
 <p><img src="/2018/11/05/css样式那些事/7.jpg" alt=""></p>
 <p>四种状态下设置超链接样式时候的设置方式和设置顺序</p>
 <p>a:hover也能做出简单的动画效果</p>
-<p><img src="/2018/11/05/css样式那些事/10.jpg" alt=""></p>
+<p><img src="/2018/11/05/css样式那些事/8.jpg" alt=""></p>
 <p>根据前面的学习不难看出 ，鼠标顶留在a标签文字上 字体放大 120% 这种简单的动画效果貌似还很常用的吧😁</p>
+<h2 id="列表-表格样式"><a href="#列表-表格样式" class="headerlink" title="列表 表格样式"></a>列表 表格样式</h2><p>列表的样式吧 主要是list开头</p>
+<p>列表的样式这里指无序列表(ul)和有序列表(ol) 共用样式有一下几种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list-style			所有列表属性设置在这个声明中</span><br><span class="line"></span><br><span class="line">list-style-image	为列表项设置图像</span><br><span class="line"></span><br><span class="line">list-style-position	标志的位置</span><br><span class="line"></span><br><span class="line">list-style-type	标志的类型</span><br></pre></td></tr></table></figure>
+<h3 id="list-style-type-属性"><a href="#list-style-type-属性" class="headerlink" title="list-style-type 属性"></a>list-style-type 属性</h3><p>type属性对于有序和无序列表可以取得以下这些值</p>
+<p><img src="/2018/11/05/css样式那些事/9.jpg" alt=""></p>
+<p>前四种针对无序列表 后面针对有序列表</p>
+<h3 id="list-style-position"><a href="#list-style-position" class="headerlink" title="list-style-position"></a>list-style-position</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list-style-position:inside</span><br><span class="line"></span><br><span class="line">list-style-position:outside</span><br></pre></td></tr></table></figure>
+<p>两者区别在哪 用文字说可能比较抽象 我们用一张图表示更加明确</p>
+<p><img src="/2018/11/05/css样式那些事/10.jpg" alt=""></p>
+<p><u>inside</u> 标号是向右缩进到这个列表区域之内</p>
+<p><u>outside</u> 是在列表的左侧</p>
+<h3 id="list-style-image"><a href="#list-style-image" class="headerlink" title="list-style-image"></a>list-style-image</h3><p>image属性可以规定列表的标号是一个图片：<u><strong>list-style-image:url(“1.jpg”);</strong></u></p>
+<p>可以起到美化页面的作用</p>
+<h3 id="表格样式"><a href="#表格样式" class="headerlink" title="表格样式"></a>表格样式</h3><p>表格样式主要是设置表格的高和宽 这个大家应该都知道</p>
+<p>还有一个经常是用的就是<u>border</u> 边框属性</p>
+<p>还有一个非常重要的<u>border-collapse</u>属性 合并默认表格样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">table&#123;</span><br><span class="line">	width:100px;</span><br><span class="line">	height:100px;</span><br><span class="line">	border:1px solid #eee ; //一个像素宽 实线显示 灰色 每个属性之间用空格隔开</span><br><span class="line">	border-collapse:collapse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/11/05/css样式那些事/11.jpg" alt=""></p>
 
       
     </div>
@@ -660,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文字样式"><span class="nav-number">1.</span> <span class="nav-text">文字样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用单位"><span class="nav-number">1.1.</span> <span class="nav-text">常用单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本样式"><span class="nav-number">1.2.</span> <span class="nav-text">文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体font"><span class="nav-number">1.3.</span> <span class="nav-text">字体font</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#背景超链接样式"><span class="nav-number">2.</span> <span class="nav-text">背景超链接样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景类型的样式"><span class="nav-number">2.1.</span> <span class="nav-text">背景类型的样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接的四种形态"><span class="nav-number">2.2.</span> <span class="nav-text">连接的四种形态</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文字样式"><span class="nav-number">1.</span> <span class="nav-text">文字样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用单位"><span class="nav-number">1.1.</span> <span class="nav-text">常用单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本样式"><span class="nav-number">1.2.</span> <span class="nav-text">文本样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体font"><span class="nav-number">1.3.</span> <span class="nav-text">字体font</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#背景超链接样式"><span class="nav-number">2.</span> <span class="nav-text">背景超链接样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景类型的样式"><span class="nav-number">2.1.</span> <span class="nav-text">背景类型的样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接的四种形态"><span class="nav-number">2.2.</span> <span class="nav-text">连接的四种形态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表-表格样式"><span class="nav-number">2.3.</span> <span class="nav-text">列表 表格样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list-style-type-属性"><span class="nav-number">2.3.1.</span> <span class="nav-text">list-style-type 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list-style-position"><span class="nav-number">2.3.2.</span> <span class="nav-text">list-style-position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list-style-image"><span class="nav-number">2.3.3.</span> <span class="nav-text">list-style-image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格样式"><span class="nav-number">2.3.4.</span> <span class="nav-text">表格样式</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
