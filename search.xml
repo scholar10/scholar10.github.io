@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[常见的突破上传姿势]]></title>
+    <url>%2F2018%2F12%2F27%2F%E5%B8%B8%E8%A7%81%E7%9A%84%E7%AA%81%E7%A0%B4%E4%B8%8A%E4%BC%A0%E5%A7%BF%E5%8A%BF%2F</url>
+    <content type="text"><![CDATA[突破上传的姿势 在几个月前一个实战过程中登录后台有上传却无法 getshell 当时是懵逼的 但是自己并没有当回事 也没有深入理解 之后在打ctf的过程中 一道上传题 就是用到了这姿势 今天闲的蛋疼 练习ctf又遇到 才想起来要总结总结呀！！ 环境这里拿一道ctf题举例 上传突破写文件需要路径 就是目录+文件名 filepath+filenme 现在我们把filepath改成 ../1.php%00，%00后的那部分iflenname被截断了，后端则会认为../是目录 1.php是文件名 成功突破拿到flag 总结依旧的是特别水的文章 不过也记录了自己学习的过程 几年后成为大佬来看这些文章回忆青春 哈哈哈 扯远了 现在的问题还是学习效率低 继续加油！！]]></content>
+      <categories>
+        <category>web安全</category>
+      </categories>
+      <tags>
+        <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python打印各种图形]]></title>
     <url>%2F2018%2F12%2F22%2FPython%E6%89%93%E5%8D%B0%E5%90%84%E7%A7%8D%E5%9B%BE%E5%BD%A2%2F</url>
     <content type="text"><![CDATA[很锻炼萌新思维的一些题 总结的时候发现循环这一块理解的并不是很到位 直角三角形1234for i in range(10): for j in range(i+1): print(&apos;*&apos;,end=&quot; &quot;) print() 直角三角形旋转90°1234for i in range(10,0,-1): for j in range(i-1): print(&apos;*&apos;,end=&quot; &quot;) print() 直角三角形旋转180°123456for i in range(1,10): for j in range(1,i): print(&quot; &quot;,end=&quot; &quot;) for k in range(10,i,-1): print(&quot;*&quot;,end=&quot; &quot;) print() 直角三角形旋转270°123456for i in range(1,10): for j in range(9,i,-1): print(&quot; &quot;,end=&quot; &quot;) for k in range(1,i): print(&quot;*&quot;,end=&quot; &quot;) print() 等腰三角形1234567for i in range(10): for j in range(0, 10 - i): print(end=&quot; &quot;) for k in range(10 - i, 10): print(&quot;*&quot;, end=&quot; &quot;) print(&quot;&quot;) 等腰三角形旋转90°这里用的是用的直角三角形和选择转90°的直角三角形 12345678for i in range(10): for j in range(0, i): print(&apos;*&apos;,end=&quot; &quot;) print()for i in range(10): for j in range(10, i,-1): print(&apos;*&apos;,end=&quot; &quot;) print() 等腰三角形旋转180°1234567for i in range(10): for j in range(0,i): print(end=&quot; &quot;) for k in range(0, 10-i): print(&quot;*&quot;, end=&quot; &quot;) print(&quot;&quot;) 等腰三角形旋转2701234567891011121314for i in range(10): for j in range(9,i,-1): print(&quot; &quot;,end=&quot; &quot;) for k in range(0, i): print(&quot;*&quot;,end=&quot; &quot;) print()for i in range(10): for j in range(0,i): print(&quot; &quot;,end=&quot; &quot;) for k in range(9, i,-1): print(&quot;*&quot;,end=&quot; &quot;) print() 菱形原等腰三角形和旋转180°的等腰三角形加在一起即可 123456789101112131415for i in range(10): for j in range(0, 10 - i): print(end=&quot; &quot;) for k in range(10 - i, 10): print(&quot;*&quot;, end=&quot; &quot;) print(&quot;&quot;)for i in range(10): for j in range(0,i): print(end=&quot; &quot;) for k in range(0, 10-i): print(&quot;*&quot;, end=&quot; &quot;) print(&quot;&quot;) 总结通过打印以上各种图形 感觉对for的理解更深刻了 明天会更好 真好]]></content>
@@ -60,7 +71,7 @@
     <url>%2F2018%2F08%2F26%2Fphp%20myadmin%E5%86%99shell%2F</url>
     <content type="text"><![CDATA[有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。 具体内容 简单说明登陆进php myadmin 有些朋友可能会直接选择去写入一个webshell 执行后会弹出大概无法写入的意思 这里和php myadmin的设置有关系 在实战情况下一般都不能直接去写入一个shell的。 这时候我们需要换个思路 利用mysql 错误日志写入一句话这里需要先设置 general log (日志保存状态)general log file(日志保存路径) 先执行 1show variables like &apos;general%&apos; a 我们需要把general log 改为ON 也就是打开状态 还要把general log file路径改为网站的根目录 123set global general_log = &quot;ON&quot;; set global general_log_file=&apos;D:/stduy/PHPTutorial/WWW/infos.php&apos;; 执行完后因为我是本地搭建环境所以可以看到成功创建了 现在我们只需要输入一个错误的sql语句即可 这里我写入一句话 可以看到一句话已经存在于infos.php里面了 之后我们菜刀直接链接即可 总结网上有许多相关的文章 不过自己写一遍印象才会更深刻吧]]></content>
       <categories>
-        <category>渗透测试</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>php myadmin</tag>
@@ -71,7 +82,7 @@
     <url>%2F2018%2F08%2F09%2F%E6%B8%97%E9%80%8F%E6%9F%90%E4%BC%81%E4%B8%9A%2F</url>
     <content type="text"><![CDATA[在家无聊，突然想到博客搞上也有数天 没时间写文章，今天正好无聊 实战内容确定目标站 信息收集相信很多人吧都会忽略信息收集这一块，完整的信息收集应该包括 收集 whois 邮箱 收集 子域名 c段 旁站 收集网站架构 运行的服务 对应的端口 探测 waf google hacking 敏感文件 收集网站的 cms 信息 有所发现在信息收集的过程中我发现网站右上脚有 因为主站是伪静态 我本人确实很排斥这种伪静态 我就点了英文版的站 就发现 主站的url:www.xxx.com 英文版url:www.xxx.com/en 原来是分目录 English的站并没有做伪静态 准备对准他下手 习惯性的先扫描一番 我发现了此文件 ,打开一看我尼玛 管理员真的粗心,是一个密码重置，管理员居然没有删 因为我知道有admin 所以第一步直接填了admin 第二步即可重置，改完密码直接进入后台 拿shelldede cms拿shell很简单 有个文件管理器直接可上传get shell 拿到shell后可直接跨目录 因为信息收集我发现是apache 还有.htacces文件 可以更好的隐藏我们的shell 这里我就不演示了 此篇没有什么技术含量 只当是做个笔记而已]]></content>
       <categories>
-        <category>渗透测试</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>实战</tag>
