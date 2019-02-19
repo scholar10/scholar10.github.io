@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Hexo搭建静态博客]]></title>
     <url>%2F2019%2F02%2F19%2FHexo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客 准备工作Node.js下载链接：https://nodejs.org/en/ Git下载链接：https://git-scm.com/download/win 安装好Node.js与Git 接下来安装Hexo 1npm install -g hexo-cli 安装完成以后 git —version,hexo-v查看安装版本 本地建站我们首先在本地搭建起Blog 等本地都配置完成直接放到GitHub就ok了 博客框架初始化博客框架 123hexo init &lt;folder&gt;（博客文件夹名称）cd &lt;folder&gt; // 进入博客文件夹目录npm install 这时候博客应该会出现如下文件 _config.yml 是整个站点的配置文件 不要乱改 写文章进行测试hexo new 文章名 记得在博客目录下 新建文章 可以看到新建了.md文件在 source/_posts/ 下 记住所有生成的文章都在此目录下 编辑.md 我用的是typora感觉比较好用 百度下载即可 生成静态文件12hexo generate简写 hexo g 就好 启动服务器接下来我们访问以下博客 先要启动一下hexo服务器 12hexo server简写 hexo s 启动以后我们本地访问以下 默认访问 http://localhost:4000 出现类似界面说明本地测试成功没有任何问题 更换主题在博客目录下打开终端 1git clone https://github.com/iissnan/hexo-theme-next themes/next 下载完成以后 打开博客目录下的_config.yml 找到theme 将theme的值改为next 之后输入调试命令 1hexo server --debug 在访问以下http://localhost:4000应该就已经更换主题了哦 感觉排版并不是很舒服 需要改一下 找到主题配置文件 主题配置文件在博客目录 下的 themes/next/_config.yml 这里不要搞混 这个是主题配置文件 搜索 scheme 关键字。 前面去掉#号即为启用 我们启用pisces的样式 这之后样式看起来和我博客类似了 主题就先说到这 添加分类 标签 友联 界面语言等 自己Goolge吧 也可以参考 http://theme-next.iissnan.com/getting-started.html#avatar-setting 部署到GitHub注册GitHub账号这里自己注册一个账号就好了]]></content>
       <categories>
         <category>Hexo</category>
       </categories>

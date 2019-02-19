@@ -392,6 +392,50 @@
       
         
           <p><img src="https://i.loli.net/2019/02/19/5c6bee20be638.jpg" alt="u=3010013829,2497003625&amp;fm=26&amp;gp=0.jpg"></p>
+<p>最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客 </p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>Node.js下载链接：<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
+<p>Git下载链接：<br><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a></p>
+<p>安装好Node.js与Git 接下来安装Hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>安装完成以后</p>
+<p><code>git —version</code>,<code>hexo-v</code>查看安装版本</p>
+<h2 id="本地建站"><a href="#本地建站" class="headerlink" title="本地建站"></a>本地建站</h2><p>我们首先在本地搭建起Blog 等本地都配置完成直接放到GitHub就ok了</p>
+<h3 id="博客框架"><a href="#博客框架" class="headerlink" title="博客框架"></a>博客框架</h3><p>初始化博客框架</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;（博客文件夹名称）</span><br><span class="line">cd &lt;folder&gt;  // 进入博客文件夹目录</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>这时候博客应该会出现如下文件</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c0956269cd.png" alt="屏幕快照 2019-02-19 下午9.48.41.png"></p>
+<p><strong>_config.yml 是整个站点的配置文件 不要乱改</strong></p>
+<h3 id="写文章进行测试"><a href="#写文章进行测试" class="headerlink" title="写文章进行测试"></a>写文章进行测试</h3><p><code>hexo new 文章名</code></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c0b6462ed6.png" alt="屏幕快照 2019-02-19 下午9.57.31.png"></p>
+<p>记得在博客目录下 新建文章</p>
+<p>可以看到新建了.md文件在 source/_posts/ 下 记住所有生成的文章都在此目录下</p>
+<p>编辑.md 我用的是typora感觉比较好用 百度下载即可</p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">简写 hexo g 就好</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><p>接下来我们访问以下博客 先要启动一下hexo服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line">简写 hexo s</span><br></pre></td></tr></table></figure>
+<p>启动以后我们本地访问以下</p>
+<p>默认访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
+<p>出现类似界面说明本地测试成功没有任何问题</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c0de96b70c.png" alt="屏幕快照 2019-02-19 下午10.08.17.png"></p>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>在博客目录下打开终端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>下载完成以后 打开博客目录下的_config.yml</p>
+<p>找到theme 将theme的值改为next</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c152ea1d97.png" alt="QQ20190219-223900@2x.png"></p>
+<p>之后输入调试命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure>
+<p>在访问以下<a href="http://localhost:4000应该就已经更换主题了哦" target="_blank" rel="noopener">http://localhost:4000应该就已经更换主题了哦</a></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c173f733a9.png" alt="屏幕快照 2019-02-19 下午10.48.10.png"></p>
+<p>感觉排版并不是很舒服 需要改一下 找到主题配置文件</p>
+<p>主题配置文件在博客目录 下的 themes/next/_config.yml</p>
+<p>这里不要搞混 这个是主题配置文件</p>
+<p>搜索 scheme 关键字。</p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c1830cfa70.png" alt="QQ20190219-225208@2x.png"></p>
+<p>前面去掉#号即为启用 我们启用pisces的样式</p>
+<p>这之后样式看起来和我博客类似了 </p>
+<p>主题就先说到这 添加分类 标签 友联 界面语言等 自己Goolge吧</p>
+<p>也可以参考 <a href="http://theme-next.iissnan.com/getting-started.html#avatar-setting" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html#avatar-setting</a></p>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>这里自己注册一个账号就好了</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/19/Hexo搭建静态博客/" rel="contents">
@@ -1817,7 +1861,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index-1.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
