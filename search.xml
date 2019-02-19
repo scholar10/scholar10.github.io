@@ -79,7 +79,7 @@
   </entry>
   <entry>
     <title><![CDATA[php myadmin写shell]]></title>
-    <url>%2F2018%2F08%2F26%2Fphp%20myadmin%E5%86%99shell%2F</url>
+    <url>%2F2018%2F08%2F26%2Fphp%20myadmin%D0%B4shell%2F</url>
     <content type="text"><![CDATA[有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。 具体内容 简单说明登陆进php myadmin 有些朋友可能会直接选择去写入一个webshell 执行后会弹出大概无法写入的意思 这里和php myadmin的设置有关系 在实战情况下一般都不能直接去写入一个shell的。 这时候我们需要换个思路 利用mysql 错误日志写入一句话这里需要先设置 general log (日志保存状态)general log file(日志保存路径) 先执行 1show variables like &apos;general%&apos; a 我们需要把general log 改为ON 也就是打开状态 还要把general log file路径改为网站的根目录 123set global general_log = &quot;ON&quot;; set global general_log_file=&apos;D:/stduy/PHPTutorial/WWW/infos.php&apos;; 执行完后因为我是本地搭建环境所以可以看到成功创建了 现在我们只需要输入一个错误的sql语句即可 这里我写入一句话 可以看到一句话已经存在于infos.php里面了 之后我们菜刀直接链接即可 总结网上有许多相关的文章 不过自己写一遍印象才会更深刻吧]]></content>
       <categories>
         <category>web安全</category>
