@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客  准备工作Node.js下载链接：https://nodejs.org/en/ Git下载链接：https://git-scm.com/download/win 安装好Node.js与Git 接下来安装Hexo 1npm install -g hexo-cli 安装完成以后 git —versio">
+<meta name="description" content="最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客">
 <meta name="keywords" content="静态博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo搭建静态博客">
 <meta property="og:url" content="http://yoursite.com/2019/02/19/Hexo搭建静态博客/index.html">
 <meta property="og:site_name" content="书生 - Blog">
-<meta property="og:description" content="最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客  准备工作Node.js下载链接：https://nodejs.org/en/ Git下载链接：https://git-scm.com/download/win 安装好Node.js与Git 接下来安装Hexo 1npm install -g hexo-cli 安装完成以后 git —versio">
+<meta property="og:description" content="最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/02/19/5c6bee20be638.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/02/19/5c6c0956269cd.png">
@@ -94,10 +94,12 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/19/5c6c152ea1d97.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/19/5c6c173f733a9.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/19/5c6c1830cfa70.png">
-<meta property="og:updated_time" content="2019-02-19T15:00:08.000Z">
+<meta property="og:image" content="https://i.loli.net/2019/02/20/5c6cc6ceaacc6.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/20/5c6cc79bb66ad.png">
+<meta property="og:updated_time" content="2019-02-20T03:23:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建静态博客">
-<meta name="twitter:description" content="最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客  准备工作Node.js下载链接：https://nodejs.org/en/ Git下载链接：https://git-scm.com/download/win 安装好Node.js与Git 接下来安装Hexo 1npm install -g hexo-cli 安装完成以后 git —versio">
+<meta name="twitter:description" content="最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客">
 <meta name="twitter:image" content="https://i.loli.net/2019/02/19/5c6bee20be638.jpg">
 
 
@@ -402,6 +404,7 @@
       
         <p><img src="https://i.loli.net/2019/02/19/5c6bee20be638.jpg" alt="u=3010013829,2497003625&amp;fm=26&amp;gp=0.jpg"></p>
 <p>最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客 </p>
+<a id="more"></a>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>Node.js下载链接：<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
 <p>Git下载链接：<br><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a></p>
 <p>安装好Node.js与Git 接下来安装Hexo</p>
@@ -445,7 +448,19 @@
 <p>主题就先说到这 添加分类 标签 友联 界面语言等 自己Goolge吧</p>
 <p>也可以参考 <a href="http://theme-next.iissnan.com/getting-started.html#avatar-setting" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html#avatar-setting</a></p>
 <h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>这里自己注册一个账号就好了</p>
-<a id="more"></a>
+<h3 id="建立新的存储库"><a href="#建立新的存储库" class="headerlink" title="建立新的存储库"></a>建立新的存储库</h3><p>根据GitHub用户名建立的存储库 如我的用户名scholar10所以存储库的名为<code>scholar10.github.io</code></p>
+<h3 id="设置本地GitHub"><a href="#设置本地GitHub" class="headerlink" title="设置本地GitHub"></a>设置本地GitHub</h3><p>填写 git邮箱 用户名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name  &quot;user_name&quot;</span><br><span class="line">git config --global user.email &quot;your_email_addr&quot;</span><br></pre></td></tr></table></figure>
+<p>第一个填你github的用户名 第二天填写 注册github的邮箱</p>
+<h3 id="本地创建SSH"><a href="#本地创建SSH" class="headerlink" title="本地创建SSH"></a>本地创建SSH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;1773256697@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<p>填自己注册github的邮箱地址就好</p>
+<p>一路回车就好</p>
+<h3 id="生成的SSH添加到GitHub"><a href="#生成的SSH添加到GitHub" class="headerlink" title="生成的SSH添加到GitHub"></a>生成的SSH添加到GitHub</h3><p>创建完成以后打开用户的根目录 一般在C:\Users\username(你的用户名)</p>
+<p>应该会有.ssh文件夹 这时候找到.ssh文件里面的ssh.pub(公钥)</p>
+<p>将里面的内容全部复制到</p>
+<p><img src="https://i.loli.net/2019/02/20/5c6cc6ceaacc6.png" alt="屏幕快照 2019-02-20 上午11.16.12.png"></p>
+<p><img src="https://i.loli.net/2019/02/20/5c6cc79bb66ad.png" alt="屏幕快照 2019-02-20 上午11.20.15.png"></p>
+<p>点击 new ssh key 会出现 title框和key框 把 ssh.pub内容全部复制到 key框 title 随意写一个名字就好</p>
 
       
     </div>
@@ -575,7 +590,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
+                <a href="/categories/index-1.html">
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -668,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地建站"><span class="nav-number">2.</span> <span class="nav-text">本地建站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#博客框架"><span class="nav-number">2.1.</span> <span class="nav-text">博客框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写文章进行测试"><span class="nav-number">2.2.</span> <span class="nav-text">写文章进行测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态文件"><span class="nav-number">2.3.</span> <span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务器"><span class="nav-number">2.4.</span> <span class="nav-text">启动服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更换主题"><span class="nav-number">2.5.</span> <span class="nav-text">更换主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到GitHub"><span class="nav-number">3.</span> <span class="nav-text">部署到GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册GitHub账号"><span class="nav-number">3.1.</span> <span class="nav-text">注册GitHub账号</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地建站"><span class="nav-number">2.</span> <span class="nav-text">本地建站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#博客框架"><span class="nav-number">2.1.</span> <span class="nav-text">博客框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写文章进行测试"><span class="nav-number">2.2.</span> <span class="nav-text">写文章进行测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态文件"><span class="nav-number">2.3.</span> <span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动服务器"><span class="nav-number">2.4.</span> <span class="nav-text">启动服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更换主题"><span class="nav-number">2.5.</span> <span class="nav-text">更换主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到GitHub"><span class="nav-number">3.</span> <span class="nav-text">部署到GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册GitHub账号"><span class="nav-number">3.1.</span> <span class="nav-text">注册GitHub账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立新的存储库"><span class="nav-number">3.2.</span> <span class="nav-text">建立新的存储库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置本地GitHub"><span class="nav-number">3.3.</span> <span class="nav-text">设置本地GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地创建SSH"><span class="nav-number">3.4.</span> <span class="nav-text">本地创建SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成的SSH添加到GitHub"><span class="nav-number">3.5.</span> <span class="nav-text">生成的SSH添加到GitHub</span></a></li></ol></li></ol></div>
             
 
           </div>
