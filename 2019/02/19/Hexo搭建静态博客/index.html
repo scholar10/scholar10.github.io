@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/19/5c6c1830cfa70.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/20/5c6cc6ceaacc6.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/20/5c6cc79bb66ad.png">
-<meta property="og:updated_time" content="2019-02-20T03:23:46.000Z">
+<meta property="og:updated_time" content="2019-02-20T04:46:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建静态博客">
 <meta name="twitter:description" content="最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客">
@@ -461,6 +461,17 @@
 <p><img src="https://i.loli.net/2019/02/20/5c6cc6ceaacc6.png" alt="屏幕快照 2019-02-20 上午11.16.12.png"></p>
 <p><img src="https://i.loli.net/2019/02/20/5c6cc79bb66ad.png" alt="屏幕快照 2019-02-20 上午11.20.15.png"></p>
 <p>点击 new ssh key 会出现 title框和key框 把 ssh.pub内容全部复制到 key框 title 随意写一个名字就好</p>
+<p>验证SSH是否设置成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>首次提示不能连接输入yes即可</p>
+<p>接下来打开 博客目录下的_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: https://github.com/username/scholar10.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<p>类型配置为git 仓库地址为 建立的github仓库地址(scholar10替换成自己的)分支为master也就是主分支</p>
+<p>然后执行部署命令 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy 简写 hexo g -d //生成静态文件后提交到github上</span><br></pre></td></tr></table></figure>
+<p>执行完成后 别人就可以通过 </p>
+<p><a href="http://scholar10.github.io" target="_blank" rel="noopener">http://scholar10.github.io</a></p>
+<p>访问你的博客了</p>
 
       
     </div>
