@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[基于注入天书的mysql注入总结]]></title>
+    <url>%2F2019%2F03%2F10%2F%E5%9F%BA%E4%BA%8E%E6%B3%A8%E5%85%A5%E5%A4%A9%E4%B9%A6%E7%9A%84mysql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下sql注入 注入较杂 较乱 水平有限不足之处还望师傅们指点。 本篇基于注入天书的例子进行总结]]></content>
+      <categories>
+        <category>web安全</category>
+      </categories>
+      <tags>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[xss tv wp]]></title>
     <url>%2F2019%2F03%2F01%2Fxss%20tv%20wp%2F</url>
     <content type="text"><![CDATA[xss题目 一共20题 难度也在递增吧 写一部分自己的解题过程 后面题目厉害了 慢慢更新(太菜不会做) 题目 payload不唯一呦 level1没有任何过滤 Payload1&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt; level2记得以前xss这里曾请教过国光哥一些姿势 先输入 1&lt;img src=1 onerror=alert(&quot;xss&quot;)&gt; 查看源码发现 value的值里使用了双引号 所以想到闭合前面的双引号。 Payload1&quot;&gt;&lt;img src=1 onerror=alert(&quot;xss&quot;)&gt; 涉及基础img为图片标签 src应该填写图片地址 如果图片地址不存在 就会触发onerror事件弹出xss level3试探性输入 1&lt;img src=1 onerror=alert(&quot;xss&quot;)&gt; 查看源代码发现两端括号被实体化了 换个姿势 1onclick=alert(1) 右键源代码 发现本身并没有被过滤 但是value里面使用了单引号 闭合就好 Payload1‘&gt;onclick=&apos;alert(1) level4与level3类似 这题目value里面使用了双引号 闭合双引号就ok Payload1&quot;onclick=&quot;alert(1)&quot; level5参考前面 直接输入payload 1onclick=alert(1) 发现被过滤 大小写无法绕过 换个姿势 1&lt;a href=javascript:alert(&quot;xss&quot;)&gt; 这时候查看源代码发现本身并没有过滤 都是一个套路闭合一下双引号即可 Payload1&quot;&gt;&lt;a href=javascript:alert(&quot;xss&quot;)&gt; level6这题目前有点坑 与上题相似 单过滤了href src等属性 这里考虑到可以用大小写绕过 Payload1&quot;&gt;&lt;img SRC=1 ONERROR=alert(1)&gt; level7随便写个payload 1onclick=alert(1) 查看源代码发现 value有双引号 首先考虑到闭合 其次on被过滤为空 估计不会进行二次过滤 Payload1&quot;onclick=&quot;alert(1) level8添加超链接到页面 本身在a标签里面所以我们payload如下 1Javascript:alert(1) 发现并没弹窗 查看源代码发现javascript被过滤 试了很多都被过滤 想到html有字解码机制 试一下将过滤关键字实体化 字符实体转换 Payload1java&amp;#115;cript:alert(1) level9这里始终不知道是怎么回事 看了xz的wp 得知这题自动检测url 如果发现没有带 http:// 则会显示不合法 还发现了过滤了双引号 还是利用html自解码机制将关键字实例化即可绕过 Payload1java&amp;#115;cript:alert(&amp;#34;http://&amp;#34;) level10这题刚打开是懵逼的 然后又请教了国光哥 右键查看源文件 发现了三个隐藏参数 经过一个个试。 发现t_sort参数是控的 由于type=&quot;hidden&quot;是隐藏的 on事件无效 所以应破坏掉type的hidden 之后利用 onclick 弹窗 Payload1keyword=1&amp;t_sort=233%22%20onclick=alert(233)%20type=%22%22]]></content>
