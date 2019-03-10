@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[基于注入天书的mysql注入总结]]></title>
     <url>%2F2019%2F03%2F10%2F%E5%9F%BA%E4%BA%8E%E6%B3%A8%E5%85%A5%E5%A4%A9%E4%B9%A6%E7%9A%84mysql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下sql注入 注入较杂 较乱 水平有限不足之处还望师傅们指点。 本篇基于注入天书的例子进行总结]]></content>
+    <content type="text"><![CDATA[本篇基于注入天书的例子进行总结 前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下 注入较杂 较乱 水平有限不足之处还望师傅们指点。]]></content>
       <categories>
         <category>web安全</category>
       </categories>
