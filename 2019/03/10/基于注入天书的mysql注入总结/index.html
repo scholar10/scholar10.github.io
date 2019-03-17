@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/03/11/5c8648ace9cdf.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/13/5c88d78808b5a.gif">
 <meta property="og:image" content="https://i.loli.net/2019/03/15/5c8b61d4df35d.png">
-<meta property="og:updated_time" content="2019-03-16T02:31:24.000Z">
+<meta property="og:updated_time" content="2019-03-17T09:14:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于注入天书的mysql注入总结">
 <meta name="twitter:description" content="本篇基于注入天书的例子进行总结 前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下 注入较杂 较乱 水平有限不足之处还望师傅们指点。">
@@ -529,16 +529,13 @@
 </ol>
 <p>注入天书 25题 虽过滤了 or 可用此方法绕过</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/sqli-labs/less-<span class="number">25</span>/?id=<span class="number">1</span>' ||<span class="keyword">or</span> extractvalue(<span class="number">1</span>,concat(<span class="number">0</span>x7e,database()))<span class="comment">--+</span></span><br></pre></td></tr></table></figure>
-<h3 id="过滤了空格"><a href="#过滤了空格" class="headerlink" title="过滤了空格"></a>过滤了空格</h3><p>%a0是空格的意思可以用%a0代替空格</p>
-<p>%0b相当于tab键也可以用%0b来代替空格</p>
-<p> 书上写到 在win下测试是不能解析%a0的 我在mac下测试把%a0解析成了问号？？？%0b也无法解析 </p>
-<p>猜测只能在linux环境下</p>
-<p>绕过思路</p>
-<ol>
-<li>%a0</li>
-<li>%0b </li>
-</ol>
-<p>这里参考以前一个ctf<a href="https://scholar10.github.io/2018/11/26/%E8%AE%B0%E8%A2%AB%E5%A4%A7%E4%BD%AC%E4%BB%AC%E5%B8%A6%E9%A3%9E%E7%9A%84%E4%B8%80%E6%AC%A1NCTF/" target="_blank" rel="noopener">滴！晨跑打卡</a></p>
+<h3 id="过滤了空格"><a href="#过滤了空格" class="headerlink" title="过滤了空格"></a>过滤了空格</h3><p>mysql空白字符</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">%</span><span class="number">20</span> <span class="meta">%</span><span class="number">09</span> <span class="meta">%</span><span class="number">0</span>a <span class="meta">%</span><span class="number">0</span>b <span class="meta">%</span><span class="number">0</span>c <span class="meta">%</span><span class="number">0</span>d <span class="meta">%</span>a<span class="number">0</span> <span class="comment">/**/</span> tab</span><br></pre></td></tr></table></figure>
+<p>%a0 和%0b比较常用</p>
+<p>%0b相当于tab键</p>
+<p>书上写到 在win下测试是不能解析%a0的 我在mac下测试把%a0解析成了问号？？？%0b也无法解析 其他的还没有去试过</p>
+<p>猜测部分字符只能在linux环境下</p>
+<p>这里参考以前一个ctf  <a href="https://scholar10.github.io/2018/11/26/%E8%AE%B0%E8%A2%AB%E5%A4%A7%E4%BD%AC%E4%BB%AC%E5%B8%A6%E9%A3%9E%E7%9A%84%E4%B8%80%E6%AC%A1NCTF/" target="_blank" rel="noopener">滴！晨跑打卡</a></p>
 <h3 id="过滤union-select"><a href="#过滤union-select" class="headerlink" title="过滤union select"></a>过滤union select</h3><ol>
 <li>首先还是尝试大小写绕过</li>
 <li>尝试uniunionon中间过滤后再次拼接成union 一般情况应该不会二次过滤</li>
@@ -1305,7 +1302,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
