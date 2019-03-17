@@ -467,12 +467,12 @@
 <p>如果一个字段有默认值，那么在<code>INSERT</code>语句中也可以不出现</p>
 <p>要注意，字段顺序不必和数据库表的字段顺序一致，但值的顺序必须和字段顺序一致。也就是说，可以写<code>INSERT INTO students (name, age, id, sex) ...</code>，但是对应的<code>VALUES</code>就得变成<code>(&#39;张三&#39;, 18, null, &#39;男&#39;)</code></p>
 <p>还可以一次性添加多条记录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into students (id,name,age,sex) values</span><br><span class="line">    -&gt; (null,&apos;李四&apos;,22,&apos;女&apos;),</span><br><span class="line">    -&gt; (null,&apos;王五&apos;,19,&apos;男&apos;),</span><br><span class="line">    -&gt; (null,&apos;马六&apos;,19,&apos;女&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students (<span class="keyword">id</span>,<span class="keyword">name</span>,age,sex) <span class="keyword">values</span></span><br><span class="line">    -&gt; (<span class="literal">null</span>,<span class="string">'李四'</span>,<span class="number">22</span>,<span class="string">'女'</span>),</span><br><span class="line">    -&gt; (<span class="literal">null</span>,<span class="string">'王五'</span>,<span class="number">19</span>,<span class="string">'男'</span>),</span><br><span class="line">    -&gt; (<span class="literal">null</span>,<span class="string">'马六'</span>,<span class="number">19</span>,<span class="string">'女'</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/02/09/5c5e9a2042426.png" alt="深度截图_选择区域_20190209171504.png"></p>
 <p>字段列表可以省略：省略后的数据必须对应上创建时字段顺序</p>
 <h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><p>要更新数据库表中的记录，必须使用<code>UPDATE</code>语句。</p>
 <p><code>UPDATE</code>语句的基本语法是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE &lt;表名&gt; SET 字段1=值1, 字段2=值2, ... WHERE ...;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE &lt;表名&gt; <span class="builtin-name">SET</span> 字段<span class="attribute">1</span>=值1, 字段<span class="attribute">2</span>=值2, <span class="built_in">..</span>. WHERE <span class="built_in">..</span>.;</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/02/09/5c5ec8645efe5.png" alt="深度截图_选择区域_20190209203228.png"></p>
 <p><code>WHERE</code>子句中写出需要更新的行的筛选条件<code>id=1</code>：</p>
 <p>因此利用<code>WHERE</code>我们也可以一次更新多条记录：</p>
@@ -481,7 +481,7 @@
 <p><img src="https://i.loli.net/2019/02/09/5c5ec9eaa7c65.png" alt="深度截图_gnome-terminal-server_20190209203900.png"></p>
 <h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>如果要删除数据库表中的记录，可以使用<code>DELETE</code>语句。</p>
 <p><code>DELETE</code>语句的基本语法是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM &lt;表名&gt; WHERE ...;</span><br></pre></td></tr></table></figure>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> &lt;表名&gt; <span class="keyword">WHERE</span> ...;</span><br></pre></td></tr></table></figure>
 <p>Where条件必须添加，否则删除所有数据</p>
 <p>如果我们要删除students id=1的数据</p>
 <p><img src="https://i.loli.net/2019/02/09/5c5ecc1809781.png" alt="深度截图_选择区域_20190209204804.png"></p>
@@ -490,25 +490,25 @@
 <p><code>DELETE FROM students WHERE id&gt;=2 AND id&lt;=4;</code></p>
 <h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><p>前面多次使用过 这里就说说基本查询 以后有时间在扩展呀</p>
 <p>要查询数据库表的数据，我们使用如下的SQL语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM &lt;表名&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> &lt;表名&gt;</span><br></pre></td></tr></table></figure>
 <p>使用<code>SELECT * FROM students</code>时，<code>SELECT</code>是关键字，表示将要执行一个查询，<code>*</code>表示“所有列”，<code>FROM</code>表示将要从哪个表查询，</p>
 <p><strong>查询某些字段</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name,age,sex,........ FROM &lt;表名&gt;`</span><br></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name,age,sex,........ FROM &lt;表名&gt;`</span><br></pre></td></tr></table></figure>
 <p>使用<code>SELECT *</code>表示查询表的所有列，使用<code>SELECT 列1, 列2, 列3</code>可以返回指定列，这种操作称为投影</p>
 <p><strong>in语句:单独查询某些数据</strong></p>
 <p>单独查询id=2 id=4的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where id in (2,4);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="number">2</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/02/09/5c5ee899900ff.png" alt="深度截图_选择区域_20190209224951.png"></p>
 <p><strong>between语法：（表示该字段的值在给定的两个值之间，含该俩值）</strong></p>
 <p>查询id=2到id=4的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where id between 2 and 4;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">2</span> <span class="keyword">and</span> <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
 <p><strong>Like：模糊查询</strong></p>
 <p>字段名 like ‘要查询的字符’;     如果是直接写字符，配置查询字符必须一致。</p>
 <p>字段名 like ‘%要查询的字符%’;   %是匹配任何与之相似的字符</p>
 <p>顾名思义 like=’像‘</p>
 <p>可能有点难理解这里我创建了几条类似的数据</p>
 <p><img src="https://i.loli.net/2019/02/09/5c5eef34b2686.png" alt="深度截图_选择区域_20190209231800.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where name like &apos;%大佬%&apos;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%大佬%'</span>;</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/02/09/5c5eef6b3bd32.png" alt="深度截图_选择区域_20190209231901.png"></p>
 <p>这样子应该会更好理解</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>边学边记录 虽然可能效率会比较低 但是印象会很深 等以后忘了还可以回头看看 </p>

