@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>记第一次漏洞挖掘</title>
+      <link href="/2019/04/01/%E8%AE%B0%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
+      <url>/2019/04/01/%E8%AE%B0%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/</url>
+      <content type="html"><![CDATA[<p>第一次挖src 以前我很不自信 对于专属src想的都是 大厂的漏洞能有几个 就算有，好挖的也都被挖没了 不好挖的更是轮不到我这菜鸡。。</p><p><img src="https://i.loli.net/2019/04/01/5ca1a1a50d9d3.png" alt="屏幕快照 2019-04-01 下午1.28.42.png"></p><h2 id="第一次挖src"><a href="#第一次挖src" class="headerlink" title="第一次挖src"></a>第一次挖src</h2><p>前几天学校有新生来考试放假了几天。闲的无聊随便点了一个专属src就发现了一个密码重置漏洞 自己都没想到好激动！！！</p><p>任意密码重置属于高危漏洞吧</p><p>第一次挖到高危也算是开门红哈</p><p>记录一下过程</p><h2 id="挖洞过程"><a href="#挖洞过程" class="headerlink" title="挖洞过程"></a>挖洞过程</h2><p>找回密码处</p><p><img src="https://i.loli.net/2019/04/01/5ca1a323cc5a6.png" alt="QQ20190401-133517@2x.png"></p><p>填写注册时候的手机号</p><p>确定后到达第二步验证身份</p><p><img src="https://i.loli.net/2019/04/01/5ca1a44102d15.png" alt="QQ20190401-133957@2x.png"></p><p>发现有三个参数<code>number</code> <code>mobileNum</code> <code>key</code></p><p>这里187是我的手机号 发送验证码之后进入第三部密码重置</p><p><img src="https://i.loli.net/2019/04/01/5ca1a5a4b5972.png" alt="QQ20190401-134604@2x.png"></p><p><img src="https://i.loli.net/2019/04/01/5ca1a5f508fb5.png" alt="QQ20190401-134723@2x.png"></p><p>第三部发现少了 <code>number</code>参数 只有两个 参数</p><p>到达第三步密码重置的时候我把<code>mobileNum</code> <code>key</code>换成其他132…..手机号和对应的key(第一步填写账号填写对方手机号到达第二步就会得到对应手机号的key)</p><p>之后填写新密码发现果然改了132…..的密码 因此确定任意密码重置漏洞。</p><p>知道对方手机号就可以重置对方密码。</p><h2 id="简要描述"><a href="#简要描述" class="headerlink" title="简要描述"></a>简要描述</h2><p>简单说是输入手机号和验证码进行重置密码的时候，仅对验证码是否正确进行了判断，未对该验证码是否与手机号匹配做验证。</p><h2 id="修复方案"><a href="#修复方案" class="headerlink" title="修复方案"></a>修复方案</h2><p>修复方案:验证码与手机号匹配做验证。</p>]]></content>
+      
+      <categories>
+          
+          <category> web安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> src </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>基于注入天书的mysql注入总结</title>
       <link href="/2019/03/10/%E5%9F%BA%E4%BA%8E%E6%B3%A8%E5%85%A5%E5%A4%A9%E4%B9%A6%E7%9A%84mysql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/"/>
       <url>/2019/03/10/%E5%9F%BA%E4%BA%8E%E6%B3%A8%E5%85%A5%E5%A4%A9%E4%B9%A6%E7%9A%84mysql%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/</url>
