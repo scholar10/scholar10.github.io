@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="MySql," />
+  <meta name="keywords" content="upload," />
 
 
 
@@ -79,34 +79,43 @@
 
 
 
-<meta name="description" content="又很久没有写博客了 这篇笔记是边学边记的 当时比较仓促 所以有的地方可能会比较乱 但是大概的方法写的还是比较清楚了 等有时间回头再好好整理一下这篇文章。">
-<meta name="keywords" content="MySql">
+<meta name="description" content="一个上传漏洞总结的很全的靶场">
+<meta name="keywords" content="upload">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql笔记">
-<meta property="og:url" content="http://yoursite.com/2019/02/12/MySql笔记/index.html">
+<meta property="og:title" content="Upload-Labs wp">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/up/index.html">
 <meta property="og:site_name" content="书生 - Blog">
-<meta property="og:description" content="又很久没有写博客了 这篇笔记是边学边记的 当时比较仓促 所以有的地方可能会比较乱 但是大概的方法写的还是比较清楚了 等有时间回头再好好整理一下这篇文章。">
+<meta property="og:description" content="一个上传漏洞总结的很全的靶场">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/03/05/5c7dd0ef8f6a0.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5d7e0bda4cd.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5d859add64b.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5d8dc4bbf40.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5d97f5deb12.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/08/5c5d9b2635863.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5e97e57454e.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5e9a2042426.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5ec8645efe5.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5ec9eaa7c65.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5ecc1809781.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5ee899900ff.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5eef34b2686.png">
-<meta property="og:image" content="https://i.loli.net/2019/02/09/5c5eef6b3bd32.png">
-<meta property="og:image" content="file:///C:/Users/jht/AppData/Local/Temp/SGPicFaceTpBq/1652/003F5F44.png">
-<meta property="og:updated_time" content="2019-03-05T01:29:50.000Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/24/5cbfe060c7285.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2c2fe0869d.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/24/5cbfdddbafa91.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/24/5cbfde79e959d.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/24/5cbfdf34610f6.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc27fa4c9363.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc282e0cb7c8.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc282bb2022e.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2864239c6e.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc28d48461a9.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2901e8fb0f.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc292da2a70a.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2a0e99cf21.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2a0f1303c0.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2a8826d6ed.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2b7660bfaa.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2b7c843013.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2baf061944.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2bad3e2be3.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/26/5cc2c2fe0869d.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/27/5cc47b784a603.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/27/5cc47b78637ed.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/27/5cc47b7a6d648.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/27/5cc47b1371aa0.png">
+<meta property="og:updated_time" content="2019-04-28T03:06:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySql笔记">
-<meta name="twitter:description" content="又很久没有写博客了 这篇笔记是边学边记的 当时比较仓促 所以有的地方可能会比较乱 但是大概的方法写的还是比较清楚了 等有时间回头再好好整理一下这篇文章。">
-<meta name="twitter:image" content="https://i.loli.net/2019/03/05/5c7dd0ef8f6a0.png">
+<meta name="twitter:title" content="Upload-Labs wp">
+<meta name="twitter:description" content="一个上传漏洞总结的很全的靶场">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/24/5cbfe060c7285.png">
 
 
 
@@ -136,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/12/MySql笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/28/up/"/>
 
 
 
 
 
-  <title>MySql笔记 | 书生 - Blog</title>
+  <title>Upload-Labs wp | 书生 - Blog</title>
   
 
 
@@ -319,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/12/MySql笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/up/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="scholar(书生)">
@@ -336,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySql笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Upload-Labs wp</h1>
         
 
         <div class="post-meta">
@@ -348,8 +357,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-12T20:24:17+08:00">
-                2019-02-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T11:02:21+08:00">
+                2019-04-28
               </time>
             
 
@@ -371,8 +380,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
                   </a>
                 </span>
 
@@ -408,111 +417,134 @@
       
 
       
-        <p><img src="https://i.loli.net/2019/03/05/5c7dd0ef8f6a0.png" alt="屏幕快照 2019-03-05 上午9.28.47.png"></p>
-<p>又很久没有写博客了 这篇笔记是边学边记的 当时比较仓促 所以有的地方可能会比较乱 但是大概的方法写的还是比较清楚了 等有时间回头再好好整理一下这篇文章。</p>
+        <p><img src="https://i.loli.net/2019/04/24/5cbfe060c7285.png" alt="mind-map.png"></p>
+<p>一个上传漏洞总结的很全的靶场</p>
 <a id="more"></a>
-<h2 id="库操作"><a href="#库操作" class="headerlink" title="库操作"></a>库操作</h2><p>show darabases;    查询数据库</p>
-<p>create database 数据库名;    创建数据库</p>
-<p>show create database 数据库名; 查询数据库创建语句</p>
-<p><img src="https://i.loli.net/2019/02/08/5c5d7e0bda4cd.png" alt="深度截图_选择区域_20190208210257.png"></p>
-<p>修改数据库</p>
-<p>​    说明：不能修改数据库名称，只能修改字符集和校对集</p>
-<p>​    语句：alter database 数据库名 charset=新字符集 collate=新的校对集</p>
-<p>​    注意：字符集和校对集是可以分开修改的，但是建议必须一起修改</p>
-<p>​    查看校对集：show collation;     查看字符集：show charset;</p>
-<p>drop database 数据库名;    删除数据库</p>
-<p>use 数据库名；选择数据库</p>
-<h2 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h2><p>创建表</p>
-<p>Create table 表名(</p>
-<p>​    字段名称1 字段属性（类型） 字段选项,</p>
-<p>​    字段名称2 字段类型 字段选项,</p>
-<p>……………………..</p>
-<p>)表选项;</p>
-<p> 表选项：表字符集和数据引擎</p>
-<p>字符集：charset=utf8;</p>
-<p>数据引擎：默认innodb，语法：engine=引擎</p>
-<p>这里的话可能会比较难理解 </p>
-<p><strong>有一段比较官方的解释</strong></p>
-<p><strong>存储引擎也叫“表类型”，是指一个表中的数据以何种方式存放在文件或内存中。不同的存储引擎（表类型）提供不同的性能特性和可用功能。没有一种各方面都又具有最佳性能又具有各种功能的存储引擎。我们要做的是要根据数据的具体使用情形（需求）来选择合适的存储引擎，有的要读取速度快，有的要写入速度快，有的要具有高安全可靠性，有的要海量存储，等等。常用的存储引擎是innoDB（默认）和Myisam。</strong></p>
-<p><img src="https://i.loli.net/2019/02/08/5c5d859add64b.png" alt="图片1.png"></p>
-<p><strong>字段类型：当前字段中存储数据类型必须是一开始指定好。</strong> 一开始制定了int 数据就不能存储float</p>
-<p><strong>字段选项：设置当前字段的一些选项-是否可以为空，是否是主键，是否是唯一键，是否加备注等。</strong></p>
-<p><strong>Null|not null：是否可以为空</strong></p>
-<p><strong>Default：是否有默认值</strong></p>
-<p><strong>Auto_increment：是否可以自动增长，必须是数字，如：需要给每条数据一个编号，原因是数据内容可以重复，编号不能重复。</strong></p>
-<p><strong>Primary key：设置主键，数据内容不能重复，在查询数据主查询条件，一个表中一个主键，一般都是id。</strong></p>
-<p><strong>unique [key]：设定为唯一（键），即表中所有行的的数据在该字段中的值不能有重复。</strong></p>
-<p><strong>Comment：设置备注，给当前字段设置说明</strong></p>
-<p><img src="https://i.loli.net/2019/02/08/5c5d8dc4bbf40.png" alt="深度截图_选择区域_20190208220959.png"></p>
-<p>可以看到成功创建了students表</p>
-<p>查看表结构：desc 表名;</p>
-<p>​            字段名        类型            是否为空     索引    默认值        其它</p>
-<p><img src="https://i.loli.net/2019/02/08/5c5d97f5deb12.png" alt="深度截图_选择区域_20190208225332.png"></p>
-<p>​            </p>
-<p>drop table 表名;    删除表</p>
-<p>查看所有表：show tables;</p>
-<p>查看创建表语句：show create table 表名;</p>
-<p>修改表名:    alter table 旧表名 rename to 新表名;</p>
-<p>添加新字段：alter table 表名 add 新字段 字段类型 字段选项;</p>
-<p>如下可见新增了字段address</p>
-<p><img src="https://i.loli.net/2019/02/08/5c5d9b2635863.png" alt="深度截图_选择区域_20190208230708.png"></p>
-<p>修改表字段（包括字段名）：</p>
-<p>Alter table 表名 change 旧字段名 新字段名 新字段类型 新字段选项;</p>
-<p>修改字段类型和选项：</p>
-<p>Alter table 表名 modify 字段名 新字段类型 新字段选项;</p>
-<p>删除字段：alter table 表名 drop 字段名;</p>
-<h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>当我们需要向数据库表中插入一条新记录时，就必须使用<code>INSERT</code>语句。</p>
-<p>语句：insert into 表名 【(字段1，字段2，字段3，…..)】 values(值1，值2，值3，……);</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5e97e57454e.png" alt="深度截图_选择区域_20190209170525.png"></p>
-<p>如果一个字段有默认值，那么在<code>INSERT</code>语句中也可以不出现</p>
-<p>要注意，字段顺序不必和数据库表的字段顺序一致，但值的顺序必须和字段顺序一致。也就是说，可以写<code>INSERT INTO students (name, age, id, sex) ...</code>，但是对应的<code>VALUES</code>就得变成<code>(&#39;张三&#39;, 18, null, &#39;男&#39;)</code></p>
-<p>还可以一次性添加多条记录</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students (<span class="keyword">id</span>,<span class="keyword">name</span>,age,sex) <span class="keyword">values</span></span><br><span class="line">    -&gt; (<span class="literal">null</span>,<span class="string">'李四'</span>,<span class="number">22</span>,<span class="string">'女'</span>),</span><br><span class="line">    -&gt; (<span class="literal">null</span>,<span class="string">'王五'</span>,<span class="number">19</span>,<span class="string">'男'</span>),</span><br><span class="line">    -&gt; (<span class="literal">null</span>,<span class="string">'马六'</span>,<span class="number">19</span>,<span class="string">'女'</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/02/09/5c5e9a2042426.png" alt="深度截图_选择区域_20190209171504.png"></p>
-<p>字段列表可以省略：省略后的数据必须对应上创建时字段顺序</p>
-<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><p>要更新数据库表中的记录，必须使用<code>UPDATE</code>语句。</p>
-<p><code>UPDATE</code>语句的基本语法是：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE &lt;表名&gt; <span class="builtin-name">SET</span> 字段<span class="attribute">1</span>=值1, 字段<span class="attribute">2</span>=值2, <span class="built_in">..</span>. WHERE <span class="built_in">..</span>.;</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/02/09/5c5ec8645efe5.png" alt="深度截图_选择区域_20190209203228.png"></p>
-<p><code>WHERE</code>子句中写出需要更新的行的筛选条件<code>id=1</code>：</p>
-<p>因此利用<code>WHERE</code>我们也可以一次更新多条记录：</p>
-<p><code>UPDATE students SET name=&#39;大佬&#39;, score=77 WHERE id&gt;=2 AND id&lt;=4;</code></p>
-<p>在<code>UPDATE</code>语句中，更新字段时可以使用表达式。例如，把所有20岁以下的年龄加上5岁：</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5ec9eaa7c65.png" alt="深度截图_gnome-terminal-server_20190209203900.png"></p>
-<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>如果要删除数据库表中的记录，可以使用<code>DELETE</code>语句。</p>
-<p><code>DELETE</code>语句的基本语法是：</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> &lt;表名&gt; <span class="keyword">WHERE</span> ...;</span><br></pre></td></tr></table></figure>
-<p>Where条件必须添加，否则删除所有数据</p>
-<p>如果我们要删除students id=1的数据</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5ecc1809781.png" alt="深度截图_选择区域_20190209204804.png"></p>
-<p>普通删除后保留删除的id号，不再让数据占用。</p>
-<p><code>DELETE</code>语句的<code>WHERE</code>和<code>UPDATE</code>类似，同理<code>DELETE</code>也能利用<code>WHERE</code>也能一次删除多条记录：</p>
-<p><code>DELETE FROM students WHERE id&gt;=2 AND id&lt;=4;</code></p>
-<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><p>前面多次使用过 这里就说说基本查询 以后有时间在扩展呀</p>
-<p>要查询数据库表的数据，我们使用如下的SQL语句：</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> &lt;表名&gt;</span><br></pre></td></tr></table></figure>
-<p>使用<code>SELECT * FROM students</code>时，<code>SELECT</code>是关键字，表示将要执行一个查询，<code>*</code>表示“所有列”，<code>FROM</code>表示将要从哪个表查询，</p>
-<p><strong>查询某些字段</strong></p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT name,age,sex,........ FROM &lt;表名&gt;`</span><br></pre></td></tr></table></figure>
-<p>使用<code>SELECT *</code>表示查询表的所有列，使用<code>SELECT 列1, 列2, 列3</code>可以返回指定列，这种操作称为投影</p>
-<p><strong>in语句:单独查询某些数据</strong></p>
-<p>单独查询id=2 id=4的数据</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="number">2</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/02/09/5c5ee899900ff.png" alt="深度截图_选择区域_20190209224951.png"></p>
-<p><strong>between语法：（表示该字段的值在给定的两个值之间，含该俩值）</strong></p>
-<p>查询id=2到id=4的值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">2</span> <span class="keyword">and</span> <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>Like：模糊查询</strong></p>
-<p>字段名 like ‘要查询的字符’;     如果是直接写字符，配置查询字符必须一致。</p>
-<p>字段名 like ‘%要查询的字符%’;   %是匹配任何与之相似的字符</p>
-<p>顾名思义 like=’像‘</p>
-<p>可能有点难理解这里我创建了几条类似的数据</p>
-<p><img src="https://i.loli.net/2019/02/09/5c5eef34b2686.png" alt="深度截图_选择区域_20190209231800.png"></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%大佬%'</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/02/09/5c5eef6b3bd32.png" alt="深度截图_选择区域_20190209231901.png"></p>
-<p>这样子应该会更好理解</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>边学边记录 虽然可能效率会比较低 但是印象会很深 等以后忘了还可以回头看看 </p>
-<p>把大佬们当做目标 肝起来<img src="file:///C:\Users\jht\AppData\Local\Temp\SGPicFaceTpBq\1652\003F5F44.png" alt="img"> </p>
+<p>因为最近效率比较低(难听点就是懒) 所以国光哥说</p>
+<p>可以一天搞完这些东西然后写篇博客 逼自己一下</p>
+<p>本来是应该一天搞完的结果学校停电了没网</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2c2fe0869d.jpg" alt="QQ图片20190426163558.jpg"></p>
+<p>真的不是在找借口哈</p>
+<p>不过也真的学到了很多新姿势呀。</p>
+<h2 id="Pass-01"><a href="#Pass-01" class="headerlink" title="Pass-01"></a>Pass-01</h2><p>猜测第一关应该比较简单前端验证</p>
+<p>创建后缀为jpg的文件</p>
+<p><img src="https://i.loli.net/2019/04/24/5cbfdddbafa91.jpg" alt="Xnip2019-04-24_11-53-42.jpg"></p>
+<p>上传 抓包改后缀即可绕过</p>
+<p><img src="https://i.loli.net/2019/04/24/5cbfde79e959d.jpg" alt="Xnip2019-04-24_11-56-29.jpg"></p>
+<h2 id="Pass-02"><a href="#Pass-02" class="headerlink" title="Pass-02"></a>Pass-02</h2><p>第二题 也是比较常见的</p>
+<p>猜测是验证content-type</p>
+<p>于是修改content-type为jpg的类型 即可绕过。</p>
+<p><img src="https://i.loli.net/2019/04/24/5cbfdf34610f6.jpg" alt="Xnip2019-04-24_11-59-28.jpg"></p>
+<h2 id="Pass-03"><a href="#Pass-03" class="headerlink" title="Pass-03"></a>Pass-03</h2><p><img src="https://i.loli.net/2019/04/26/5cc27fa4c9363.png" alt="QQ截图20190426114844.png"></p>
+<p>上传一个php文件发现 黑名单上传 立即想到的就是大小写混合绕过</p>
+<p>试了一下不可以 查看源码发现都被转换成了小写GG了</p>
+<p>把后缀改为php3上传成功解析</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc282e0cb7c8.png" alt="QQ截图20190426120230.png"></p>
+<p>貌似是apache里面的设置 会把php3当作php去解析</p>
+<p>第一次在mac下搭建环境却一直不能成功 </p>
+<p>还有另一种姿势 上传<code>.htaccess</code>。</p>
+<h2 id="Pass-04"><a href="#Pass-04" class="headerlink" title="Pass-04"></a>Pass-04</h2><p>这就用到了前面说的.htaccess了</p>
+<p>因为还是黑名单验证 我们可以上传一个<code>.htaccess</code>上去</p>
+<p>内容为</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;FilesMatch ".jpg"&gt;</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">SetHandler</span></span> application/x-httpd-php</span><br><span class="line"><span class="section">&lt;/FilesMatch&gt;</span></span><br></pre></td></tr></table></figure>
+<p>把.jpg的文件当作php去解析</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc282bb2022e.png" alt="QQ截图20190426120144.png"></p>
+<h2 id="Pass-05"><a href="#Pass-05" class="headerlink" title="Pass-05"></a>Pass-05</h2><p>还是黑名单验证 不过呢这里也过滤<code>.htaccess</code>了</p>
+<p>但是反过来观察一下 这里却没有进行大小写的转换 PhP直接上传</p>
+<p>美滋滋</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2864239c6e.png" alt="QQ截图20190426121657.png"></p>
+<h2 id="Pass-06"><a href="#Pass-06" class="headerlink" title="Pass-06"></a>Pass-06</h2><p>还是黑名单验证</p>
+<p>回头看看思维导图</p>
+<p>黑名单验证里的空格绕过 这时候源码里并没有过滤空格  所以在.php后添加空格即可绕过</p>
+<h2 id="Pass-07"><a href="#Pass-07" class="headerlink" title="Pass-07"></a>Pass-07</h2><p>黑名单验证</p>
+<p>这题最开始有点蒙 看了源码也没想到。。太菜了</p>
+<p>偷偷看了网上的wp</p>
+<p>忽略了本题没有对后缀进行去.的处理</p>
+<p>利用windows的特性会自动去掉后面的.</p>
+<p>上传<code>07.php.</code>即可绕过</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc28d48461a9.png" alt="QQ截图20190426124530.png"></p>
+<h2 id="Pass-08"><a href="#Pass-08" class="headerlink" title="Pass-08"></a>Pass-08</h2><p>黑名单验证</p>
+<p>这次发现了重点 没有去除字符串<code>::$DATA</code></p>
+<p>这种方法实战没用到过 ctf也没用到过 </p>
+<p>仔细查了一下涨姿势了</p>
+<p>必须是windows, 必须是php<br>php在window的时候如果文件名+”::$DATA”会把::$DATA之后的数据当成文件流处理,不会检测后缀名.且保持”::$DATA”之前的文件名<br>他的目的就是不检查后缀名….</p>
+<p>上传xx.php::$DATA发现无法找到此文件</p>
+<p>windows会去掉::$DATA 直接访问xx.php即可</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2901e8fb0f.png" alt="QQ截图20190426125751.png"></p>
+<h2 id="Pass-09"><a href="#Pass-09" class="headerlink" title="Pass-09"></a>Pass-09</h2><p>到这里又没了思路。。</p>
+<p>思维导图是个好东西。</p>
+<p>最常用的陌生后缀解析漏洞都给忘了</p>
+<p>我上传一个09.php.xxx</p>
+<p>apache的特性从右往左依次解析 不认识的后缀会一直往左解析 </p>
+<p>无法解析xxx就解析成了php。上传成功</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc292da2a70a.png" alt="QQ截图20190426130942.png"></p>
+<h2 id="Pass-10"><a href="#Pass-10" class="headerlink" title="Pass-10"></a>Pass-10</h2><p>到了10题以后源码上就没了注释了</p>
+<p>这里我自己写一下注释也为了巩固一下php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$is_upload = <span class="keyword">false</span>;</span><br><span class="line">$msg = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'submit'</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (file_exists(UPLOAD_PATH)) &#123;</span><br><span class="line">        $deny_ext = <span class="keyword">array</span>(<span class="string">"php"</span>,<span class="string">"php5"</span>,<span class="string">"php4"</span>,<span class="string">"php3"</span>,<span class="string">"php2"</span>,<span class="string">"html"</span>,<span class="string">"htm"</span>,<span class="string">"phtml"</span>,<span class="string">"pht"</span>,<span class="string">"jsp"</span>,<span class="string">"jspa"</span>,<span class="string">"jspx"</span>,<span class="string">"jsw"</span>,<span class="string">"jsv"</span>,<span class="string">"jspf"</span>,<span class="string">"jtml"</span>,<span class="string">"asp"</span>,<span class="string">"aspx"</span>,<span class="string">"asa"</span>,<span class="string">"asax"</span>,<span class="string">"ascx"</span>,<span class="string">"ashx"</span>,<span class="string">"asmx"</span>,<span class="string">"cer"</span>,<span class="string">"swf"</span>,<span class="string">"htaccess"</span>);<span class="comment">//黑名单</span></span><br><span class="line"></span><br><span class="line">        $file_name = trim($_FILES[<span class="string">'upload_file'</span>][<span class="string">'name'</span>]);</span><br><span class="line">        <span class="comment">//移除字符串两侧的空白字符。也就是这里为什么不能空格绕黑名单的原因喽</span></span><br><span class="line">        $file_name = str_ireplace($deny_ext,<span class="string">""</span>, $file_name);<span class="comment">//将问题后缀名替换为空</span></span><br><span class="line">        $temp_file = $_FILES[<span class="string">'upload_file'</span>][<span class="string">'tmp_name'</span>];</span><br><span class="line">        $img_path = UPLOAD_PATH.<span class="string">'/'</span>.$file_name;        </span><br><span class="line">        <span class="keyword">if</span> (move_uploaded_file($temp_file, $img_path)) &#123;</span><br><span class="line">            $is_upload = <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $msg = <span class="string">'上传出错！'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $msg = UPLOAD_PATH . <span class="string">'文件夹不存在,请手工创建！'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>读懂了源码</p>
+<p>发现这才是重点</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file_name</span> = str_ireplace(<span class="variable">$deny_ext</span>,<span class="string">""</span>, <span class="variable">$file_name</span>);<span class="regexp">//</span>将问题后缀名替换为空</span><br></pre></td></tr></table></figure>
+<p>替换为空所以我们双写绕过</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2a0e99cf21.png" alt="QQ截图20190426140902.png"></p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2a0f1303c0.png" alt="QQ截图20190426140955.png"></p>
+<h2 id="Pass-11"><a href="#Pass-11" class="headerlink" title="Pass-11"></a>Pass-11</h2><p>白名单验证</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$file<span class="emphasis">_ext = substr($_</span>FILES[<span class="string">'upload_file'</span>][<span class="symbol">'name'</span>],strrpos($<span class="emphasis">_FILES['upload_</span>file'</span><br><span class="line">['name'],".")+1);</span><br></pre></td></tr></table></figure>
+<p>先介绍一下函数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">substr(string,<span class="keyword">start</span>,<span class="keyword">length</span>)//返回<span class="keyword">string</span>从<span class="keyword">start</span>开始的<span class="keyword">length</span>长度</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">strrpos</span><span class="params">($_FILES[<span class="string">'upload_file'</span>[<span class="string">'name'</span>],<span class="string">"."</span>)</span></span><span class="comment">//查找.在文件里最后一次出现的位置</span></span><br></pre></td></tr></table></figure>
+<p>回过头来看题 查找文件名中最后一个点后面的后缀 也就是说这行代码就防止了我们 <strong>双后缀名绕过</strong></p>
+<p>那么该怎么做呢</p>
+<p>博客前面写过类似的方法</p>
+<p>在路径上11.php后面进行截断后端则会认为11.php 是文件名 真实文件名被截断了所以改成11.jpg进行绕过即可</p>
+<p>get会对%00进行自解码所以不用解码</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2a8826d6ed.png" alt="QQ截图20190426144229.png"></p>
+<p><strong>截断条件：</strong><br><strong>php版本小于5.3.4 详情关注CVE-2006-7243</strong><br><strong>php的magic_quotes_gpc为OFF状态</strong></p>
+<h2 id="Pass-12"><a href="#Pass-12" class="headerlink" title="Pass-12"></a>Pass-12</h2><p>与上面题目类似</p>
+<p>只不过这题save_path是通过post传输的</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2b7660bfaa.png" alt="QQ截图20190426154635.png"></p>
+<p>post不会像get对%00进行自动解码 所以%00解码</p>
+<h2 id="Pass-13"><a href="#Pass-13" class="headerlink" title="Pass-13"></a>Pass-13</h2><p><img src="https://i.loli.net/2019/04/26/5cc2b7c843013.png" alt="QQ截图20190426154813.png"></p>
+<p>13题与前面都不同 上传图片马 然后利用文件包含漏洞 包含phpinfo</p>
+<p>dos下命令制作图片马</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">copy <span class="number">1.</span>jpg /b + <span class="number">1.</span>php /a <span class="number">13.</span>jpg</span><br><span class="line">参数/b指定以二进制格式复制、合并文件; 用于图像类/声音类文件</span><br><span class="line">参数/a指定以ASCII格式复制、合并文件。用于txt等文档类文件</span><br><span class="line">copy <span class="number">1.</span>jpg /b + <span class="number">1.</span>php /a <span class="number">13.</span>jpg </span><br><span class="line"><span class="comment">//意思是将1.jpg以二进制与1.php合并成13.jpg</span></span><br><span class="line">那么<span class="number">2.</span>jpg就是图片木马了。</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/04/26/5cc2baf061944.png" alt="QQ截图20190426155736.png"></p>
+<p>生成出来这时候利用文件包含漏洞 包含该文件即可</p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2bad3e2be3.png" alt="QQ截图20190426160102.png"></p>
+<p>jpg gif是一个道理的。</p>
+<h2 id="Pass-14"><a href="#Pass-14" class="headerlink" title="Pass-14"></a>Pass-14</h2><p>与<code>Pass-13</code>是一样的突破方法</p>
+<p>唯一不同的是getimagesize获取文件类型</p>
+<p>我们直接上传的本来就是图片类型。所以姿势是一样的。</p>
+<h2 id="Pass-15"><a href="#Pass-15" class="headerlink" title="Pass-15"></a>Pass-15</h2><p>多了个php_exif模块来判断文件类型</p>
+<p>突破方法与<code>Pass-13</code>一致</p>
+<h2 id="Pass-16"><a href="#Pass-16" class="headerlink" title="Pass-16"></a>Pass-16</h2><p><del>突破方法与<code>Pass-13</code>一致</del></p>
+<p><img src="https://i.loli.net/2019/04/26/5cc2c2fe0869d.jpg" alt="QQ图片20190426163558.jpg"></p>
+<p>本来以为还是和前面方法一致但是文件包含的时候却不行</p>
+<p>查看源代码发现考察的是二次渲染 姿势盲区了 故查了下资料(百度太垃圾什么也没有用google哦)</p>
+<p>普通的图片马上传以后</p>
+<p>经过<code>imagecreatefromjpeg</code></p>
+<p>函数二次渲染，图片尾部的php一句话被删除</p>
+<p>看了一篇类似的文章 可以通过对比上传前后的图片内容</p>
+<p>找到上传前没有改变的部分将一句话写道没有改变的这部分尝试一下</p>
+<p>由于我这里没有16进制编辑器 就不尝试了 不过应该没有问题。。</p>
+<p>google看到的copy过来 对渲染了解的少 需要多了解了解。</p>
+<p><strong>将一个正常显示的图片，上传到服务器。寻找图片被渲染后与原始图片部分对比仍然相同的数据块部分，将Webshell代码插在该部分，然后上传。具体实现需要自己编写Python程序，人工尝试基本是不可能构造出能绕过渲染函数的图片webshell的。</strong></p>
+<h2 id="Pass-17"><a href="#Pass-17" class="headerlink" title="Pass-17"></a>Pass-17</h2><p>考察条件竞争</p>
+<p>如果你要问条件竞争是什么，可以看一下这篇文章</p>
+<p><a href="https://shuaizhupeiqi.github.io/2018/11/15/%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89%E6%BC%8F%E6%B4%9E/" target="_blank" rel="noopener">CTF中的条件竞争漏洞</a></p>
+<p>关于条件竞争不怎么明白 Google了半天发现无法突破本关 </p>
+<p>于是厚着脸皮让国光哥来远程。。。涨姿势了</p>
+<p>总结出来一句话利用burp批量发包 让程序措手不及</p>
+<p>上传1.php抓包</p>
+<p><img src="https://i.loli.net/2019/04/27/5cc47b784a603.png" alt="1556373645543.png"><br><img src="https://i.loli.net/2019/04/27/5cc47b78637ed.png" alt="1556373629324.png"><br><img src="https://i.loli.net/2019/04/27/5cc47b7a6d648.png" alt="1556373601185.png"></p>
+<p>线程设置高一点 开始不断发包 在我和国光哥的10分钟不断刷新下果然成功了。。。</p>
+<p>产生原因将文件上传，然后判断后缀是否是图片，如果不是图片文件则将其删除。</p>
+<h2 id="Pass-18"><a href="#Pass-18" class="headerlink" title="Pass-18"></a>Pass-18</h2><p>条件竞争</p>
+<p>利用<code>Pass-17</code>方法一样可以利用</p>
+<p>但是我这边一直没有成功呢。。。姿势问题</p>
+<h2 id="Pass-19"><a href="#Pass-19" class="headerlink" title="Pass-19"></a>Pass-19</h2><p>到了这里发现越来越简单</p>
+<p>move_uploaded_file()函数中的img_path是由post参数save_name控制的，因此可以在save_name利用00截断绕过</p>
+<p><img src="https://i.loli.net/2019/04/27/5cc47b1371aa0.png" alt="1.png"></p>
+<p>感觉这题和12题有点类似</p>
 
       
     </div>
@@ -530,7 +562,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySql/" rel="tag"><i class="fa fa-tag"></i> MySql</a>
+            <a href="/tags/upload/" rel="tag"><i class="fa fa-tag"></i> upload</a>
           
         </div>
       
@@ -543,8 +575,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/27/常见的突破上传姿势/" rel="next" title="常见的突破上传姿势">
-                <i class="fa fa-chevron-left"></i> 常见的突破上传姿势
+              <a href="/2019/04/11/西湖论剑web-3题-解析/" rel="next" title="西湖论剑web 3题 解析">
+                <i class="fa fa-chevron-left"></i> 西湖论剑web 3题 解析
               </a>
             
           </div>
@@ -552,10 +584,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/19/Hexo搭建静态博客/" rel="prev" title="Hexo搭建静态博客">
-                Hexo搭建静态博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -739,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#库操作"><span class="nav-number">1.</span> <span class="nav-text">库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表操作"><span class="nav-number">2.</span> <span class="nav-text">表操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据操作"><span class="nav-number">3.</span> <span class="nav-text">数据操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入数据"><span class="nav-number">3.1.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据"><span class="nav-number">3.2.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据"><span class="nav-number">3.3.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询数据"><span class="nav-number">3.4.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-01"><span class="nav-number">1.</span> <span class="nav-text">Pass-01</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-02"><span class="nav-number">2.</span> <span class="nav-text">Pass-02</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-03"><span class="nav-number">3.</span> <span class="nav-text">Pass-03</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-04"><span class="nav-number">4.</span> <span class="nav-text">Pass-04</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-05"><span class="nav-number">5.</span> <span class="nav-text">Pass-05</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-06"><span class="nav-number">6.</span> <span class="nav-text">Pass-06</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-07"><span class="nav-number">7.</span> <span class="nav-text">Pass-07</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-08"><span class="nav-number">8.</span> <span class="nav-text">Pass-08</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-09"><span class="nav-number">9.</span> <span class="nav-text">Pass-09</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-10"><span class="nav-number">10.</span> <span class="nav-text">Pass-10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-11"><span class="nav-number">11.</span> <span class="nav-text">Pass-11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-12"><span class="nav-number">12.</span> <span class="nav-text">Pass-12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-13"><span class="nav-number">13.</span> <span class="nav-text">Pass-13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-14"><span class="nav-number">14.</span> <span class="nav-text">Pass-14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-15"><span class="nav-number">15.</span> <span class="nav-text">Pass-15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-16"><span class="nav-number">16.</span> <span class="nav-text">Pass-16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-17"><span class="nav-number">17.</span> <span class="nav-text">Pass-17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-18"><span class="nav-number">18.</span> <span class="nav-text">Pass-18</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-19"><span class="nav-number">19.</span> <span class="nav-text">Pass-19</span></a></li></ol></div>
             
 
           </div>
