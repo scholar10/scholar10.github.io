@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/04/Edf5y6.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/04/Edfvlt.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/04/Ed5aJH.png">
-<meta property="og:updated_time" content="2019-05-05T00:02:47.000Z">
+<meta property="og:updated_time" content="2019-05-05T00:09:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python正则表达式">
 <meta name="twitter:description" content="如何把一个字符串的特征或规则告诉给计算机，让计算机知道你要描述的东西。被称为正则。">
@@ -574,7 +574,10 @@
 <p><a href="https://imgchr.com/i/Ed6con" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/05/04/Ed6con.md.png" alt="Ed6con.md.png"></a></p>
 <p>橙色框的案例 前后标签不同所以无法匹配</p>
 <p>看起来这样做确实很不错 不过我如果有一万个分组那该怎么办</p>
-<p>挨个数然后&lt;/\10000&gt;么 显然不可能还有一种方法 前面匹配的表里有些写过</p>
+<p>挨个数然后&lt;/\10000&gt;么 显然不可能</p>
+<p>还有一种方法 前面匹配的表里有些写过</p>
+<p>给分组命名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">ret = re.match(<span class="string">r"&lt;(?P&lt;name1&gt;\w*)&gt;&lt;(?P&lt;name2&gt;\w*)&gt;.*&lt;/(?P=name2)&gt;&lt;/(?P=name1)&gt;"</span>, <span class="string">"&lt;html&gt;&lt;h1&gt;www.itcast.cn&lt;/h1&gt;&lt;/html&gt;"</span>)</span><br><span class="line">ret.group()</span><br></pre></td></tr></table></figure>
 <h2 id="re模块高级用法"><a href="#re模块高级用法" class="headerlink" title="re模块高级用法"></a>re模块高级用法</h2><h3 id="re-search"><a href="#re-search" class="headerlink" title="re.search"></a>re.search</h3><p>search方法与match方法极其类似，区别在于match()函数只检测re是不是在string的开始位置匹配，search()会扫描整个string查找匹配，match（）只有在0位置匹配成功的话才有返回，如果不是开始位置匹配成功的话，match()就返回None。同样，search方法的返回对象同样match()返回对象的方法和属性</p>
 <p><img src="https://s2.ax1x.com/2019/05/04/Edf8L8.png" alt="Edf8L8.png"></p>
 <p>这种情况下match就无法匹配</p>
@@ -743,7 +746,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
+                <a href="/tags/index-1.html">
                   <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
