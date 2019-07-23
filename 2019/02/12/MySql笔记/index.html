@@ -101,8 +101,11 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/09/5c5ee899900ff.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/09/5c5eef34b2686.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/09/5c5eef6b3bd32.png">
-<meta property="og:image" content="file:///C:/Users/jht/AppData/Local/Temp/SGPicFaceTpBq/1652/003F5F44.png">
-<meta property="og:updated_time" content="2019-03-05T01:29:50.000Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/12/MySql笔记/imgs/5d36c2af4b8f179182.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d36c3f1484b742654.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d36c4b85eb1a32745.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/23/5d36c9e10836588403.png">
+<meta property="og:updated_time" content="2019-07-23T08:50:30.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql笔记">
 <meta name="twitter:description" content="又很久没有写博客了 这篇笔记是边学边记的 当时比较仓促 所以有的地方可能会比较乱 但是大概的方法写的还是比较清楚了 等有时间回头再好好整理一下这篇文章。">
@@ -511,8 +514,30 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%大佬%'</span>;</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/02/09/5c5eef6b3bd32.png" alt="深度截图_选择区域_20190209231901.png"></p>
 <p>这样子应该会更好理解</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>边学边记录 虽然可能效率会比较低 但是印象会很深 等以后忘了还可以回头看看 </p>
-<p>把大佬们当做目标 肝起来<img src="file:///C:\Users\jht\AppData\Local\Temp\SGPicFaceTpBq\1652\003F5F44.png" alt="img"> </p>
+<h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><p>使用<code>group by</code> 对查询结果分组</p>
+<p>如果对数据进行分组统计就需要使用<code>group by</code> </p>
+<p><code>group by</code>将表按列值进行分组 列的值相同为一组</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT class_id, COUNT(*) num <span class="keyword">FROM</span> students<span class="built_in"> GROUP </span>BY class_id;</span><br></pre></td></tr></table></figure>
+<p> <img src="/2019/02/12/MySql笔记/imgs/5d36c2af4b8f179182.png" alt="QQ截图20190723161738.png"></p>
+<p>一目了然地看出各个班级的学生人数</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p><code>order by</code> 进行排序</p>
+<p><code>order by</code> 默认是升序排列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, <span class="keyword">name</span>,  score <span class="keyword">FROM</span> students <span class="keyword">ORDER</span> <span class="keyword">BY</span> score;//成绩从低到高排列</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/07/23/5d36c3f1484b742654.png" alt="QQ截图20190723162215.png"></p>
+<p>那么如何进行倒序排列</p>
+<p><code>desc</code>表示倒序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, <span class="keyword">name</span>, gender, score <span class="keyword">FROM</span> students <span class="keyword">ORDER</span> <span class="keyword">BY</span> score <span class="keyword">DESC</span>;//成绩从高到低排列</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/07/23/5d36c4b85eb1a32745.png" alt="QQ截图20190723162621.png"></p>
+<p>使用分组查询和统计后可使用<code>HAVING</code>子句来对查询结果进行进一步的刷选</p>
+<p>一般情况下我们都是用<code>where</code></p>
+<p>但是分组后<code>where</code>使用较少而是用<code>HAVING</code>来代替</p>
+<p>更细节的东西看廖雪峰老师的博客<a href="https://www.liaoxuefeng.com/wiki/1177760294764384/1181753232323168" target="_blank" rel="noopener">排序</a></p>
+<h2 id="使用limit限定结果行数"><a href="#使用limit限定结果行数" class="headerlink" title="使用limit限定结果行数"></a>使用limit限定结果行数</h2><p>limit后面可以跟两个参数，第一个参数是开始的索引号，默认是0开始，第二个参数取的个数（长度）</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">FROM</span> student <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">3</span>;//从第0行开始返回三条记录</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/07/23/5d36c9e10836588403.png" alt="QQ截图20190723164822.png"></p>
+<h2 id="常见的sql统计函数"><a href="#常见的sql统计函数" class="headerlink" title="常见的sql统计函数"></a>常见的sql统计函数</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">count</span><span class="params">(*)</span></span> 统计数量  </span><br><span class="line"><span class="function"><span class="title">max</span><span class="params">(字段名)</span></span>最大值</span><br><span class="line"><span class="function"><span class="title">min</span><span class="params">(字段名)</span></span>最小值</span><br><span class="line"><span class="function"><span class="title">sum</span><span class="params">(字段名)</span></span>求和</span><br><span class="line"><span class="function"><span class="title">avg</span><span class="params">(字段名)</span></span>求平均值</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>边学边记录 虽然可能效率会比较低 但是印象会很深 等以后忘了还可以回头看看 </p>
+<p>把大佬们当做目标 肝起来</p>
 
       
     </div>
@@ -646,7 +671,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index-1.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -657,7 +682,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -739,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#库操作"><span class="nav-number">1.</span> <span class="nav-text">库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表操作"><span class="nav-number">2.</span> <span class="nav-text">表操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据操作"><span class="nav-number">3.</span> <span class="nav-text">数据操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入数据"><span class="nav-number">3.1.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据"><span class="nav-number">3.2.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据"><span class="nav-number">3.3.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询数据"><span class="nav-number">3.4.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#库操作"><span class="nav-number">1.</span> <span class="nav-text">库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表操作"><span class="nav-number">2.</span> <span class="nav-text">表操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据操作"><span class="nav-number">3.</span> <span class="nav-text">数据操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入数据"><span class="nav-number">3.1.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据"><span class="nav-number">3.2.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据"><span class="nav-number">3.3.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询数据"><span class="nav-number">3.4.</span> <span class="nav-text">查询数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组查询"><span class="nav-number">4.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">5.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用limit限定结果行数"><span class="nav-number">6.</span> <span class="nav-text">使用limit限定结果行数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的sql统计函数"><span class="nav-number">7.</span> <span class="nav-text">常见的sql统计函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
