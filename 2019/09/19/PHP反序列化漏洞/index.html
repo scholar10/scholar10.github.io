@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CTF,序列化,PHP," />
 
 
 
@@ -79,17 +79,25 @@
 
 
 
-<meta name="description" content="爱好web安全 信安菜鸡 软技专业学生 面朝电脑 春暖花开 梦想着成为我们村修电脑高手 QQ:1773256697">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="序列化和反序列化的概念序列化就是将一个对象转换成字符串。字符串包括 属性名 属性值 属性类型和该对象对应的类名。反序列化则相反将字符串恢复成对象 对象的序列化利于对象的保存和传输 也可以让多个文件共享对象。 ctf很多题型也都是考察PHP反序列化的相关知识 PHP的序列化序列化函数serialize() 首先我创一个Ctf类 里面写了三个属性 后创建了一个ctfer对象 将Ctf类里的信息进行了改">
+<meta name="keywords" content="CTF,序列化,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP反序列化漏洞">
+<meta property="og:url" content="http://yoursite.com/2019/09/19/PHP反序列化漏洞/index.html">
 <meta property="og:site_name" content="Sch0lar&#39;s Blog">
-<meta property="og:description" content="爱好web安全 信安菜鸡 软技专业学生 面朝电脑 春暖花开 梦想着成为我们村修电脑高手 QQ:1773256697">
+<meta property="og:description" content="序列化和反序列化的概念序列化就是将一个对象转换成字符串。字符串包括 属性名 属性值 属性类型和该对象对应的类名。反序列化则相反将字符串恢复成对象 对象的序列化利于对象的保存和传输 也可以让多个文件共享对象。 ctf很多题型也都是考察PHP反序列化的相关知识 PHP的序列化序列化函数serialize() 首先我创一个Ctf类 里面写了三个属性 后创建了一个ctfer对象 将Ctf类里的信息进行了改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-31T15:27:54.000Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/19/t3Ekq2fH57bYGFg.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/19/iIenp1y58TH9Sgv.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/19/ghf8QqyA5FZEaKR.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/19/TubrK8J2HYqO9UR.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/19/QBCXbFVGTg2UJed.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/19/ZCzO3tgEqiDrxfN.png">
+<meta property="og:updated_time" content="2019-09-19T08:13:03.328Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="爱好web安全 信安菜鸡 软技专业学生 面朝电脑 春暖花开 梦想着成为我们村修电脑高手 QQ:1773256697">
+<meta name="twitter:title" content="PHP反序列化漏洞">
+<meta name="twitter:description" content="序列化和反序列化的概念序列化就是将一个对象转换成字符串。字符串包括 属性名 属性值 属性类型和该对象对应的类名。反序列化则相反将字符串恢复成对象 对象的序列化利于对象的保存和传输 也可以让多个文件共享对象。 ctf很多题型也都是考察PHP反序列化的相关知识 PHP的序列化序列化函数serialize() 首先我创一个Ctf类 里面写了三个属性 后创建了一个ctfer对象 将Ctf类里的信息进行了改">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/19/t3Ekq2fH57bYGFg.png">
 
 
 
@@ -119,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/09/19/PHP反序列化漏洞/"/>
 
 
 
 
 
-  <title>关于 | Sch0lar's Blog</title>
+  <title>PHP反序列化漏洞 | Sch0lar's Blog</title>
   
 
 
@@ -290,39 +298,194 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/19/PHP反序列化漏洞/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sch0lar(书生)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sch0lar's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>爱好web安全</p>
-<p>信安菜鸡</p>
-<p>软技专业学生</p>
-<p>面朝电脑 春暖花开</p>
-<p>梦想着成为我们村修电脑高手</p>
-<p>QQ:1773256697</p>
-
+          <h1 class="post-title" itemprop="name headline">PHP反序列化漏洞</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T09:12:28+08:00">
+                2019-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="序列化和反序列化的概念"><a href="#序列化和反序列化的概念" class="headerlink" title="序列化和反序列化的概念"></a>序列化和反序列化的概念</h2><p>序列化就是将一个对象转换成字符串。字符串包括 属性名 属性值 属性类型和该对象对应的类名。反序列化则相反将字符串恢复成对象</p>
+<p>对象的序列化利于对象的保存和传输</p>
+<p>也可以让多个文件共享对象。</p>
+<p>ctf很多题型也都是考察PHP反序列化的相关知识</p>
+<h2 id="PHP的序列化"><a href="#PHP的序列化" class="headerlink" title="PHP的序列化"></a>PHP的序列化</h2><p>序列化函数<code>serialize()</code></p>
+<p>首先我创一个Ctf类 里面写了三个属性 后创建了一个ctfer对象 将Ctf类里的信息进行了改变。如果后面还要用到这个对象，就可以先将这个对象进行实例化。用的时候在反序列化出来就ok了</p>
+<p><img src="https://i.loli.net/2019/09/19/t3Ekq2fH57bYGFg.png" alt="QQ截图20190919102429.png"></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">O:</span><span class="number">3</span>:<span class="string">"Ctf"</span>:<span class="number">3</span>&#123;<span class="string">s:</span><span class="number">4</span>:<span class="string">"flag"</span>;<span class="string">s:</span><span class="number">13</span>:<span class="string">"flag&#123;abedyui&#125;"</span>;<span class="string">s:</span><span class="number">4</span>:<span class="string">"name"</span>;<span class="string">s:</span><span class="number">7</span>:<span class="string">"Sch0lar"</span>;<span class="string">s:</span><span class="number">3</span>:<span class="string">"age"</span>;<span class="string">s:</span><span class="number">2</span>:<span class="string">"18"</span>;&#125;</span><br><span class="line"></span><br><span class="line">O代表对象 因为我们序列化的是一个对象 序列化数组则用A来表示</span><br><span class="line"><span class="number">3</span>代表类名字占三个字符 </span><br><span class="line">s代表字符串</span><br><span class="line"><span class="number">4</span>代表属性名长度</span><br><span class="line">flag属性名</span><br><span class="line"><span class="string">s:</span><span class="number">13</span>:<span class="string">"flag&#123;abedyui&#125;"</span> 字符串 属性值长度 属性值</span><br></pre></td></tr></table></figure>
+<p><code>serialize()</code> 函数会检查类中是否存在一个魔术方法 <code>__sleep()</code>。如果存在，<code>__sleep()</code>方法会先被调用，然后才执行序列化操作。</p>
+<p>可以再<code>__sleep()</code>方法里可以决定哪些属性被序列化</p>
+<p>如果没有<code>__sleep()</code>方法则默认序列化所有属性</p>
+<p><img src="https://i.loli.net/2019/09/19/iIenp1y58TH9Sgv.png" alt="QQ截图20190919144609.png"></p>
+<p>上图<code>__sleep()</code>方法使<code>flag</code> <code>age</code> 属性序列化 name并没有被序列化</p>
+<h2 id="PHP的反序列化"><a href="#PHP的反序列化" class="headerlink" title="PHP的反序列化"></a>PHP的反序列化</h2><p>反序列化函数<code>unserialize()</code></p>
+<p>反序列化就是将一个序列化的字符串，还原回去</p>
+<p><img src="https://i.loli.net/2019/09/19/ghf8QqyA5FZEaKR.png" alt="QQ截图20190919150407.png"></p>
+<p>与 序列化函数类似 <code>unserialize()</code> 会检查是否存在一个 <code>__wakeup()</code>魔术方法</p>
+<p>如果存在则会先调用<code>__wakeup()</code>方法</p>
+<p>可以再<code>__wakeup()</code>方法中对属性进行初始化或者改变。</p>
+<p><img src="https://i.loli.net/2019/09/19/TubrK8J2HYqO9UR.png" alt="QQ截图20190919151650.png"></p>
+<p>反序列化之前重新给flag属性赋值</p>
+<h2 id="ctf"><a href="#ctf" class="headerlink" title="ctf"></a>ctf</h2><p>当序列化字符串表示对象属性个数的值大于真实个数的属性时就会跳过__wakeup的执行。</p>
+<p><img src="https://i.loli.net/2019/09/19/QBCXbFVGTg2UJed.png" alt="QQ截图20190919153615.png"></p>
+<p><img src="https://i.loli.net/2019/09/19/ZCzO3tgEqiDrxfN.png" alt="test.png"></p>
+<p>把1写成2 达到绕过<code>wakeup()</code>效果</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
+          
+            <a href="/tags/序列化/" rel="tag"><i class="fa fa-tag"></i> 序列化</a>
+          
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/11/BUUCTF/" rel="next" title="BUUCTF web writeup">
+                <i class="fa fa-chevron-left"></i> BUUCTF web writeup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -355,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -468,6 +640,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序列化和反序列化的概念"><span class="nav-number">1.</span> <span class="nav-text">序列化和反序列化的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP的序列化"><span class="nav-number">2.</span> <span class="nav-text">PHP的序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP的反序列化"><span class="nav-number">3.</span> <span class="nav-text">PHP的反序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ctf"><span class="nav-number">4.</span> <span class="nav-text">ctf</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
