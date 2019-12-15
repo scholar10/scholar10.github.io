@@ -139,24 +139,24 @@
   <article class="post-content">
     <h1>php myadmin写shell</h1>
     <p>有时候在渗透测试过程中 我们会得到php myadmin 的账号和密码 既然登陆了php myadmin 就可以用php myadmin 来get shell。 </p>
-<h2 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h2><p><img alt="" data-src="/2018/08/26/php myadminдshell/php myadmin写shell/1.png" class="lazyload"></p>
+<h2 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h2><p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/1.png" alt=""></p>
   <a id="more"></a> 
 <h3 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h3><p>登陆进php myadmin 有些朋友可能会直接选择去写入一个webshell 执行后会弹出大概无法写入的意思 这里和php myadmin的设置有关系 在实战情况下一般都不能直接去写入一个shell的。</p>
 <p>这时候我们需要换个思路</p>
 <h3 id="利用mysql-错误日志写入一句话"><a href="#利用mysql-错误日志写入一句话" class="headerlink" title="利用mysql 错误日志写入一句话"></a>利用mysql 错误日志写入一句话</h3><p>这里需要先设置 general log (日志保存状态)general log file(日志保存路径)</p>
 <p>先执行</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'general%'</span> a</span><br></pre></td></tr></table></figure>
-<p><img alt="" data-src="/2018/08/26/php myadminдshell/php myadmin写shell/2.png" class="lazyload"></p>
+<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/2.png" alt=""></p>
 <p>我们需要把general log 改为ON 也就是打开状态</p>
 <p>还要把general log file路径改为网站的根目录</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> global general_log = <span class="string">"ON"</span>; </span><br><span class="line"></span><br><span class="line"><span class="builtin-name">set</span> global <span class="attribute">general_log_file</span>=<span class="string">'D:/stduy/PHPTutorial/WWW/infos.php'</span>;</span><br></pre></td></tr></table></figure>
-<p><img alt="" data-src="/2018/08/26/php myadminдshell/php myadmin写shell/3.png" class="lazyload"></p>
+<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/3.png" alt=""></p>
 <p>执行完后因为我是本地搭建环境所以可以看到成功创建了</p>
-<p><img alt="" data-src="/2018/08/26/php myadminдshell/php myadmin写shell/4.png" class="lazyload"></p>
+<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/4.png" alt=""></p>
 <p>现在我们只需要输入一个错误的sql语句即可 这里我写入一句话 可以看到一句话已经存在于infos.php里面了</p>
-<p><img alt="" data-src="/2018/08/26/php myadminдshell/php myadmin写shell/5.png" class="lazyload"></p>
+<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/5.png" alt=""></p>
 <p>之后我们菜刀直接链接即可</p>
-<p><img alt="" data-src="/2018/08/26/php myadminдshell/php myadmin写shell/6.png" class="lazyload"></p>
+<p><img src="/2018/08/26/php myadminдshell/php myadmin写shell/6.png" alt=""></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>网上有许多相关的文章 不过自己写一遍印象才会更深刻吧</p>
 
   </article>

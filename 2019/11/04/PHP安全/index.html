@@ -143,7 +143,7 @@
 <p>当使用</p>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">include</span><span class="params">()</span>,<span class="title">include_once</span><span class="params">()</span>,<span class="title">require</span><span class="params">()</span>,<span class="title">require_once</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <p>包含一个新文件时，该文件作为PHP代码去执行。也就是说如果被包含的是txt文件，图片文件，远程url也会被当做PHP代码去执行</p>
-<p><img alt="QQ截图20191104111626.png" data-src="https://i.loli.net/2019/11/04/bNS5WOjwPmBUxuG.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/11/04/bNS5WOjwPmBUxuG.png" alt="QQ截图20191104111626.png"></p>
 <p>想要利用成功文件包含漏洞应满足</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">include</span><span class="params">()</span></span>等函数通过动态变量的方式引入需要包含的文件</span><br><span class="line">用户能够控制该动态变量</span><br></pre></td></tr></table></figure>
 <h3 id="本地文件包含"><a href="#本地文件包含" class="headerlink" title="本地文件包含"></a>本地文件包含</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">	$file = $_GET[<span class="string">'file'</span>];</span></span><br><span class="line"><span class="php">	<span class="keyword">if</span>(file_exists(<span class="string">'./home/bh/'</span>.$file.<span class="string">'.php'</span>))&#123;</span></span><br><span class="line"><span class="php">		<span class="keyword">include</span> <span class="string">'./home/bh/'</span>.$file.<span class="string">'.php'</span>;</span></span><br><span class="line"><span class="php">	&#125;	</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -161,18 +161,18 @@
 <p>shell.txt内容为<code>&lt;?php phpinfo(); ?&gt;</code>会直接打印出phpinfo</p>
 <p>远程文件包含还有一种PHP输入输出流的利用方式，可直接执行POST代码</p>
 <p>(php配置文件中需同时开启 allow_url_fopen 和 allow_url_include（PHP &lt; 5.30）)</p>
-<p><img alt="QQ截图20191104150048.png" data-src="https://i.loli.net/2019/11/04/KuI4lGLkboZt1Xc.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/11/04/KuI4lGLkboZt1Xc.png" alt="QQ截图20191104150048.png"></p>
 <p>在ctf中比较常见</p>
 <h3 id="目录遍历"><a href="#目录遍历" class="headerlink" title="目录遍历"></a>目录遍历</h3><p>文件包含漏洞也能读取敏感文件或服务器端脚本的源代码</p>
 <p>使用<code>../../</code>的方式返回上层目录这种方式被称为目录遍历</p>
 <p>例如有如下代码</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">	$file = $_GET[<span class="string">'file'</span>];</span></span><br><span class="line"><span class="php">	<span class="keyword">include</span> <span class="string">"$file"</span>;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p><img alt="QQ截图20191104141806.png" data-src="https://i.loli.net/2019/11/04/znFIckEZmJLV4tu.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/11/04/znFIckEZmJLV4tu.png" alt="QQ截图20191104141806.png"></p>
 <p>这里读取了 网站根目录之外的文件</p>
 <p>目录遍历是一种跨越目录读取文件的方法，当PHP没有配置<code>open_basedir</code>时</p>
 <p>文件包含漏洞可以访问任意文件。</p>
 <p>当设置了<code>open_basedir</code>时</p>
-<p><img alt="QQ截图20191104142837.png" data-src="https://i.loli.net/2019/11/04/1UznKqF6Xwgfdlb.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/11/04/1UznKqF6Xwgfdlb.png" alt="QQ截图20191104142837.png"></p>
 <p><code>open_basedir</code>作用是在某个特定目录下PHP能打开的文件 这就解决了跨目录读取文件的问题。</p>
 <h2 id="变量覆盖漏洞"><a href="#变量覆盖漏洞" class="headerlink" title="变量覆盖漏洞"></a>变量覆盖漏洞</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https</span>://recruit.vip.com/psc/ps/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_APP_SCHJOB.GBL?languageCd=ZHS&amp;amp;LoginUser=VABIABPABOABUABTABLABOABGABIAB&amp;amp;PortalActualURL=https://www.baidu.com;PortalRegistryName=EMPLOYEE&amp;amp;PortalServletURI=https<span class="number">%3</span>a<span class="number">%2</span>f<span class="number">%2</span>frecruit.vip.com<span class="number">%2</span>fpsp<span class="number">%2</span>fps<span class="number">%2</span>f&amp;amp;PortalURI=https<span class="number">%3</span>a<span class="number">%2</span>f<span class="number">%2</span>frecruit.vip.com<span class="number">%2</span>fpsc<span class="number">%2</span>fps<span class="number">%2</span>f&amp;amp;PortalHostNode=HRMS&amp;amp;NoCrumbs=yes&amp;amp;PortalKeyStruct=yes</span><br></pre></td></tr></table></figure>
 

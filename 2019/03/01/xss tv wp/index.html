@@ -138,7 +138,7 @@
 
   <article class="post-content">
     <h1>xss tv wp</h1>
-    <p><img alt="屏幕快照 2019-03-01 上午9.37.43.png" data-src="https://i.loli.net/2019/03/01/5c788cffc8278.png" class="lazyload"></p>
+    <p><img src="https://i.loli.net/2019/03/01/5c788cffc8278.png" alt="屏幕快照 2019-03-01 上午9.37.43.png"></p>
 <p>xss题目 一共20题 难度也在递增吧  写一部分自己的解题过程</p>
 <p>后面题目厉害了 慢慢更新(太菜不会做)</p>
 <p>题目 payload不唯一呦</p>
@@ -149,7 +149,7 @@
 <p>先输入</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=1 <span class="attribute">onerror</span>=alert("xss")&gt;</span><br></pre></td></tr></table></figure>
 <p>查看源码发现 value的值里使用了双引号 所以想到闭合前面的双引号。</p>
-<p><img alt="屏幕快照 2019-03-01 上午9.47.12.png" data-src="https://i.loli.net/2019/03/01/5c788f690d578.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/01/5c788f690d578.png" alt="屏幕快照 2019-03-01 上午9.47.12.png"></p>
 <h3 id="Payload-1"><a href="#Payload-1" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"&gt;<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">1</span> <span class="attr">onerror</span>=<span class="string">alert(</span>"<span class="attr">xss</span>")&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="涉及基础"><a href="#涉及基础" class="headerlink" title="涉及基础"></a>涉及基础</h3><p>img为图片标签 src应该填写图片地址 如果图片地址不存在 就会触发onerror事件弹出xss</p>
 <h2 id="level3"><a href="#level3" class="headerlink" title="level3"></a>level3</h2><p>试探性输入</p>
@@ -185,7 +185,7 @@
 <p>还发现了过滤了双引号 还是利用html自解码机制将关键字实例化即可绕过</p>
 <h3 id="Payload-8"><a href="#Payload-8" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">java</span><span class="selector-tag">&amp;</span><span class="selector-id">#115</span>;<span class="selector-tag">cript</span><span class="selector-pseudo">:alert(</span><span class="selector-tag">&amp;</span><span class="selector-id">#34</span>;<span class="selector-tag">http</span>:<span class="comment">//&amp;#34;)</span></span><br></pre></td></tr></table></figure>
 <h2 id="level10"><a href="#level10" class="headerlink" title="level10"></a>level10</h2><p>这题刚打开是懵逼的 </p>
-<p>然后又请教了国光哥<img alt="7AFA3AE488BF6843C3F551094D258D15.gif" data-src="https://i.loli.net/2019/03/01/5c791e45cb43a.gif" class="lazyload"></p>
+<p>然后又请教了国光哥<img src="https://i.loli.net/2019/03/01/5c791e45cb43a.gif" alt="7AFA3AE488BF6843C3F551094D258D15.gif"></p>
 <p>右键查看源文件 发现了三个隐藏参数 经过一个个试。</p>
 <p>发现t_sort参数是控的 由于<code>type=&quot;hidden&quot;</code>是隐藏的</p>
 <p>on事件无效</p>

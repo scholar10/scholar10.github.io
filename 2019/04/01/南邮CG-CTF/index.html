@@ -138,14 +138,14 @@
 
   <article class="post-content">
     <h1>南邮CG-CTF</h1>
-    <p><img alt="屏幕快照 2019-03-27 下午1.48.44.png" data-src="https://i.loli.net/2019/03/27/5c9b0ed6ce874.png" class="lazyload"></p>
+    <p><img src="https://i.loli.net/2019/03/27/5c9b0ed6ce874.png" alt="屏幕快照 2019-03-27 下午1.48.44.png"></p>
 <p>第一次写ctf的wp 有些表达的可能不是很清楚</p>
 <p>题目感觉质量很高 也很有趣哈 只写了部分web题目 pwn crypto不涉及 不要问我为什么 厂长是我表哥</p>
 <a id="more"></a>
 <h2 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h2><p>签到题 右键查看源代码</p>
-<p><img alt="屏幕快照 2019-03-27 下午2.11.02.png" data-src="https://i.loli.net/2019/03/27/5c9b140960983.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b140960983.png" alt="屏幕快照 2019-03-27 下午2.11.02.png"></p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">nctf</span><span class="template-variable">&#123;flag_admiaanaaaaaaaaaaa&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
-<h2 id="md5-collision"><a href="#md5-collision" class="headerlink" title="md5 collision"></a>md5 collision</h2><p><img alt="屏幕快照 2019-03-27 下午2.03.29.png" data-src="https://i.loli.net/2019/03/27/5c9b123edb4fe.png" class="lazyload"></p>
+<h2 id="md5-collision"><a href="#md5-collision" class="headerlink" title="md5 collision"></a>md5 collision</h2><p><img src="https://i.loli.net/2019/03/27/5c9b123edb4fe.png" alt="屏幕快照 2019-03-27 下午2.03.29.png"></p>
 <p>源码中可以看出 变量a经过get方式传递 ,a的值不等于<code>QNKCDZO</code></p>
 <p>但<code>a</code>的只经过md5加密后等于 <code>QNKCDZO</code>加密后的值 看似很矛盾</p>
 <p>发现</p>
@@ -153,61 +153,61 @@
 <p>是0e开头的，PHP 把它当作科学计数法，0 的无论多少次方都是零</p>
 <p>所以我们找到md5加密后的值是0e开头的即可</p>
 <p>这里我用<code>s878926199a</code></p>
-<p><img alt="屏幕快照 2019-03-27 下午2.12.19.png" data-src="https://i.loli.net/2019/03/27/5c9b145104985.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b145104985.png" alt="屏幕快照 2019-03-27 下午2.12.19.png"></p>
 <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nctf&#123;md<span class="number">5_</span>collision<span class="number">_</span><span class="keyword">is</span><span class="number">_</span>easy&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="签到题2"><a href="#签到题2" class="headerlink" title="签到题2"></a>签到题2</h2><p><img alt="QQ20190327-142231@2x.png" data-src="https://i.loli.net/2019/03/27/5c9b16b30d74f.png" class="lazyload"></p>
+<h2 id="签到题2"><a href="#签到题2" class="headerlink" title="签到题2"></a>签到题2</h2><p><img src="https://i.loli.net/2019/03/27/5c9b16b30d74f.png" alt="QQ20190327-142231@2x.png"></p>
 <p>复制了口令点击开门发现提交的时候少了一个n</p>
 <p>查看源代码发现 最大长度为10</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="attribute">type</span>=<span class="string">"password"</span> <span class="attribute">value</span>=<span class="string">""</span> <span class="attribute">name</span>=<span class="string">"text1"</span> <span class="attribute">maxlength</span>=<span class="string">"10"</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>限制了长度改成11即可</p>
-<p><img alt="屏幕快照 2019-03-27 下午2.26.54.png" data-src="https://i.loli.net/2019/03/27/5c9b183c3fd27.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b183c3fd27.png" alt="屏幕快照 2019-03-27 下午2.26.54.png"></p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">nctf</span><span class="template-variable">&#123;follow_me_to_exploit&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
-<h2 id="这题不是web"><a href="#这题不是web" class="headerlink" title="这题不是web"></a>这题不是web</h2><p><img alt="屏幕快照 2019-03-27 下午2.33.06.png" data-src="https://i.loli.net/2019/03/27/5c9b193dbc105.png" class="lazyload"></p>
+<h2 id="这题不是web"><a href="#这题不是web" class="headerlink" title="这题不是web"></a>这题不是web</h2><p><img src="https://i.loli.net/2019/03/27/5c9b193dbc105.png" alt="屏幕快照 2019-03-27 下午2.33.06.png"></p>
 <p>放了一张图。先保存到本地</p>
-<p><img alt="屏幕快照 2019-03-27 下午2.43.28.png" data-src="https://i.loli.net/2019/03/27/5c9b1be025dbd.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b1be025dbd.png" alt="屏幕快照 2019-03-27 下午2.43.28.png"></p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">nctf</span><span class="template-variable">&#123;photo_can_also_hid3_msg&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
-<h2 id="层层递进"><a href="#层层递进" class="headerlink" title="层层递进"></a>层层递进</h2><p><img alt="屏幕快照 2019-03-27 下午3.11.08.png" data-src="https://i.loli.net/2019/03/27/5c9b223676583.png" class="lazyload"></p>
+<h2 id="层层递进"><a href="#层层递进" class="headerlink" title="层层递进"></a>层层递进</h2><p><img src="https://i.loli.net/2019/03/27/5c9b223676583.png" alt="屏幕快照 2019-03-27 下午3.11.08.png"></p>
 <p>这题本来是没有思路的 请教了下国光哥</p>
 <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nctf&#123;<span class="keyword">this</span><span class="number">_</span><span class="keyword">is</span><span class="number">_</span>a<span class="number">_f</span>l<span class="number">4</span>g&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="AAencode"><a href="#AAencode" class="headerlink" title="AAencode"></a>AAencode</h2><p>打开以后一大堆乱码。。以txt文件保存到本地</p>
 <p>之后把保存在txt的文件内容粘贴到审查元素下的<code>Console</code></p>
-<p><img alt="屏幕快照 2019-03-27 下午3.15.11.png" data-src="https://i.loli.net/2019/03/27/5c9b230fb0b20.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b230fb0b20.png" alt="屏幕快照 2019-03-27 下午3.15.11.png"></p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">nctf</span><span class="template-variable">&#123;javascript_aaencode&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
 <h2 id="单身二十年"><a href="#单身二十年" class="headerlink" title="单身二十年"></a>单身二十年</h2><p>点一下超链接 抓包一下看看</p>
-<p><img alt="屏幕快照 2019-03-27 下午3.25.25.png" data-src="https://i.loli.net/2019/03/27/5c9b258034cc1.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b258034cc1.png" alt="屏幕快照 2019-03-27 下午3.25.25.png"></p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">nctf</span><span class="template-variable">&#123;yougotit_script_now&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
-<h2 id="php-decode"><a href="#php-decode" class="headerlink" title="php decode"></a>php decode</h2><p><img alt="屏幕快照 2019-03-27 下午3.34.48.png" data-src="https://i.loli.net/2019/03/27/5c9b27a4bd940.png" class="lazyload"></p>
+<h2 id="php-decode"><a href="#php-decode" class="headerlink" title="php decode"></a>php decode</h2><p><img src="https://i.loli.net/2019/03/27/5c9b27a4bd940.png" alt="屏幕快照 2019-03-27 下午3.34.48.png"></p>
 <p>给出代码 </p>
 <p>大体意思是，声明一个函数 把接收到的<code>ZzvSWE</code>变量的值 进行base64解密后 再次进行<code>gzinflate</code>加密 之后遍历每个字符 的ascii的值 -1最后在转化为字符串。</p>
 <p>mac下安装了集成环境 把代码copy一下放到网站目录 打开后发现什么都不显示 分析一下代码倒数第二行的eval </p>
 <p>eval是把任何字符串当做php代码来执行 而php代码是不能在前台显示出来的 (自己是这样理解 不知道对不对)</p>
 <p>eval换成echo即可</p>
-<p><img alt="屏幕快照 2019-03-27 下午3.53.55.png" data-src="https://i.loli.net/2019/03/27/5c9b2c2423761.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b2c2423761.png" alt="屏幕快照 2019-03-27 下午3.53.55.png"></p>
 <h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><p>这题用到php伪协议的知识 自己对这块不怎么了解 有时间要总结一下php伪协议的知识。</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">4</span>.chinalover.sinaapp.<span class="keyword">com</span>/web7/<span class="built_in">index</span>.php?<span class="keyword">file</span>=show.php</span><br></pre></td></tr></table></figure>
 <h3 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">4</span>.chinalover.sinaapp.<span class="keyword">com</span>/web7/<span class="built_in">index</span>.php?<span class="keyword">file</span>=php://<span class="built_in">filter</span>/convert.base64-encode/resource=<span class="built_in">index</span>.php</span><br></pre></td></tr></table></figure>
 <p>php代码是不能再前台显示的 所以需要进行base64加密，显示到前台以后，base解密即可</p>
-<p><img alt="屏幕快照 2019-03-27 下午4.02.38.png" data-src="https://i.loli.net/2019/03/27/5c9b2e30b68eb.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b2e30b68eb.png" alt="屏幕快照 2019-03-27 下午4.02.38.png"></p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">nctf</span><span class="template-variable">&#123;edulcni_elif_lacol_si_siht&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
 <h2 id="单身一百年也没有用"><a href="#单身一百年也没有用" class="headerlink" title="单身一百年也没有用"></a>单身一百年也没有用</h2><p>还是抓包一下看看</p>
-<p><img alt="屏幕快照 2019-03-27 下午4.08.48.png" data-src="https://i.loli.net/2019/03/27/5c9b301c48fdc.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b301c48fdc.png" alt="屏幕快照 2019-03-27 下午4.08.48.png"></p>
 <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nctf&#123;<span class="keyword">this</span><span class="number">_</span><span class="keyword">is</span><span class="number">_302_</span>redirect&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Download"><a href="#Download" class="headerlink" title="Download~!"></a>Download~!</h2><p>题目挂了</p>
-<p><img alt="C79CFE657251B0C0493C07035C60C329.jpg" data-src="https://i.loli.net/2019/03/27/5c9b30e06bb8d.jpg" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b30e06bb8d.jpg" alt="C79CFE657251B0C0493C07035C60C329.jpg"></p>
 <h2 id="COOKIE"><a href="#COOKIE" class="headerlink" title="COOKIE"></a>COOKIE</h2><p>TIP: 0==not</p>
 <p>抓包看一下 根据提示 <code>0==not</code></p>
-<p><img alt="屏幕快照 2019-03-27 下午8.26.13.png" data-src="https://i.loli.net/2019/03/27/5c9b6bf355c40.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b6bf355c40.png" alt="屏幕快照 2019-03-27 下午8.26.13.png"></p>
 <p>我们修改<code>login=1</code></p>
 <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nctf&#123;cookie<span class="number">_</span><span class="keyword">is</span><span class="number">_</span>different<span class="number">_f</span>rom<span class="number">_</span>session&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h2><p><img alt="屏幕快照 2019-03-27 下午8.30.08.png" data-src="https://i.loli.net/2019/03/27/5c9b6ce5d524a.png" class="lazyload"></p>
+<h2 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h2><p><img src="https://i.loli.net/2019/03/27/5c9b6ce5d524a.png" alt="屏幕快照 2019-03-27 下午8.30.08.png"></p>
 <p>点开题目连接 根据<code>Do you know robots.txt？</code></p>
-<p><img alt="屏幕快照 2019-03-27 下午8.32.18.png" data-src="https://i.loli.net/2019/03/27/5c9b6d630ef8a.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b6d630ef8a.png" alt="屏幕快照 2019-03-27 下午8.32.18.png"></p>
 <p>这题最开始有点疑问 感觉是sql注入 后面百度了一下才知道思路不对</p>
 <p>考的是intval()的用法 intval把变量转化为整数</p>
 <p>id=1024.01就能绕过爆出flag</p>
 <p><code>nctf{query_in_mysql}</code></p>
 <h2 id="GBK-Injection"><a href="#GBK-Injection" class="headerlink" title="GBK Injection"></a>GBK Injection</h2><p>进入解题连接后发现本题考查sql注入 输入<code>&#39;</code>看一下</p>
-<p><img alt="屏幕快照 2019-03-27 下午8.52.58.png" data-src="https://i.loli.net/2019/03/27/5c9b723b764b0.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b723b764b0.png" alt="屏幕快照 2019-03-27 下午8.52.58.png"></p>
 <p>果然被转义了。。。这时候看到题目名字gbk 貌似明白了</p>
 <p>宽字节注入</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df'union <span class="keyword">select</span> <span class="number">1</span>,<span class="keyword">group_concat</span>(table_name) <span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> table_schema=<span class="keyword">database</span>()<span class="comment">--+</span></span><br></pre></td></tr></table></figure>
@@ -217,7 +217,7 @@
 <p>发现<code>user,pw</code>字段</p>
 <p>接下来查看数据</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=-1%df'union <span class="keyword">select</span> <span class="number">1</span>,<span class="keyword">group_concat</span>(<span class="keyword">user</span>,pw) <span class="keyword">from</span> ctf<span class="comment">--+</span></span><br></pre></td></tr></table></figure>
-<p><img alt="屏幕快照 2019-03-27 下午9.55.21.png" data-src="https://i.loli.net/2019/03/27/5c9b80ef13c31.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b80ef13c31.png" alt="屏幕快照 2019-03-27 下午9.55.21.png"></p>
 <p>果然</p>
 <p>美滋滋的跑去提交 发现flag不对？？？？？？？？？？</p>
 <p>之后我每个表都试了一下 发现ctf4下也有一个falg</p>
@@ -225,7 +225,7 @@
 <p>格式感觉就不对 姿势盲区了百度了一下 发现前辈们也是在ctf4下发现的flag是</p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">nctf</span><span class="template-variable">&#123;gbk_3sqli&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
 <p>不知道怎么回事 不自信的我复制了前辈的payload爆出的flag也是<code>flag{this_is_sqli_flag}</code>看来真的是题目本身的问题了。。</p>
-<h2 id="x00"><a href="#x00" class="headerlink" title="/x00"></a>/x00</h2><p><img alt="屏幕快照 2019-03-27 下午10.52.57.png" data-src="https://i.loli.net/2019/03/27/5c9b8e5f3856d.png" class="lazyload"></p>
+<h2 id="x00"><a href="#x00" class="headerlink" title="/x00"></a>/x00</h2><p><img src="https://i.loli.net/2019/03/27/5c9b8e5f3856d.png" alt="屏幕快照 2019-03-27 下午10.52.57.png"></p>
 <p>又是一道看似很矛盾的题目 </p>
 <p>这里用数组直接可以绕过</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="link">http://teamxlc.sinaapp.com/web4/f5a14f5e6e3453b78cd73899bad98d53/index.php?nctf</span>[<span class="string"></span>]=1</span><br></pre></td></tr></table></figure>
@@ -235,56 +235,56 @@
 <p>strpos函数 查找#biubiubiu在nctf变量接收的值中第一次出现的位置</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>://teamxlc.sinaapp.com/web4/f5a14f5e6e3453b78cd73899bad98d53/index.php?nctf=1<span class="number">%00</span><span class="number">%23</span>biubiubiu</span><br></pre></td></tr></table></figure>
 <h2 id="bypass-again"><a href="#bypass-again" class="headerlink" title="bypass again"></a>bypass again</h2><p>这道题呢和<code>md5 collision</code>考查的是一个点弱类型</p>
-<p><img alt="屏幕快照 2019-03-28 下午2.21.13.png" data-src="https://i.loli.net/2019/03/28/5c9c67ea473f3.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/28/5c9c67ea473f3.png" alt="屏幕快照 2019-03-28 下午2.21.13.png"></p>
 <p>get方式接受 a b两个参数 使得a不等于b 但md5加密后a的值必须等于md5加密后b的值 这里我直接用<code>QNKCDZO</code> <code>s878926199a</code>不只这两个很多加密后的值都是0e开头的详情百度一下</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//chinalover.sinaapp.com/web17/index.php?a=QNKCDZO&amp;b=s878926199a</span></span><br></pre></td></tr></table></figure>
 <p><code>nctf{php_is_so_cool}</code></p>
-<h2 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h2><p><img alt="屏幕快照 2019-03-28 下午3.06.51.png" data-src="https://i.loli.net/2019/03/28/5c9c729947917.png" class="lazyload"></p>
+<h2 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h2><p><img src="https://i.loli.net/2019/03/28/5c9c729947917.png" alt="屏幕快照 2019-03-28 下午3.06.51.png"></p>
 <p>点一下<code>/source.php</code></p>
 <p>出现index.php的源码</p>
-<p><img alt="QQ20190328-150943@2x.png" data-src="https://i.loli.net/2019/03/28/5c9c7352b17db.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/28/5c9c7352b17db.png" alt="QQ20190328-150943@2x.png"></p>
 <p><code>extract()</code>函数的作用：从数组中将变量导入到当前的符号表 由于此函数存在变量覆盖漏洞 给pass赋值就覆盖了原值所以post下直接提交 两个变量的值相等就会爆出flag</p>
-<p><img alt="屏幕快照 2019-03-28 下午3.39.55.png" data-src="https://i.loli.net/2019/03/28/5c9c7a5ecc7c4.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/28/5c9c7a5ecc7c4.png" alt="屏幕快照 2019-03-28 下午3.39.55.png"></p>
 <p><code>nctf{bian_liang_fu_gai!}</code></p>
 <h2 id="php是世界上最好的语言"><a href="#php是世界上最好的语言" class="headerlink" title="php是世界上最好的语言"></a>php是世界上最好的语言</h2><p>貌似也挂了</p>
-<p><img alt="C79CFE657251B0C0493C07035C60C329.jpg" data-src="https://i.loli.net/2019/03/27/5c9b30e06bb8d.jpg" class="lazyload"></p>
-<h2 id="伪装者"><a href="#伪装者" class="headerlink" title="伪装者"></a>伪装者</h2><p><img alt="屏幕快照 2019-03-28 下午4.33.57.png" data-src="https://i.loli.net/2019/03/28/5c9c8702cec1e.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b30e06bb8d.jpg" alt="C79CFE657251B0C0493C07035C60C329.jpg"></p>
+<h2 id="伪装者"><a href="#伪装者" class="headerlink" title="伪装者"></a>伪装者</h2><p><img src="https://i.loli.net/2019/03/28/5c9c8702cec1e.png" alt="屏幕快照 2019-03-28 下午4.33.57.png"></p>
 <p>抓包修改<code>X-Forwarded-For: 127.0.0.1</code></p>
 <p>貌似没用 偷偷看了国光哥的wp 姿势没问题 题目出现了点问题</p>
 <p>网上flag</p>
 <p><code>nctf{happy_http_headers}</code></p>
 <h2 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h2><p>题目又挂了。。</p>
-<p><img alt="C79CFE657251B0C0493C07035C60C329.jpg" data-src="https://i.loli.net/2019/03/27/5c9b30e06bb8d.jpg" class="lazyload"></p>
-<h2 id="上传绕过"><a href="#上传绕过" class="headerlink" title="上传绕过"></a>上传绕过</h2><p><img alt="屏幕快照 2019-03-28 下午4.53.02.png" data-src="https://i.loli.net/2019/03/28/5c9c8b820e7f8.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/27/5c9b30e06bb8d.jpg" alt="C79CFE657251B0C0493C07035C60C329.jpg"></p>
+<h2 id="上传绕过"><a href="#上传绕过" class="headerlink" title="上传绕过"></a>上传绕过</h2><p><img src="https://i.loli.net/2019/03/28/5c9c8b820e7f8.png" alt="屏幕快照 2019-03-28 下午4.53.02.png"></p>
 <p>一次实战很多次ctf遇到类似突破上传的方法</p>
 <p>以前单独总结过这种方法写的很详细</p>
 <p><a href="https://scholar10.github.io/2018/12/27/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%AA%81%E7%A0%B4%E4%B8%8A%E4%BC%A0%E5%A7%BF%E5%8A%BF/" target="_blank" rel="noopener">常见的突破上传姿势</a></p>
 <p><code>nctf{welcome_to_hacks_world}</code></p>
-<h2 id="SQL注入1"><a href="#SQL注入1" class="headerlink" title="SQL注入1"></a>SQL注入1</h2><p><img alt="QQ20190401-192001@2x.png" data-src="https://i.loli.net/2019/04/01/5ca1f40588b23.png" class="lazyload"></p>
+<h2 id="SQL注入1"><a href="#SQL注入1" class="headerlink" title="SQL注入1"></a>SQL注入1</h2><p><img src="https://i.loli.net/2019/04/01/5ca1f40588b23.png" alt="QQ20190401-192001@2x.png"></p>
 <p>打开解题连接出现此页面 点击<code>Source</code>查看源码</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">Secure Web Login</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span>($_POST[user] &amp;&amp; $_POST[pass]) &#123;</span></span><br><span class="line"><span class="php">    mysql_connect(SAE_MYSQL_HOST_M . <span class="string">':'</span> . SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);</span></span><br><span class="line"><span class="php">  mysql_select_db(SAE_MYSQL_DB);</span></span><br><span class="line"><span class="php">  $user = trim($_POST[user]);</span></span><br><span class="line"><span class="php">  $pass = md5(trim($_POST[pass]));</span></span><br><span class="line"><span class="php">  $sql=<span class="string">"select user from ctf where (user='"</span>.$user.<span class="string">"') and (pw='"</span>.$pass.<span class="string">"')"</span>;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">'&lt;/br&gt;'</span>.$sql;</span></span><br><span class="line"><span class="php">  $query = mysql_fetch_array(mysql_query($sql));</span></span><br><span class="line"><span class="php">  <span class="keyword">if</span>($query[user]==<span class="string">"admin"</span>) &#123;</span></span><br><span class="line"><span class="php">      <span class="keyword">echo</span> <span class="string">"&lt;p&gt;Logged in! flag:******************** &lt;/p&gt;"</span>;</span></span><br><span class="line"><span class="php">  &#125;</span></span><br><span class="line"><span class="php">  <span class="keyword">if</span>($query[user] != <span class="string">"admin"</span>) &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span>(<span class="string">"&lt;p&gt;You are not admin!&lt;/p&gt;"</span>);</span></span><br><span class="line"><span class="php">  &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> $query[user];</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">post</span> <span class="attr">action</span>=<span class="string">index.php</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">text</span> <span class="attr">name</span>=<span class="string">user</span> <span class="attr">value</span>=<span class="string">"Username"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">password</span> <span class="attr">name</span>=<span class="string">pass</span> <span class="attr">value</span>=<span class="string">"Password"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">submit</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"index.phps"</span>&gt;</span>Source<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>解题的关键核心语句</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sql="<span class="keyword">select</span> <span class="keyword">user</span> <span class="keyword">from</span> ctf <span class="keyword">where</span> (<span class="keyword">user</span>=<span class="string">'".$user."'</span>) <span class="keyword">and</span> (pw=<span class="string">'".$pass."'</span>)<span class="string">";</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$query</span>[user]==<span class="string">"admin"</span>) &#123;</span><br><span class="line">      <span class="built_in">echo</span> <span class="string">"&lt;p&gt;Logged in! flag:******************** &lt;/p&gt;"</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>用户名为admin即可拿到flag所以应该注释掉后面的密码 sql语句源码里都有了构造一下 <code>admin&#39;)#</code> 这里做题的时候忽略了php的基础一直这样子写<code>admin&quot;&#39;)#</code>后面才反应过来双引号是接受变量用的。。。</p>
-<p><img alt="QQ20190401-192734@2x.png" data-src="https://i.loli.net/2019/04/01/5ca1f5c2ef58d.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca1f5c2ef58d.png" alt="QQ20190401-192734@2x.png"></p>
 <p><code>nctf{ni_ye_hui_sql?}</code></p>
 <h2 id="pass-check"><a href="#pass-check" class="headerlink" title="pass check"></a>pass check</h2><p>题目代码</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$pass=@$_POST[<span class="string">'pass'</span>];</span><br><span class="line">$pass1=***********;<span class="comment">//被隐藏起来的密码</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($pass))</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(@!strcmp($pass,$pass1))&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"flag:nctf&#123;*&#125;"</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"the pass is wrong!"</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"please input pass!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>post接收pass参数用strcmp函数与pass1做比较</p>
 <p>php的strcmp函数不能处理数组所以</p>
-<p><img alt="QQ20190401-210430@2x.png" data-src="https://i.loli.net/2019/04/01/5ca20c67d8ceb.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca20c67d8ceb.png" alt="QQ20190401-210430@2x.png"></p>
 <p><code>nctf{strcmp_is_n0t_3afe}</code></p>
-<h2 id="密码重置"><a href="#密码重置" class="headerlink" title="密码重置"></a>密码重置</h2><p><img alt="屏幕快照 2019-04-01 下午9.19.49.png" data-src="https://i.loli.net/2019/04/01/5ca2100b8b669.png" class="lazyload"></p>
+<h2 id="密码重置"><a href="#密码重置" class="headerlink" title="密码重置"></a>密码重置</h2><p><img src="https://i.loli.net/2019/04/01/5ca2100b8b669.png" alt="屏幕快照 2019-04-01 下午9.19.49.png"></p>
 <p>打开解题连接后观察url <code>user1=Y3RmdXNlcg==</code>猜测base64加密 解密后果然是<code>ctfuser</code></p>
 <p>根据题目提示：重置管理员账号：admin 的密码</p>
 <p>admin经过base64加密后<code>YWRtaW4=</code></p>
 <p>url替换成<code>user1=YWRtaW4=</code></p>
 <p>账号替换成admin</p>
-<p><img alt="Xnip2019-04-01_21-38-30.jpg" data-src="https://i.loli.net/2019/04/01/5ca2147843d68.jpg" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca2147843d68.jpg" alt="Xnip2019-04-01_21-38-30.jpg"></p>
 <p>发现替换不了账号 审查元素看一下</p>
 <p>readonly 属性规定输入字段为只读。是不可以修改的 删除了就好</p>
-<p><img alt="Xnip2019-04-01_21-41-57.jpg" data-src="https://i.loli.net/2019/04/01/5ca21531f180e.jpg" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca21531f180e.jpg" alt="Xnip2019-04-01_21-41-57.jpg"></p>
 <p><code>nctf{reset_password_often_have_vuln}</code></p>
 
   </article>

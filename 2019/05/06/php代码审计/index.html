@@ -147,9 +147,9 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="regexp">//</span><span class="number">127.0</span>.<span class="number">0.1</span><span class="regexp">/php_bugs/</span><span class="number">01</span> extract变量覆盖.php?shiyan=&amp;flag=</span><br></pre></td></tr></table></figure>
 <p>URL 通过 get 的方式传参，传输的数据以数组的形式被封装在\$_GET 中；extract()函数从数组中将变量导入到当前的符号表，该函数使用数组键名作为变量名，使用数组键值作为变量值；isset()函数判断是否存在变量<code>$shiyan</code>;trim()函数移除字符串两侧的空白字符或其他预定义字符 ，这里是移除字符串两侧的空格；<strong>file_get_contents()函数将整个文件读入一个字符串；</strong>假如<code>$shiyan</code>的值等于文件的内容(<code>$content</code>)时，就打印出flag</p>
 <p>南邮ctf平台也有一道关于变量覆盖的题</p>
-<p><a href="https://imgchr.com/i/EDKyjK" target="_blank" rel="noopener"><img alt="EDKyjK.png" data-src="https://s2.ax1x.com/2019/05/06/EDKyjK.png" class="lazyload"></a></p>
+<p><a href="https://imgchr.com/i/EDKyjK" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/05/06/EDKyjK.png" alt="EDKyjK.png"></a></p>
 <p>与上题不同的是这题以post方式提交</p>
-<p><a href="https://imgchr.com/i/EDKqHg" target="_blank" rel="noopener"><img alt="EDKqHg.png" data-src="https://s2.ax1x.com/2019/05/06/EDKqHg.png" class="lazyload"></a></p>
+<p><a href="https://imgchr.com/i/EDKqHg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/05/06/EDKqHg.png" alt="EDKqHg.png"></a></p>
 
   </article>
 </div>

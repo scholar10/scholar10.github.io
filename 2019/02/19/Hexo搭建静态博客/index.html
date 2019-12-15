@@ -138,7 +138,7 @@
 
   <article class="post-content">
     <h1>Hexo搭建静态博客</h1>
-    <p><img alt="u=3010013829,2497003625&amp;fm=26&amp;gp=0.jpg" data-src="https://i.loli.net/2019/02/19/5c6bee20be638.jpg" class="lazyload"></p>
+    <p><img src="https://i.loli.net/2019/02/19/5c6bee20be638.jpg" alt="u=3010013829,2497003625&amp;fm=26&amp;gp=0.jpg"></p>
 <p>最新折腾了一下黑苹果 刚刚把博客迁移过来 所以才想起写这篇文章 Hexo+GitHub搭建静态博客 </p>
 <a id="more"></a>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>Node.js下载链接：<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
@@ -151,10 +151,10 @@
 <h3 id="博客框架"><a href="#博客框架" class="headerlink" title="博客框架"></a>博客框架</h3><p>初始化博客框架</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="params">&lt;folder&gt;</span>（博客文件夹名称）</span><br><span class="line">cd <span class="params">&lt;folder&gt;</span>  <span class="comment">// 进入博客文件夹目录</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>这时候博客应该会出现如下文件</p>
-<p><img alt="屏幕快照 2019-02-19 下午9.48.41.png" data-src="https://i.loli.net/2019/02/19/5c6c0956269cd.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c0956269cd.png" alt="屏幕快照 2019-02-19 下午9.48.41.png"></p>
 <p><strong>_config.yml 是整个站点的配置文件 不要乱改</strong></p>
 <h3 id="写文章进行测试"><a href="#写文章进行测试" class="headerlink" title="写文章进行测试"></a>写文章进行测试</h3><p><code>hexo new 文章名</code></p>
-<p><img alt="屏幕快照 2019-02-19 下午9.57.31.png" data-src="https://i.loli.net/2019/02/19/5c6c0b6462ed6.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c0b6462ed6.png" alt="屏幕快照 2019-02-19 下午9.57.31.png"></p>
 <p>记得在博客目录下 新建文章</p>
 <p>可以看到新建了.md文件在 source/_posts/ 下 记住所有生成的文章都在此目录下</p>
 <p>编辑.md 我用的是typora感觉比较好用 百度下载即可</p>
@@ -164,21 +164,21 @@
 <p>启动以后我们本地访问以下</p>
 <p>默认访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
 <p>出现类似界面说明本地测试成功没有任何问题</p>
-<p><img alt="屏幕快照 2019-02-19 下午10.08.17.png" data-src="https://i.loli.net/2019/02/19/5c6c0de96b70c.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c0de96b70c.png" alt="屏幕快照 2019-02-19 下午10.08.17.png"></p>
 <h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>在博客目录下打开终端</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
 <p>下载完成以后 打开博客目录下的_config.yml</p>
 <p>找到theme 将theme的值改为next</p>
-<p><img alt="QQ20190219-223900@2x.png" data-src="https://i.loli.net/2019/02/19/5c6c152ea1d97.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c152ea1d97.png" alt="QQ20190219-223900@2x.png"></p>
 <p>之后输入调试命令</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo<span class="built_in"> server </span>--debug</span><br></pre></td></tr></table></figure>
 <p>在访问以下<a href="http://localhost:4000应该就已经更换主题了哦" target="_blank" rel="noopener">http://localhost:4000应该就已经更换主题了哦</a></p>
-<p><img alt="屏幕快照 2019-02-19 下午10.48.10.png" data-src="https://i.loli.net/2019/02/19/5c6c173f733a9.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c173f733a9.png" alt="屏幕快照 2019-02-19 下午10.48.10.png"></p>
 <p>感觉排版并不是很舒服 需要改一下 找到主题配置文件</p>
 <p>主题配置文件在博客目录 下的 themes/next/_config.yml</p>
 <p>这里不要搞混 这个是主题配置文件</p>
 <p>搜索 scheme 关键字。</p>
-<p><img alt="QQ20190219-225208@2x.png" data-src="https://i.loli.net/2019/02/19/5c6c1830cfa70.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/02/19/5c6c1830cfa70.png" alt="QQ20190219-225208@2x.png"></p>
 <p>前面去掉#号即为启用 我们启用pisces的样式</p>
 <p>这之后样式看起来和我博客类似了 </p>
 <p>主题就先说到这 添加分类 标签 友联 界面语言等 自己Goolge吧</p>
@@ -194,8 +194,8 @@
 <h3 id="生成的SSH添加到GitHub"><a href="#生成的SSH添加到GitHub" class="headerlink" title="生成的SSH添加到GitHub"></a>生成的SSH添加到GitHub</h3><p>创建完成以后打开用户的根目录 一般在C:\Users\username(你的用户名)</p>
 <p>应该会有.ssh文件夹 这时候找到.ssh文件里面的ssh.pub(公钥)</p>
 <p>将里面的内容全部复制到</p>
-<p><img alt="屏幕快照 2019-02-20 上午11.16.12.png" data-src="https://i.loli.net/2019/02/20/5c6cc6ceaacc6.png" class="lazyload"></p>
-<p><img alt="屏幕快照 2019-02-20 上午11.20.15.png" data-src="https://i.loli.net/2019/02/20/5c6cc79bb66ad.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/02/20/5c6cc6ceaacc6.png" alt="屏幕快照 2019-02-20 上午11.16.12.png"></p>
+<p><img src="https://i.loli.net/2019/02/20/5c6cc79bb66ad.png" alt="屏幕快照 2019-02-20 上午11.20.15.png"></p>
 <p>点击 new ssh key 会出现 title框和key框 把 ssh.pub内容全部复制到 key框 title 随意写一个名字就好</p>
 <p>验证SSH是否设置成功</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>

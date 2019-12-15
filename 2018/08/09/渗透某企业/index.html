@@ -139,7 +139,7 @@
   <article class="post-content">
     <h1>渗透某企业</h1>
     <p>在家无聊，突然想到博客搞上也有数天 没时间写文章，今天正好无聊</p>
-<h2 id="实战内容"><a href="#实战内容" class="headerlink" title="实战内容"></a>实战内容</h2><h3 id="确定目标站"><a href="#确定目标站" class="headerlink" title="确定目标站"></a>确定目标站</h3><p><img alt="" data-src="/2018/08/09/渗透某企业/1.png" class="lazyload"></p>
+<h2 id="实战内容"><a href="#实战内容" class="headerlink" title="实战内容"></a>实战内容</h2><h3 id="确定目标站"><a href="#确定目标站" class="headerlink" title="确定目标站"></a>确定目标站</h3><p><img src="/2018/08/09/渗透某企业/1.png" alt=""></p>
 <a id="more"></a>
 <h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><p>相信很多人吧都会忽略信息收集这一块，完整的信息收集应该包括</p>
 <p>收集 whois 邮箱</p>
@@ -148,19 +148,19 @@
 <p>google hacking 敏感文件</p>
 <p> 收集网站的 cms 信息</p>
 <h3 id="有所发现"><a href="#有所发现" class="headerlink" title="有所发现"></a>有所发现</h3><p>在信息收集的过程中我发现网站右上脚有</p>
-<p><img alt="" data-src="/2018/08/09/渗透某企业/2.png" class="lazyload"></p>
+<p><img src="/2018/08/09/渗透某企业/2.png" alt=""></p>
 <p>因为主站是伪静态 我本人确实很排斥这种伪静态 我就点了英文版的站 就发现 </p>
 <p>主站的url:<a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a></p>
 <p>英文版url:<a href="http://www.xxx.com/en" target="_blank" rel="noopener">www.xxx.com/en</a></p>
 <p>原来是分目录 English的站并没有做伪静态</p>
 <p>准备对准他下手 习惯性的先扫描一番</p>
-<p><img alt="" data-src="/2018/08/09/渗透某企业/3.png" class="lazyload"></p>
+<p><img src="/2018/08/09/渗透某企业/3.png" alt=""></p>
 <p>我发现了此文件 ,打开一看我尼玛 管理员真的粗心,是一个密码重置，管理员居然没有删</p>
-<p><img alt="" data-src="/2018/08/09/渗透某企业/4.png" class="lazyload"></p>
+<p><img src="/2018/08/09/渗透某企业/4.png" alt=""></p>
 <p>因为我知道有admin 所以第一步直接填了admin 第二步即可重置，改完密码直接进入后台</p>
-<p><img alt="" data-src="/2018/08/09/渗透某企业/5.png" class="lazyload"></p>
+<p><img src="/2018/08/09/渗透某企业/5.png" alt=""></p>
 <h3 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h3><p>dede cms拿shell很简单 有个文件管理器直接可上传get shell</p>
-<p><img alt="" data-src="/2018/08/09/渗透某企业/6.png" class="lazyload"></p>
+<p><img src="/2018/08/09/渗透某企业/6.png" alt=""></p>
 <p>拿到shell后可直接跨目录</p>
 <p>因为信息收集我发现是apache 还有.htacces文件 可以更好的隐藏我们的shell 这里我就不演示了</p>
 <p>此篇没有什么技术含量 只当是做个笔记而已</p>

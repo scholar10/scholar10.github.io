@@ -138,14 +138,14 @@
 
   <article class="post-content">
     <h1>Python学习笔记</h1>
-    <p><img alt="" data-src="/2018/10/29/Python学习笔记/1.jpg" class="lazyload"></p>
+    <p><img src="/2018/10/29/Python学习笔记/1.jpg" alt=""></p>
 <p>入坑了python3 知识点颇多 看了一遍 看第二遍时候发现 和没看没什么两样 所以把某些知识点 记录一下 加深印象也方便 忘记时候查看</p>
 <a id="more"></a>
 <h1 id="组和数据类型"><a href="#组和数据类型" class="headerlink" title="组和数据类型"></a>组和数据类型</h1><h2 id="集合类型及操作"><a href="#集合类型及操作" class="headerlink" title="集合类型及操作"></a>集合类型及操作</h2><p>集合元素之间无序，每个元素唯一 不存在相同元素 ，集合元素是不可变数据类型，在Python中集合用{}表示，元素间用 “,”分隔</p>
 <p>也可以用set()建立集合</p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/2.jpg" class="lazyload"></p>
+<p><img src="/2018/10/29/Python学习笔记/2.jpg" alt=""></p>
 <p>set()将每个字符单独拆分 变成集合的元素</p>
-<h3 id="集合操作符"><a href="#集合操作符" class="headerlink" title="集合操作符"></a>集合操作符</h3><p><img alt="" data-src="/2018/10/29/Python学习笔记/3.jpg" class="lazyload"></p>
+<h3 id="集合操作符"><a href="#集合操作符" class="headerlink" title="集合操作符"></a>集合操作符</h3><p><img src="/2018/10/29/Python学习笔记/3.jpg" alt=""></p>
 <p>可能有点难理解 那我们就打一下 </p>
 <blockquote>
 <blockquote>
@@ -156,7 +156,7 @@
 </blockquote>
 <p>在四种基本操作符上python提供了增强操作符</p>
 <p>通过四种操作符于赋值符号 来完成对集合s的更新</p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/4.jpg" class="lazyload"></p>
+<p><img src="/2018/10/29/Python学习笔记/4.jpg" alt=""></p>
 <h3 id="集合处理方法"><a href="#集合处理方法" class="headerlink" title="集合处理方法"></a>集合处理方法</h3><p><code>s.add(x) 将x增加到集合s</code></p>
 <p><code>s.discard(x) 从集合s中移除x 如果x不再集合s中，不报错</code></p>
 <p><code>s.remove(x) 从集合s中移除x 如果x不再集合s中，报出KeyError</code></p>
@@ -168,10 +168,10 @@
 <p><code>set(x)将其他类型变量转换为集合</code></p>
 <h3 id="集合类型总结"><a href="#集合类型总结" class="headerlink" title="集合类型总结"></a>集合类型总结</h3><p>集合类型 适用于包含关系的比较</p>
 <p>举个例子</p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/5.jpg" class="lazyload"></p>
+<p><img src="/2018/10/29/Python学习笔记/5.jpg" alt=""></p>
 <p>还有一个非常重要的 <u>数据去重</u> 就是利用 集合类型不能重复的特点</p>
 <p>例如将一个List 去掉其中的重复元素 这里就可以用集合进行数据去重 非常简单容易</p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/6.jpg" class="lazyload"></p>
+<p><img src="/2018/10/29/Python学习笔记/6.jpg" alt=""></p>
 <p>这里先用set 将list转换成集合来达到了 去重的目的 然后将集合在转换为列表。</p>
 <h2 id="序列类型及操作"><a href="#序列类型及操作" class="headerlink" title="序列类型及操作"></a>序列类型及操作</h2><p>序列类型包括 字符串类型 元组类型和列表类型</p>
 <h3 id="序列操作符"><a href="#序列操作符" class="headerlink" title="序列操作符"></a>序列操作符</h3><p><code>x in s 如果x是序列s的元素则返回True 否则返回Fals</code></p>
@@ -184,15 +184,15 @@
 <p>max(s) 返回序列s的最大元素</p>
 <p>s.count(x) 返回序列s中出现x的次数</p>
 <h3 id="元组类型及操作"><a href="#元组类型及操作" class="headerlink" title="元组类型及操作"></a>元组类型及操作</h3><p>元组是序列类型的一种,使用() 或tuple()创建 </p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/7.jpg" class="lazyload"></p>
+<p><img src="/2018/10/29/Python学习笔记/7.jpg" alt=""></p>
 <p>元素间用,分隔。元组创建以后不能修改</p>
 <p>元组继承了序列全部通用操作 </p>
 <h3 id="列表类型及操作"><a href="#列表类型及操作" class="headerlink" title="列表类型及操作"></a>列表类型及操作</h3><p>列表是序列类型的一种,使用[] 或list()创建 </p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/8.jpg" class="lazyload"></p>
+<p><img src="/2018/10/29/Python学习笔记/8.jpg" alt=""></p>
 <p>元素间用,分隔。列表创建可以随意修改</p>
 <h3 id="列表类型操作函数和方法"><a href="#列表类型操作函数和方法" class="headerlink" title="列表类型操作函数和方法"></a>列表类型操作函数和方法</h3><p>到这里内容很多 一会还要去上课 (其实是懒得打了)就从网上找了两张图 很详细</p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/9.jpg" class="lazyload"></p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/10.jpg" class="lazyload"></p>
+<p><img src="/2018/10/29/Python学习笔记/9.jpg" alt=""></p>
+<p><img src="/2018/10/29/Python学习笔记/10.jpg" alt=""></p>
 <h3 id="序列类型总结"><a href="#序列类型总结" class="headerlink" title="序列类型总结"></a>序列类型总结</h3><p>序列类型 包括字符串 列表 元组</p>
 <p>元组操作于序列基本相似，列表的话再序列基础上增加很多 更加灵活 </p>
 <h2 id="字典类型及操作"><a href="#字典类型及操作" class="headerlink" title="字典类型及操作"></a>字典类型及操作</h2><h3 id="字典类型的定义"><a href="#字典类型的定义" class="headerlink" title="字典类型的定义"></a>字典类型的定义</h3><p>映射是一种键(索引)和值(数据)的对应</p>
@@ -201,10 +201,10 @@
 <p>字典是键值对的集合，键值对之间无序</p>
 <p>键值对：键是数据索引的扩展</p>
 <p>采用{}和dict()创建键值对用·冒号:表示</p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/11.jpg" class="lazyload"></p>
+<p><img src="/2018/10/29/Python学习笔记/11.jpg" alt=""></p>
 <p>在字典变量中通过建获得值 a[“中国”] 则会出现北京</p>
-<h3 id="字典类型操作函数和方法"><a href="#字典类型操作函数和方法" class="headerlink" title="字典类型操作函数和方法"></a>字典类型操作函数和方法</h3><p><img alt="" data-src="/2018/10/29/Python学习笔记/12.jpg" class="lazyload"></p>
-<p><img alt="" data-src="/2018/10/29/Python学习笔记/13.jpg" class="lazyload"></p>
+<h3 id="字典类型操作函数和方法"><a href="#字典类型操作函数和方法" class="headerlink" title="字典类型操作函数和方法"></a>字典类型操作函数和方法</h3><p><img src="/2018/10/29/Python学习笔记/12.jpg" alt=""></p>
+<p><img src="/2018/10/29/Python学习笔记/13.jpg" alt=""></p>
 <h3 id="字典类型的应用场景"><a href="#字典类型的应用场景" class="headerlink" title="字典类型的应用场景"></a>字典类型的应用场景</h3><p>统计数据出现的次数，数据是键 次数是值</p>
 <p>主要作用：表达键值对数据 进而操作</p>
 <h3 id="字典类型总结"><a href="#字典类型总结" class="headerlink" title="字典类型总结"></a>字典类型总结</h3><p>映射关系采用键值对表示</p>

