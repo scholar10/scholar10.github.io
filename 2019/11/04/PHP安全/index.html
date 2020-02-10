@@ -91,7 +91,9 @@
 <meta property="og:image" content="https://i.loli.net/2019/11/04/KuI4lGLkboZt1Xc.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/04/znFIckEZmJLV4tu.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/04/1UznKqF6Xwgfdlb.png">
-<meta property="og:updated_time" content="2019-11-04T12:30:16.774Z">
+<meta property="og:image" content="https://i.loli.net/2020/01/19/DXBVqKZChGpHYSj.png">
+<meta property="og:image" content="https://i.loli.net/2020/01/19/C6zRdYBgZp5NnwQ.png">
+<meta property="og:updated_time" content="2020-01-19T05:53:51.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP安全">
 <meta name="twitter:description" content="文件包含漏洞常见的导致文件包含漏洞的函数如下 1include(),include_once(),require(),require_once(),fopen(),readfile() 当使用 1include(),include_once(),require(),require_once() 包含一个新文件时，该文件作为PHP代码去执行。也就是说如果被包含的是txt文件，图片文件，远程url也会">
@@ -433,8 +435,25 @@
 <p>当设置了<code>open_basedir</code>时</p>
 <p><img src="https://i.loli.net/2019/11/04/1UznKqF6Xwgfdlb.png" alt="QQ截图20191104142837.png"></p>
 <p><code>open_basedir</code>作用是在某个特定目录下PHP能打开的文件 这就解决了跨目录读取文件的问题。</p>
-<h2 id="变量覆盖漏洞"><a href="#变量覆盖漏洞" class="headerlink" title="变量覆盖漏洞"></a>变量覆盖漏洞</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https</span>://recruit.vip.com/psc/ps/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_APP_SCHJOB.GBL?languageCd=ZHS&amp;amp;LoginUser=VABIABPABOABUABTABLABOABGABIAB&amp;amp;PortalActualURL=https://www.baidu.com;PortalRegistryName=EMPLOYEE&amp;amp;PortalServletURI=https<span class="number">%3</span>a<span class="number">%2</span>f<span class="number">%2</span>frecruit.vip.com<span class="number">%2</span>fpsp<span class="number">%2</span>fps<span class="number">%2</span>f&amp;amp;PortalURI=https<span class="number">%3</span>a<span class="number">%2</span>f<span class="number">%2</span>frecruit.vip.com<span class="number">%2</span>fpsc<span class="number">%2</span>fps<span class="number">%2</span>f&amp;amp;PortalHostNode=HRMS&amp;amp;NoCrumbs=yes&amp;amp;PortalKeyStruct=yes</span><br></pre></td></tr></table></figure>
-
+<h2 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h2><p>代码执行除了我们经常用的 <code>eval</code> <code>assert</code>之外 还有一个</p>
+<p><code>call_user_func(1,2)</code>函数 函数有两个参数 第一个参数可以写一个函数(是将被调用的回调函数)，第二个参数则是这个函数的参数</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call_user_func('eval','phpinfo()')<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>然而有个问题是这个函数并不能回调所有的函数</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array,echo(),empty(),eval(),<span class="keyword">exit</span>(),isset(),list(),ptint(),unset()</span><br></pre></td></tr></table></figure>
+<p>都是不可以被此函数回调的。</p>
+<p><code>call_user_func_array(a,b)</code>和<code>call_user_func(a,b)</code>类似唯一不同的是<code>call_user_func_array(a,b)</code>的第二个参数一定要是数组的格式 。</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call_user_func_array(<span class="name">assert</span>,array('phpinfo()'))<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p><code>array_map($a,$b)</code>第一个参数回调函数，第二个参数作为回调函数的参数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">a=<span class="variable">$_GET</span>[<span class="string">'a'</span>];</span></span><br><span class="line"><span class="meta">$</span><span class="bash">b=<span class="variable">$_GET</span>[<span class="string">'b'</span>];</span></span><br><span class="line"><span class="meta">$</span><span class="bash">c=array_map(<span class="variable">$a</span>,<span class="variable">$b</span>);</span></span><br><span class="line">url:127.0.0.1/?a=assert&amp;b[]=phpinfo()</span><br></pre></td></tr></table></figure>
+<p>一道例题如下</p>
+<p><img src="https://i.loli.net/2020/01/19/DXBVqKZChGpHYSj.png" alt="QQ截图20200119134104.png"></p>
+<p><code>create_function</code>根据传递的参数创建匿名函数</p>
+<p>参数1声明函数参数部分 参数2执行函数代码部分</p>
+<p>我假设这里创建了一个a函数 因为匿名函数不好表示 理解原理就好</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">($name)</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $name.<span class="string">'.'</span>的价格是<span class="string">'.$price;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/01/19/C6zRdYBgZp5NnwQ.png" alt="QQ截图20200119135148.png"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">($name)</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $name.<span class="string">'.'</span>的价格是<span class="string">'.abc;&#125;phpinfo();/*;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="变量覆盖漏洞"><a href="#变量覆盖漏洞" class="headerlink" title="变量覆盖漏洞"></a>变量覆盖漏洞</h2>
       
     </div>
     
@@ -557,7 +576,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -578,8 +597,8 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                <a href="/tags/index-1.html">
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -660,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件包含漏洞"><span class="nav-number">1.</span> <span class="nav-text">文件包含漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地文件包含"><span class="nav-number">1.1.</span> <span class="nav-text">本地文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程文件包含"><span class="nav-number">1.2.</span> <span class="nav-text">远程文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录遍历"><span class="nav-number">1.3.</span> <span class="nav-text">目录遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量覆盖漏洞"><span class="nav-number">2.</span> <span class="nav-text">变量覆盖漏洞</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件包含漏洞"><span class="nav-number">1.</span> <span class="nav-text">文件包含漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地文件包含"><span class="nav-number">1.1.</span> <span class="nav-text">本地文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程文件包含"><span class="nav-number">1.2.</span> <span class="nav-text">远程文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录遍历"><span class="nav-number">1.3.</span> <span class="nav-text">目录遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码执行"><span class="nav-number">2.</span> <span class="nav-text">代码执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量覆盖漏洞"><span class="nav-number">3.</span> <span class="nav-text">变量覆盖漏洞</span></a></li></ol></div>
             
 
           </div>
