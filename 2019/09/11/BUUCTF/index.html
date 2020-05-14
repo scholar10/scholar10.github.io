@@ -96,7 +96,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/11/24/u21OeyEJw8nq3vY.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/24/dA8cKwnp1bBkTPS.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/28/6IvTOAgdly8hJbq.png">
-<meta property="og:updated_time" content="2019-11-28T13:07:59.773Z">
+<meta property="og:image" content="https://i.loli.net/2020/05/13/uSvA8rMZYst9bpn.png">
+<meta property="og:image" content="https://image.3001.net/images/20200513/15893801792986.png">
+<meta property="og:image" content="https://image.3001.net/images/20200513/1589380264279.png">
+<meta property="og:updated_time" content="2020-05-13T14:31:07.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BUUCTF web writeup">
 <meta name="twitter:image" content="https://i.loli.net/2019/09/11/5GBRelnv39aHCzS.png">
@@ -496,6 +499,16 @@
 <p>会提示值的长度太长 这里科学计数法绕过</p>
 <p>最终payload为</p>
 <p><img src="https://i.loli.net/2019/11/28/6IvTOAgdly8hJbq.png" alt="QQ图片20191128210724.png"></p>
+<h2 id="ACTF2020-新生赛-Upload"><a href="#ACTF2020-新生赛-Upload" class="headerlink" title="[ACTF2020 新生赛]Upload"></a>[ACTF2020 新生赛]Upload</h2><p>新生赛 比较简单考察的都是些基础姿势</p>
+<p><img src="https://i.loli.net/2020/05/13/uSvA8rMZYst9bpn.png" alt="image-20200513222626145"></p>
+<p>右键查看源代码发现只是基于前端的验证直接把html保存到本地，之后把前端验证的js删除。然后修改一下前端的form</p>
+<p><img src="https://image.3001.net/images/20200513/15893801792986.png" alt="image-20200513222935944"></p>
+<p>最后直接上传一个PHP文件注意后缀不能是.php因为被过滤了。这里直接使用.phtml上传一句话 蚁剑链接。根目录下存在flag文件</p>
+<p><img src="https://image.3001.net/images/20200513/1589380264279.png" alt="image-20200513223102314"></p>
+<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>题目涉及到一些sql注入的姿势 这里提一下</p>
+<p><strong>异或注入</strong></p>
+<p>异或也是一种逻辑运算。在MySQL里可以用 <code>^</code>或<code>xor</code>来表示</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">xor</span></span><br><span class="line">两个真做异或 结果为假</span><br><span class="line">两个假做异或 结果为假</span><br><span class="line">一个条件为真一个条件为假做异或结果才为真</span><br><span class="line"><span class="keyword">null</span>与真与假与<span class="keyword">null</span>做异或结果都为<span class="keyword">null</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -722,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HCTF-2018-WarmUp"><span class="nav-number">1.</span> <span class="nav-text">[HCTF 2018]WarmUp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随便注"><span class="nav-number">2.</span> <span class="nav-text">随便注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUCTF-2019-CheckIn"><span class="nav-number">3.</span> <span class="nav-text">[SUCTF 2019]CheckIn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极客大挑战-2019-PHP"><span class="nav-number">4.</span> <span class="nav-text">[极客大挑战 2019]PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极客大挑战-2019-BuyFlag"><span class="nav-number">5.</span> <span class="nav-text">[极客大挑战 2019]BuyFlag</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HCTF-2018-WarmUp"><span class="nav-number">1.</span> <span class="nav-text">[HCTF 2018]WarmUp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随便注"><span class="nav-number">2.</span> <span class="nav-text">随便注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUCTF-2019-CheckIn"><span class="nav-number">3.</span> <span class="nav-text">[SUCTF 2019]CheckIn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极客大挑战-2019-PHP"><span class="nav-number">4.</span> <span class="nav-text">[极客大挑战 2019]PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极客大挑战-2019-BuyFlag"><span class="nav-number">5.</span> <span class="nav-text">[极客大挑战 2019]BuyFlag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACTF2020-新生赛-Upload"><span class="nav-number">6.</span> <span class="nav-text">[ACTF2020 新生赛]Upload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CISCN2019-华北赛区-Day2-Web1-Hack-World"><span class="nav-number">7.</span> <span class="nav-text">[CISCN2019 华北赛区 Day2 Web1]Hack World</span></a></li></ol></div>
             
 
           </div>
