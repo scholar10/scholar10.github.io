@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/02/10/iLlGmTegSbunOQw.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/02/08/wLl7ZIpSE29ihev.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/10/hAL9WPide8a6Gjg.png">
-<meta property="og:updated_time" content="2020-02-10T12:30:46.000Z">
+<meta property="og:updated_time" content="2020-05-14T02:04:18.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="命令执行漏洞整理">
 <meta name="twitter:description" content="命令执行漏洞的成因是，由于没有针对代码中可执行的特殊函数入口做过滤，导致用户可以提交恶意语句，并提交服务器执行。">
@@ -424,7 +424,7 @@
 <p><img src="https://i.loli.net/2020/02/10/WsOE3XjvPLGiwha.png" alt="1581146705490.png"></p>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这里绕过方法不止一种</span><br><span class="line">c=1%0awhoami	换行绕过</span><br><span class="line">c=1;whoami		利用分号绕过</span><br><span class="line">c=1|whoami		管道符绕过</span><br></pre></td></tr></table></figure>
 <h3 id="过滤空格"><a href="#过滤空格" class="headerlink" title="过滤空格"></a>过滤空格</h3><p>有些时候 我们执行命令 如 <code>cat flag.txt</code> 中间必须要有空格才可打开此文件读到内容。但是如果空格被过滤我们就应该用一些字符来替代空格</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;	可替代空格</span><br><span class="line"><span class="meta">$</span><span class="bash">&#123;IFS&#125;	可替代空格</span></span><br><span class="line"><span class="meta">%</span><span class="bash">09	(url传递可替代空格)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;	可替代空格</span><br><span class="line"><span class="meta">$</span><span class="bash">&#123;IFS&#125;	可替代空格</span></span><br><span class="line"><span class="meta">$</span><span class="bash">IFS<span class="variable">$1</span>	可替代空格</span></span><br><span class="line"><span class="meta">%</span><span class="bash">09	(url传递可替代空格)</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2020/02/08/GqIWdfzeCK4bolF.png" alt="QQ截图20200208153511.png"></p>
 <h3 id="关键字过滤绕过"><a href="#关键字过滤绕过" class="headerlink" title="关键字过滤绕过"></a>关键字过滤绕过</h3><p>记得年底的时候貌似坐过一道命令执行相关的ctf过滤了关键字</p>
 <p>这里题目记不太清了 简单写个思路</p>

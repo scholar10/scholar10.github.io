@@ -99,7 +99,14 @@
 <meta property="og:image" content="https://i.loli.net/2020/05/13/uSvA8rMZYst9bpn.png">
 <meta property="og:image" content="https://image.3001.net/images/20200513/15893801792986.png">
 <meta property="og:image" content="https://image.3001.net/images/20200513/1589380264279.png">
-<meta property="og:updated_time" content="2020-05-13T14:31:07.728Z">
+<meta property="og:image" content="https://image.3001.net/images/20200514/15894231984683.png">
+<meta property="og:image" content="https://image.3001.net/images/20200514/15894233993667.png">
+<meta property="og:image" content="https://image.3001.net/images/20200514/15894235026082.png">
+<meta property="og:image" content="https://image.3001.net/images/20200514/15894268187581.png">
+<meta property="og:image" content="https://image.3001.net/images/20200514/15894271857662.png">
+<meta property="og:image" content="https://image.3001.net/images/20200514/15894273118797.png">
+<meta property="og:image" content="https://image.3001.net/images/20200514/15894276241520.png">
+<meta property="og:updated_time" content="2020-05-14T03:41:53.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BUUCTF web writeup">
 <meta name="twitter:image" content="https://i.loli.net/2019/09/11/5GBRelnv39aHCzS.png">
@@ -505,6 +512,21 @@
 <p><img src="https://image.3001.net/images/20200513/15893801792986.png" alt="image-20200513222935944"></p>
 <p>最后直接上传一个PHP文件注意后缀不能是.php因为被过滤了。这里直接使用.phtml上传一句话 蚁剑链接。根目录下存在flag文件</p>
 <p><img src="https://image.3001.net/images/20200513/1589380264279.png" alt="image-20200513223102314"></p>
+<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><p>根据题目名猜测是命令执行</p>
+<p><img src="https://image.3001.net/images/20200514/15894231984683.png" alt="image-20200514102632046"></p>
+<p><code>ls</code>后发现当前目录存在flag.php文件想的是直接 <code>cat index.php,cat flag.php</code>但是却被过滤了空格这里使用<code>$IFS$1</code>来替代空格即可绕过<code>$IFS$1</code>的大概意思是一个制表符和一个换行。<img src="https://image.3001.net/images/20200514/15894233993667.png" alt="image-20200514102956180"></p>
+<p>读取<code>index.php</code>的内容发现程序还用正则过滤了<code>flag</code>关键字.绕过也很简单</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ip</span>=<span class="number">127.0</span>.<span class="number">0.1</span>;a=ag.php;b=fl;cat<span class="variable">$IFS</span><span class="variable">$1</span><span class="variable">$b</span><span class="variable">$a</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://image.3001.net/images/20200514/15894235026082.png" alt="image-20200514103139181"></p>
+<p>具体可以参考我的这篇<a href="https://poc10.cn/2020/02/08/命令执行漏洞整理/" target="_blank" rel="noopener">命令执行漏洞整理</a>。详细的介绍了一些命令执行的姿势。</p>
+<h2 id="ZJCTF-2019-NiZhuanSiWei"><a href="#ZJCTF-2019-NiZhuanSiWei" class="headerlink" title="[ZJCTF 2019]NiZhuanSiWei"></a>[ZJCTF 2019]NiZhuanSiWei</h2><p><img src="https://image.3001.net/images/20200514/15894268187581.png" alt="image-20200514112653985"></p>
+<p>第一层我们用<code>php://input</code>绕过。file参数后面用伪协议读取<code>useless.php</code>的内容</p>
+<p><img src="https://image.3001.net/images/20200514/15894271857662.png" alt=""></p>
+<p><code>useless.php</code>文件内容为</p>
+<p><img src="https://image.3001.net/images/20200514/15894273118797.png" alt="image-20200514113508242"></p>
+<p>最后我们令<code>file=useless.php</code>可以看到代码会反序列化<code>password</code>传入的内容所以我们直接传入序列化字符串。代码反序列化以后则会打印flag值</p>
+<p><img src="https://image.3001.net/images/20200514/15894276241520.png" alt="image-20200514114022484"></p>
+<p>最开始第一层想到了php://input 却没第一时间想到伪协议读取文件源码后来才想到。还是缺少想法，多刷题。。</p>
 <h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>题目涉及到一些sql注入的姿势 这里提一下</p>
 <p><strong>异或注入</strong></p>
 <p>异或也是一种逻辑运算。在MySQL里可以用 <code>^</code>或<code>xor</code>来表示</p>
@@ -735,7 +757,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HCTF-2018-WarmUp"><span class="nav-number">1.</span> <span class="nav-text">[HCTF 2018]WarmUp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随便注"><span class="nav-number">2.</span> <span class="nav-text">随便注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUCTF-2019-CheckIn"><span class="nav-number">3.</span> <span class="nav-text">[SUCTF 2019]CheckIn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极客大挑战-2019-PHP"><span class="nav-number">4.</span> <span class="nav-text">[极客大挑战 2019]PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极客大挑战-2019-BuyFlag"><span class="nav-number">5.</span> <span class="nav-text">[极客大挑战 2019]BuyFlag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACTF2020-新生赛-Upload"><span class="nav-number">6.</span> <span class="nav-text">[ACTF2020 新生赛]Upload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CISCN2019-华北赛区-Day2-Web1-Hack-World"><span class="nav-number">7.</span> <span class="nav-text">[CISCN2019 华北赛区 Day2 Web1]Hack World</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HCTF-2018-WarmUp"><span class="nav-number">1.</span> <span class="nav-text">[HCTF 2018]WarmUp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随便注"><span class="nav-number">2.</span> <span class="nav-text">随便注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUCTF-2019-CheckIn"><span class="nav-number">3.</span> <span class="nav-text">[SUCTF 2019]CheckIn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极客大挑战-2019-PHP"><span class="nav-number">4.</span> <span class="nav-text">[极客大挑战 2019]PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极客大挑战-2019-BuyFlag"><span class="nav-number">5.</span> <span class="nav-text">[极客大挑战 2019]BuyFlag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACTF2020-新生赛-Upload"><span class="nav-number">6.</span> <span class="nav-text">[ACTF2020 新生赛]Upload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GXYCTF2019-Ping-Ping-Ping"><span class="nav-number">7.</span> <span class="nav-text">[GXYCTF2019]Ping Ping Ping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZJCTF-2019-NiZhuanSiWei"><span class="nav-number">8.</span> <span class="nav-text">[ZJCTF 2019]NiZhuanSiWei</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CISCN2019-华北赛区-Day2-Web1-Hack-World"><span class="nav-number">9.</span> <span class="nav-text">[CISCN2019 华北赛区 Day2 Web1]Hack World</span></a></li></ol></div>
             
 
           </div>
