@@ -316,15 +316,4 @@
         <tag>php myadmin</tag>
       </tags>
   </entry>
-  <entry>
-    <title><![CDATA[渗透某企业]]></title>
-    <url>%2F2018%2F08%2F09%2F%E6%B8%97%E9%80%8F%E6%9F%90%E4%BC%81%E4%B8%9A%2F</url>
-    <content type="text"><![CDATA[在家无聊，突然想到博客搞上也有数天 没时间写文章，今天正好无聊 实战内容确定目标站 信息收集相信很多人吧都会忽略信息收集这一块，完整的信息收集应该包括 收集 whois 邮箱 收集 子域名 c段 旁站 收集网站架构 运行的服务 对应的端口 探测 waf google hacking 敏感文件 收集网站的 cms 信息 有所发现在信息收集的过程中我发现网站右上脚有 因为主站是伪静态 我本人确实很排斥这种伪静态 我就点了英文版的站 就发现 主站的url:www.xxx.com 英文版url:www.xxx.com/en 原来是分目录 English的站并没有做伪静态 准备对准他下手 习惯性的先扫描一番 我发现了此文件 ,打开一看我尼玛 管理员真的粗心,是一个密码重置，管理员居然没有删 因为我知道有admin 所以第一步直接填了admin 第二步即可重置，改完密码直接进入后台 拿shelldede cms拿shell很简单 有个文件管理器直接可上传get shell 拿到shell后可直接跨目录 因为信息收集我发现是apache 还有.htacces文件 可以更好的隐藏我们的shell 这里我就不演示了 此篇没有什么技术含量 只当是做个笔记而已]]></content>
-      <categories>
-        <category>web安全</category>
-      </categories>
-      <tags>
-        <tag>实战</tag>
-      </tags>
-  </entry>
 </search>
