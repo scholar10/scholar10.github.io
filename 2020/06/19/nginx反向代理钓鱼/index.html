@@ -87,17 +87,17 @@
 <meta property="og:site_name" content="Sch0lar&#39;s Blog">
 <meta property="og:description" content="公司那边说过几天要有一个钓鱼演练。组里大佬说是让研究一下Nginx反向代理钓鱼。 什么是反向代理这里我找了一段比较官方的解释。 反向代理（Reverse Proxy）是指以代理服务器来接受 Internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 Internet 上请求连接的客户端，此时代理服务器对外就表现为一个服务器。我自己的理解 代理服务器就是充当了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://image.3001.net/images/20200526/1590462518584.png">
-<meta property="og:image" content="https://image.3001.net/images/20200526/15904625265222.png">
-<meta property="og:image" content="https://image.3001.net/images/20200526/15904625327264.png">
-<meta property="og:image" content="https://image.3001.net/images/20200526/15904625385954.png">
+<meta property="og:image" content="https://image.3001.net/images/20200715/15947804802911.png">
+<meta property="og:image" content="https://image.3001.net/images/20200715/15947804714730.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/19/nginx反向代理钓鱼/Users/sch0lar/Desktop/15904625327264.png">
+<meta property="og:image" content="https://image.3001.net/images/20200715/15947805743802.png">
 <meta property="og:image" content="https://image.3001.net/images/20200526/15904625436079.png">
 <meta property="og:image" content="https://image.3001.net/images/20200526/1590462547271.png">
-<meta property="og:updated_time" content="2020-06-19T03:56:15.851Z">
+<meta property="og:updated_time" content="2020-07-15T02:36:17.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx反向代理钓鱼">
 <meta name="twitter:description" content="公司那边说过几天要有一个钓鱼演练。组里大佬说是让研究一下Nginx反向代理钓鱼。 什么是反向代理这里我找了一段比较官方的解释。 反向代理（Reverse Proxy）是指以代理服务器来接受 Internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 Internet 上请求连接的客户端，此时代理服务器对外就表现为一个服务器。我自己的理解 代理服务器就是充当了">
-<meta name="twitter:image" content="https://image.3001.net/images/20200526/1590462518584.png">
+<meta name="twitter:image" content="https://image.3001.net/images/20200715/15947804802911.png">
 
 
 
@@ -409,18 +409,18 @@
 <figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	location / &#123;  </span><br><span class="line">	<span class="meta">#如果后端的服务器返回 502、504、执行超时等错误，自动将请求转发到 upstream 负载均衡池中的</span></span><br><span class="line">另一台服务器，实现故障转移。</span><br><span class="line">    		proxy_next_upstream http_502 http_504 <span class="built_in">error</span> timeout invalid_header; </span><br><span class="line">			proxy_pass https:<span class="comment">//www.xxx.com/; </span></span><br><span class="line">			proxy_set_header Host <span class="number">39.</span>xxx.xxx<span class="number">.9</span>; </span><br><span class="line">			proxy_set_header X-Forwarded-<span class="keyword">For</span> $remote_addr;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <p>proxy_set_header 指令用于在向反向代理的后端 Web 服务器发起请求时添加指定的 Header头信息。</p>
 <p>当后端 Web 服务器上有多个基于域名的虚拟主机时，要通过添加 Header 头信息 Host，用于指定请求的域名，这样后端 Web 服务器才能识别该反向代理访问请求由哪一个虚拟主机来处理。(39.xxx.xxx.9是我的vps地址。<a href="http://www.xxx.com是要反向代理的目标" target="_blank" rel="noopener">www.xxx.com是要反向代理的目标</a>)</p>
-<p><img src="https://image.3001.net/images/20200526/1590462518584.png" alt="image-20200508135238688"></p>
+<p><img src="https://image.3001.net/images/20200715/15947804802911.png" alt="image-20200508135238688"></p>
 <p>最后我们还需要制定以下 访问日志需要获取的内容 也是在<code>nginx.conf</code>里修改.在http下</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">log_format</span> TestLog escape=json <span class="string">'<span class="variable">$request_filename</span> <span class="variable">$http_x_forwarded_for</span> <span class="variable">$fastcgi_script_name</span> <span class="variable">$document_root</span> <span class="variable">$request_body</span>'</span> <span class="variable">$http_cookie</span>;</span><br></pre></td></tr></table></figure>
 <p>TestLog 要和上面的access_log对应不然日志不会起作用。</p>
 <p>重点是<code>$request_body(获取post数据),$http_cookie(获取cookie数据)</code>这就是我们钓鱼的核心了。当有人访问并登陆我们反向代理的网站以后 我们点开日志就可以看到他的cookie和post提交的用户名和密码了。</p>
 <h2 id="反向代理钓鱼实例"><a href="#反向代理钓鱼实例" class="headerlink" title="反向代理钓鱼实例"></a>反向代理钓鱼实例</h2><p>这里我用我们学校的一个测试系统举例子 按照上面步骤反向代理学校的测试系统</p>
-<p><img src="https://image.3001.net/images/20200526/15904625265222.png" alt="image-20200508140211178"></p>
+<p><img src="https://image.3001.net/images/20200715/15947804714730.png" alt="image-20200508140211178"></p>
 <p>之后看到一个一模一样的界面。为了怕学校领导找上门来我把图片都撤了。</p>
 <p>这时候叫上万能的舍友来登陆一波康康。</p>
-<p><img src="https://image.3001.net/images/20200526/15904625327264.png" alt="image-20200508140414315"></p>
+<p><img src="/2020/06/19/nginx反向代理钓鱼/Users/sch0lar/Desktop/15904625327264.png" alt="image-20200508140414315"></p>
 <p>根据Nginx.conf确定日志路径在<code>/www/wwwlogs/access.log</code>。讲道理舍友登陆了以后应该记录了 他登陆时提交的post 里面应该包含账号密码。和登录后的cookie信息。</p>
-<p><img src="https://image.3001.net/images/20200526/15904625385954.png" alt="image-20200508140901330"></p>
+<p><img src="https://image.3001.net/images/20200715/15947805743802.png" alt="image-20200508140901330"></p>
 <p>访问日志后看到登陆时的账号密码。问题是网站为https 这个密码是经过加密的，无法破解所以我们无法用账号密码进行登陆。不过问题不大JSESSIONID后面的是获取到登陆后的cookie。直接替换cookie即可登陆舍友的账号。</p>
 <p><img src="https://image.3001.net/images/20200526/15904625436079.png" alt="image-20200508141142785"></p>
 <p>burp进行正则匹配cookie后进行替换。最后成功登陆。</p>

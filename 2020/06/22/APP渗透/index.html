@@ -79,22 +79,38 @@
 
 
 
-<meta name="description" content="安装包签名使用 JDK 中的 jarsigner检查安装包的签名 1jarsigner -verify dzhtest.apk -verbose -certs  如上图，说明测试结果为安全。 要说明的是，只有在使用直接客户的证书签名时，才认为安全。Debug 证书、第三方（如 开发方）证书等等均认为风险。 反编译保护测试app能否反编译为源代码。未做保护的Java代码，可很清楚的了解到代码逻辑，并">
+<meta name="description" content="一些工具的介绍apktool   将APK转为smail代码，以供审计，其实就是反编译。 jeb 安卓反编译工具，用于逆向工程或审计APK文件，可以提高效率减少许多工程师的分析时间，能将Dalvik字节码反编译为Java源代码 adb  用来操作（调试）android设备（比如android手机）的一套指令集，例如adb shell 可以直接进入手机的命令行界面 drozer  移动端渗透测试框架">
 <meta name="keywords" content="app渗透">
 <meta property="og:type" content="article">
 <meta property="og:title" content="APP渗透">
 <meta property="og:url" content="http://yoursite.com/2020/06/22/APP渗透/index.html">
 <meta property="og:site_name" content="Sch0lar&#39;s Blog">
-<meta property="og:description" content="安装包签名使用 JDK 中的 jarsigner检查安装包的签名 1jarsigner -verify dzhtest.apk -verbose -certs  如上图，说明测试结果为安全。 要说明的是，只有在使用直接客户的证书签名时，才认为安全。Debug 证书、第三方（如 开发方）证书等等均认为风险。 反编译保护测试app能否反编译为源代码。未做保护的Java代码，可很清楚的了解到代码逻辑，并">
+<meta property="og:description" content="一些工具的介绍apktool   将APK转为smail代码，以供审计，其实就是反编译。 jeb 安卓反编译工具，用于逆向工程或审计APK文件，可以提高效率减少许多工程师的分析时间，能将Dalvik字节码反编译为Java源代码 adb  用来操作（调试）android设备（比如android手机）的一套指令集，例如adb shell 可以直接进入手机的命令行界面 drozer  移动端渗透测试框架">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://image.3001.net/images/20200622/15928015902533.png">
 <meta property="og:image" content="https://image.3001.net/images/20200622/15928023765081.png">
 <meta property="og:image" content="https://image.3001.net/images/20200622/15928026697444.png">
 <meta property="og:image" content="https://image.3001.net/images/20200622/15928028671351.png">
-<meta property="og:updated_time" content="2020-06-22T05:14:45.922Z">
+<meta property="og:image" content="https://image.3001.net/images/20200719/15951675422457.png">
+<meta property="og:image" content="https://image.3001.net/images/20200719/15951701537230.png">
+<meta property="og:image" content="https://image.3001.net/images/20200720/15952096298791.png">
+<meta property="og:image" content="https://image.3001.net/images/20200720/15952098741604.png">
+<meta property="og:image" content="https://image.3001.net/images/20200720/15952105216762.png">
+<meta property="og:image" content="https://image.3001.net/images/20200727/15958142792492.png">
+<meta property="og:image" content="https://image.3001.net/images/20200727/15958151471679.png">
+<meta property="og:image" content="https://image.3001.net/images/20200727/1595815242642.png">
+<meta property="og:image" content="https://image.3001.net/images/20200727/15958341737420.png">
+<meta property="og:image" content="https://image.3001.net/images/20200727/15958347184577.png">
+<meta property="og:image" content="https://image.3001.net/images/20200720/15952116925032.png">
+<meta property="og:image" content="https://image.3001.net/images/20200720/15952133611001.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/22/APP渗透/Users/sch0lar/study/blog/source/_posts/imgs/image-20200728105849016.png">
+<meta property="og:image" content="https://image.3001.net/images/20200728/15959054199824.png">
+<meta property="og:image" content="https://image.3001.net/images/20200728/15959087223263.png">
+<meta property="og:image" content="https://image.3001.net/images/20200728/15959088657477.png">
+<meta property="og:updated_time" content="2020-07-28T06:14:27.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APP渗透">
-<meta name="twitter:description" content="安装包签名使用 JDK 中的 jarsigner检查安装包的签名 1jarsigner -verify dzhtest.apk -verbose -certs  如上图，说明测试结果为安全。 要说明的是，只有在使用直接客户的证书签名时，才认为安全。Debug 证书、第三方（如 开发方）证书等等均认为风险。 反编译保护测试app能否反编译为源代码。未做保护的Java代码，可很清楚的了解到代码逻辑，并">
+<meta name="twitter:description" content="一些工具的介绍apktool   将APK转为smail代码，以供审计，其实就是反编译。 jeb 安卓反编译工具，用于逆向工程或审计APK文件，可以提高效率减少许多工程师的分析时间，能将Dalvik字节码反编译为Java源代码 adb  用来操作（调试）android设备（比如android手机）的一套指令集，例如adb shell 可以直接进入手机的命令行界面 drozer  移动端渗透测试框架">
 <meta name="twitter:image" content="https://image.3001.net/images/20200622/15928015902533.png">
 
 
@@ -397,13 +413,20 @@
       
 
       
-        <h2 id="安装包签名"><a href="#安装包签名" class="headerlink" title="安装包签名"></a>安装包签名</h2><p>使用 JDK 中的 jarsigner检查安装包的签名</p>
+        <h2 id="一些工具的介绍"><a href="#一些工具的介绍" class="headerlink" title="一些工具的介绍"></a>一些工具的介绍</h2><p><strong>apktool</strong>   将APK转为smail代码，以供审计，其实就是反编译。</p>
+<p><strong>jeb</strong> 安卓反编译工具，用于逆向工程或审计APK文件，可以提高效率减少许多工程师的分析时间，能将Dalvik字节码反编译为Java源代码</p>
+<p><strong>adb</strong>  用来操作（调试）android设备（比如android手机）的一套指令集，例如adb shell 可以直接进入手机的命令行界面</p>
+<p><strong>drozer</strong>  移动端渗透测试框架，模块化的测试APK文件的系统薄弱点</p>
+<p><strong>Android Studio</strong>  是谷歌推出的一个Android集成开发工具,基于IntelliJ IDEA，主要用于写APP代码，以及调试，测试</p>
+<p><strong>dex2jar</strong>   将apk反编译成java源码（classes.dex转化成jar文件） 与jd-gui配套</p>
+<p><strong>jd-gui</strong>   查看APK中的classes.dex转化成的jar文件，即源码文件</p>
+<h2 id="客户端程序安全"><a href="#客户端程序安全" class="headerlink" title="客户端程序安全"></a>客户端程序安全</h2><h3 id="安装包签名"><a href="#安装包签名" class="headerlink" title="安装包签名"></a>安装包签名</h3><p>使用 JDK 中的 jarsigner检查安装包的签名</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verify dzhtest<span class="selector-class">.apk</span> -verbose -certs</span><br></pre></td></tr></table></figure>
 <p><img src="https://image.3001.net/images/20200622/15928015902533.png" alt="image-20200622125307357"></p>
 <p>如上图，说明测试结果为安全。</p>
 <p>要说明的是，只有在使用直接客户的证书签名时，才认为安全。Debug 证书、第三方（如</p>
 <p>开发方）证书等等均认为风险。</p>
-<h2 id="反编译保护"><a href="#反编译保护" class="headerlink" title="反编译保护"></a>反编译保护</h2><p>测试app能否反编译为源代码。未做保护的Java代码，可很清楚的了解到代码逻辑，并实行进一步攻击。</p>
+<h3 id="反编译保护"><a href="#反编译保护" class="headerlink" title="反编译保护"></a>反编译保护</h3><p>测试app能否反编译为源代码。未做保护的Java代码，可很清楚的了解到代码逻辑，并实行进一步攻击。</p>
 <p>准备工具</p>
 <ul>
 <li><a href="https://sourceforge.net/projects/dex2jar/" target="_blank" rel="noopener">dex2jar</a></li>
@@ -416,6 +439,166 @@
 <p>得到<strong>classes-dex2jar.jar</strong>文件。</p>
 <p>JD-GUI打开<strong>classes-dex2jar.jar</strong>文件。最后如果代码是无混淆的情况则是不安全的，读代码可分析代码逻辑</p>
 <p><img src="https://image.3001.net/images/20200622/15928028671351.png" alt="image-20200622131424773"></p>
+<h3 id="应用完整性校验"><a href="#应用完整性校验" class="headerlink" title="应用完整性校验"></a>应用完整性校验</h3><p>攻击者能够通过反编译的方法在客户端</p>
+<p>程序中植入自己的木马，客户端程序如果没有自校验机制的话，攻击者可能会通过篡改客</p>
+<p>户端程序窃取手机用户的隐私信息。</p>
+<p>ApkTool 将目标 APK 文件解包</p>
+<p><a href="https://ibotpeaches.github.io/Apktool/install/" target="_blank" rel="noopener">ApkTool 下载地址</a></p>
+<p>使用如下命令解包</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -jar apktool<span class="selector-class">.jar</span> d -f apk 文件路径 -o 解包目标文件夹</span><br><span class="line">apktool d -f apk dzh<span class="selector-class">.apk</span> -o apptest 根据自己实际情况来</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.3001.net/images/20200719/15951675422457.png" alt="image-20200719220540166"></p>
+<p>解压完毕后随便找一个目录比如app的logo进行修改。这样可以更直观方便的确认app是否存在自校验。</p>
+<p><img src="https://image.3001.net/images/20200719/15951701537230.png" alt="image-20200719224911494"></p>
+<p>这里找到logo所在文件夹替换一下app的logo来进行验证</p>
+<p>用 ApkTool，将解包目录重新打包成未签名的 APK 文件，命令如下</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -jar apktool<span class="selector-class">.jar</span> <span class="selector-tag">b</span> -f 待打包的文件夹 -o 输出 apk 路径</span><br><span class="line">apktool <span class="selector-tag">b</span> -f 待打包的文件夹 -o 输出 apk 路径 根据自己实际情况来</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.3001.net/images/20200720/15952096298791.png" alt="image-20200720094705792"></p>
+<p>接下来用 SignApk，对未签名的 APK 文件进行签名，命令如下</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -jar signapk<span class="selector-class">.jar</span> testkey<span class="selector-class">.x509</span><span class="selector-class">.pem</span> testkey<span class="selector-class">.pk8</span> 待签名 apk 文件路径 签名</span><br><span class="line">后输出 apk 路径</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.3001.net/images/20200720/15952098741604.png" alt="image-20200720095111720"></p>
+<p>最后丢到模拟器里我们看到替换成功了。<img src="https://image.3001.net/images/20200720/15952105216762.png" alt="image-20200720100159321"></p>
+<p>这就说明应用不会经过自校验。如果应该会自效验的话 打开app不会正常启动</p>
+<h3 id="debug模式"><a href="#debug模式" class="headerlink" title="debug模式"></a>debug模式</h3><p>客户端软件 AndroidManifest.xml 中的 android:debuggable=”true”标记如果开启，可被</p>
+<p>Java 调试工具例如 jdb 进行调试，获取和篡改用户敏感信息，甚至分析并且修改代码实现的业务逻辑，我们经常使用 android.util.Log 来打印日志，软件发布后调试日志被其他开发</p>
+<p>者看到，容易被反编译破解。</p>
+<p>检查 AndroidManifest.xml 文件中的 debuggable 属性（MobSF） – 检查是否能被调</p>
+<p>试</p>
+<p><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" target="_blank" rel="noopener">https://github.com/MobSF/Mobile-Security-Framework-MobSF</a></p>
+<h3 id="应用程序数据可备份"><a href="#应用程序数据可备份" class="headerlink" title="应用程序数据可备份"></a>应用程序数据可备份</h3><p>Android 2.1 以上的系统可为 App 提供应用程序数据的备份和恢复功能，该由</p>
+<p>AndroidMainfest.xml 文件中的 allowBackup 属性值控制，其默认值为 true。当该属性没</p>
+<p>有显式设置为 false 时,攻击者可通过 adb backup 和 adb restore 对 App 的应用数据进行</p>
+<p>备份和恢复,从而可能获取明文存储的用户敏感信息。</p>
+<p><strong>总结一下就是如果allowBackup属性为true时就可对应用程序数据备份，即为 allowBackup 开启，记录漏洞，停止测试</strong></p>
+<p><img src="https://image.3001.net/images/20200727/15958142792492.png" alt="image-20200727094437108"></p>
+<h3 id="应用权限测试"><a href="#应用权限测试" class="headerlink" title="应用权限测试"></a>应用权限测试</h3><p>应用权限分配不合理</p>
+<p>1、使用反编译工具反反编译</p>
+<p>2、打开源码后，检查应用 AndoridManifest.xml 文件，将应用权限和业务功能需要权限</p>
+<p>做对比，检查申请应用权限是否大于业务需要权限，有即存在安全隐患。或者</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">python</span> <span class="selector-tag">manitree</span><span class="selector-class">.py</span> <span class="selector-tag">-f</span> <span class="selector-tag">AndroidManifest</span><span class="selector-class">.xml</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/antitree/manitree" target="_blank" rel="noopener">https://github.com/antitree/manitree</a></p>
+<h2 id="组件安全"><a href="#组件安全" class="headerlink" title="组件安全"></a>组件安全</h2><p>使用 ApkTool 解包， 打开解包目录中 AndroidManifest.xml，对其中声明的各个组</p>
+<p>件，</p>
+<p>根据以下规则判断是否可导出：</p>
+<p>\1. 显式声明了 android:exported=”true”，则可导出；</p>
+<p>\2. 显示声明了 android:exported=”false”，则不可导出；</p>
+<p>\3. 未显示声明 android:exported：</p>
+<p>a) 若组件不是 Content Provider：</p>
+<p>i. 若组件包含<intent-filter>则可导出，反之不可；</intent-filter></p>
+<p>b) 若组件是 Content Provider：</p>
+<p>i. 若 SDK 版本&lt;17 则可导出，反之不可。</p>
+<p><strong>一般我们写报告的话列出所有可以导出的组件即可</strong></p>
+<p><img src="https://image.3001.net/images/20200727/15958151471679.png" alt="image-20200727095905462"></p>
+<p><img src="https://image.3001.net/images/20200727/1595815242642.png" alt="image-20200727100040503"></p>
+<h3 id="Acitivity"><a href="#Acitivity" class="headerlink" title="Acitivity"></a>Acitivity</h3><p>Android 每一个 Application 都是由 Activity、Service、content Provider 和 Broadcast </p>
+<p>Receiver 等 Android 的基本组件所组成，其中 Activity 是实现应用程序的主体，它承担了</p>
+<p>大量的显示和交互工作，甚至可以理解为一个“界面”就是一个 Activity。</p>
+<p>检查 AndroidManifest.xml 文件中注册的 Activity（MobSF） – 检查 exported 属性</p>
+<p>是否被设置为 true，若是则根据业务判断风险</p>
+<p><strong>这里要安装drozer具体不说明了参考</strong></p>
+<p><a href="https://www.sohu.com/a/253061520_99907709" target="_blank" rel="noopener">https://www.sohu.com/a/253061520_99907709</a></p>
+<p>还需要在安卓模拟器下安装</p>
+<p><a href="https://www.lizenghai.com/archives/https%3A%2F%2Fgithub.com%2Fmwrlabs%2Fdrozer%2Freleases%2Fdownload%2F2.3.4%2Fdrozer-agent-2.3.4.apk" target="_blank" rel="noopener">https://github.com/mwrlabs/drozer/releases/download/2.3.4/drozer-agent-2.3.4.apk</a></p>
+<p><img src="https://image.3001.net/images/20200727/15958341737420.png" alt="image-20200727151610654"></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">运行</span><br><span class="line">开启转发	adb forward tcp:31415 tcp:31415</span><br><span class="line">建立连接	drozer<span class="built_in"> console </span>connect</span><br></pre></td></tr></table></figure>
+<p>最后如下图说明成功</p>
+<p><img src="https://image.3001.net/images/20200727/15958347184577.png" alt="image-20200727152516820"></p>
+<p>接下来简单说下如何去使用</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">run app<span class="selector-class">.package</span><span class="selector-class">.list</span> 列出设备中安装的包</span><br><span class="line">run app<span class="selector-class">.activity</span><span class="selector-class">.info</span> -<span class="selector-tag">a</span> 包名</span><br></pre></td></tr></table></figure>
+<p><strong>略。。。。。</strong></p>
+<h2 id="敏感信息安全"><a href="#敏感信息安全" class="headerlink" title="敏感信息安全"></a>敏感信息安全</h2><h3 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h3><p>检测客户端是否保存明文敏感信息，能否防止用户敏感信息的非授权访问</p>
+<p>文件敏感信息泄露以明文存储“记住密码”居多。一般来说，先将安卓设备中的文件复</p>
+<p>制到有鼠标的主机上，方便查看。</p>
+<p>首先查看相关文件的权限配置。</p>
+<p>正常的文件权限最后三位应为空（类似“rw-rw—-”），即除应用自己以外任何人无</p>
+<p>法读写；目录则允许多一个执行位（类似“rwxrwx—x”）。如下图所示，（lib 子目录是</p>
+<p>应用安装时由 android 系统自动生成，可以略过）：</p>
+<p><img src="https://image.3001.net/images/20200720/15952116925032.png" alt="image-20200720102129434"></p>
+<p>可见每个目录都可以读 表示不正常。</p>
+<p>权限检测完整后，检查客户端程序存储在手机中的SharedPreferences 配置文件，通常是对本目录下的文件内容(一般是xml)进行检查，看是否包含敏感信息。</p>
+<p>最后在检测SQLite数据库文件，在私有目录及其子目录下查找以.db结尾的数据库文件。对于使用了webView缓存的应用，<strong>会在databases子目录中保存webview.db 和webviewCache.db</strong>。。</p>
+<p>还有些时候，客户端程序 apk 包中也是是保存有敏感信息的，比如检查 apk 包中各</p>
+<p>类文件是否包含硬编码的敏感信息等</p>
+<p><img src="https://image.3001.net/images/20200720/15952133611001.png" alt="image-20200720104920035"></p>
+<p>例子中暂时没有发现硬编码敏感信息</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">威胁等级</span><br><span class="line"></span><br><span class="line">根据敏感信息泄露的程度进行威胁等级评分。若私有目录中存在存储了用户登陆密码</span><br><span class="line">（明文或只进行过一次单项哈希散列），手势密码（明文或只进行过一次单项哈希散列）或</span><br><span class="line">曾经访问过网址的 Cookie 等敏感信息的文件，此时为高风险，若不存在则无风险。</span><br><span class="line"></span><br><span class="line">安全建议</span><br><span class="line"></span><br><span class="line">尽量避免在文件、数据库、日志等位置写入敏感信息。如果确实需要存储，应当进行</span><br><span class="line">加密。对于内存中的信息泄露，可以通过反注入、反调试来解决。</span><br><span class="line">此外，正常的文件权限最后三位应为空（类似“rw-rw<span class="comment">----”），目录则允许多一个执</span></span><br><span class="line">行位（类似“rwxrwx—x”）。</span><br></pre></td></tr></table></figure>
+<h3 id="Logcat日志"><a href="#Logcat日志" class="headerlink" title="Logcat日志"></a>Logcat日志</h3><p>本项主要是检查客户端程序存储在手机中的日志是否含有敏感信息。</p>
+<p>这里使用adb工具连接设备</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">adb devices</span></span><br></pre></td></tr></table></figure>
+<p>使用adb查询logcat日志</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span><span class="bash"> logcat -d &gt; /Users/sch0lar/test.txt</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2020/06/22/APP渗透/Users/sch0lar/study/blog/source/_posts/imgs/image-20200728105849016.png" alt="image-20200728105849016"></p>
+<p>并未发现有敏感的信息</p>
+<p><strong>根据敏感信息泄露的程度进行威胁等级评分。若相关信息中存在存储了用户登陆密码</strong></p>
+<p><strong>（明文或只进行过一次单项哈希散列），手势密码（明文或只进行过一次单项哈希散列）或</strong></p>
+<p><strong>曾经访问过网址的 Cookie 等敏感信息，此时为高风险，若不存在则无风险。</strong></p>
+<h2 id="密码安全"><a href="#密码安全" class="headerlink" title="密码安全"></a>密码安全</h2><h3 id="键盘劫持"><a href="#键盘劫持" class="headerlink" title="键盘劫持"></a>键盘劫持</h3><p>测试客户端程序在密码等输入框是否使用自定义软键盘。安卓应用中的输入框默认使用</p>
+<p>系统软键盘，手机安装木马后，木马可以通过替换系统软键盘，记录手机键盘输过的密码。我自己的理解就是 app中是否使用app自己定义的键盘如果使用的是系统自带的键盘那么则可被记录。</p>
+<p>在通俗点数哦 使用系统的输入法才能键盘记录。</p>
+<p><img src="https://image.3001.net/images/20200728/15959054199824.png" alt="image-20200728110337313"></p>
+<p>例如这种就是安全的。</p>
+<h3 id="随机布局软键盘"><a href="#随机布局软键盘" class="headerlink" title="随机布局软键盘"></a>随机布局软键盘</h3><p>测试客户端实现的软键盘，是否满足键位随机布放要求。一般银行的一些业务会有这种随机的键盘。</p>
+<p><strong>威胁等级</strong></p>
+<p>当客户端软键盘未进行随机化处理时为低风险；当客户端软键盘只在某一个页面载入时</p>
+<p>初始化一次而不是在点击输入框时重新进行随机化也为低风险。（大致意思就是不会一直随机重置键盘只会初始化一次）</p>
+<p><strong>安全建议</strong></p>
+<p>键位每次使用都随机布放</p>
+<h3 id="屏幕录像"><a href="#屏幕录像" class="headerlink" title="屏幕录像"></a>屏幕录像</h3><p>客户端使用的随机布局软键盘是否会对用户点击产生视觉响应。当随机布局软键盘对用</p>
+<p>户点击产生视觉响应时，安卓木马可以通过连续截屏的方式，对用户击键进行记录，从而获得用户输入</p>
+<p>使用adb截图。</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb <span class="keyword">shell</span><span class="bash"> screencap -p &gt; 1.png</span></span><br></pre></td></tr></table></figure>
+<p>如果成功截图 说明没有防截屏 漏洞存在</p>
+<p><strong>威胁等级</strong></p>
+<p>当使用第三方程序（或系统截屏）可以对客户端内容进行截屏时，为中风险；当客户端</p>
+<p>会对截屏操作进行有效抵抗时（无法截屏或截屏结果为黑屏等无意义图片）无风险</p>
+<p><strong>安全建议</strong></p>
+<p>在敏感信息的输入过程尽量避免视觉反馈，或者在操作系统层面对截屏相关功能进行</p>
+<p>Hook 以阻止敏感信息输入期间其它程序的截屏操作（需要 root 权限）。</p>
+<h2 id="安全策略"><a href="#安全策略" class="headerlink" title="安全策略"></a>安全策略</h2><p>安全策略在实际测试中受限较多，因此建议的风险等级：安全策略类全部为低危。</p>
+<h3 id="密码强度检测"><a href="#密码强度检测" class="headerlink" title="密码强度检测"></a>密码强度检测</h3><p>测试客户端程序是否检查用户输入的密码强度，禁止用户设置弱口令。</p>
+<p>注册时 当我们输入注册的密码为123456等弱口令时。查看客户端是否允许。</p>
+<p><img src="https://image.3001.net/images/20200728/15959087223263.png" alt="image-20200728115841057"></p>
+<p>如上图 不允许 此项安全</p>
+<h3 id="账号登陆限制"><a href="#账号登陆限制" class="headerlink" title="账号登陆限制"></a>账号登陆限制</h3><p>测试一个帐号是否可以同时在多个设备上成功登录客户端，进行操作。</p>
+<p>我们找两个设备 如果能同时登陆一个账号则存在漏洞。不能则此项安全</p>
+<h3 id="账户锁定策略"><a href="#账户锁定策略" class="headerlink" title="账户锁定策略"></a>账户锁定策略</h3><p>测试客户端是否限制登录尝试次数。防止木马使用穷举法暴力破解用户密码。</p>
+<p>我们多次尝试输错密码 看看app是否会限制登陆错误次数。限制则此项安全</p>
+<p><img src="https://image.3001.net/images/20200728/15959088657477.png" alt="image-20200728120104020"></p>
+<h3 id="问题验证"><a href="#问题验证" class="headerlink" title="问题验证"></a>问题验证</h3><p>测试对账号某些信息（如单次支付限额）的修改是否有私密问题验证。私密问题验证是</p>
+<p>否将问题和答案一一对应。私密问题是否足够私密。</p>
+<p>自己理解就是 修改一些重要信息时 是否会进行身份验证。比如支付宝，如果转账超过多少钱是需要短信验证身份的。</p>
+<p><strong>对于敏感功能操作时，要进行私密问题验证。</strong></p>
+<p>有则漏洞不存在。</p>
+<h3 id="会话安全"><a href="#会话安全" class="headerlink" title="会话安全"></a>会话安全</h3><p>测试客户端在超过 20 分钟无操作后，是否会使会话超时并要求重新登录。超时时间设</p>
+<p>置是否合理。</p>
+<p>web里比较常见 比如qq企业邮箱 20分钟不操作 会话就会超时 需要重新登录。</p>
+<p><strong>威胁等级</strong></p>
+<p>当系统不存在会话超时逻辑判断时为低风险，若存在则无风险</p>
+<p><strong>安全建议</strong></p>
+<p>设置会话超时</p>
+<h3 id="界面切换保护"><a href="#界面切换保护" class="headerlink" title="界面切换保护"></a>界面切换保护</h3><p>检查客户端程序在切换到其他应用时，已经填写的账号密码等敏感信息是否会清空，防</p>
+<p>止用户敏感信息泄露。如果切换前处于已登录状态，切换后一定时间内是否会自动退出当前</p>
+<p>会话。</p>
+<p>我自己的理解就是 当我填了账号密码后 切换到了其他app。再回来时 账号密码应该被清空而不是一直保留。 如果登陆了测试app后切换到了其他app ，几分钟之内 测试app是否会自动注销。</p>
+<p>如果会清空账号密码，会自动注销 为安全</p>
+<h3 id="UI信息泄露"><a href="#UI信息泄露" class="headerlink" title="UI信息泄露"></a>UI信息泄露</h3><p>检查客户端的各种功能，看是否存在敏感信息泄露问题。</p>
+<p><strong>使用错误的登录名或密码登录，看客户端提示是否不同。（如果有不同并且验证码无效则可爆破）在显示卡号等敏感信息时是否进行部分遮挡。</strong></p>
+<p><strong>威胁等级</strong></p>
+<p>若在用户名输入错误和密码输入错误时提示信息不同则存在 UI 信息泄露问题，</p>
+<p>此时为低风险，否则无风险。</p>
+<p><strong>安全建议</strong></p>
+<p>注意UI信息防护</p>
+<h3 id="验证码安全"><a href="#验证码安全" class="headerlink" title="验证码安全"></a>验证码安全</h3><h3 id="安全退出"><a href="#安全退出" class="headerlink" title="安全退出"></a>安全退出</h3><p>测试客户端退出时是否正常终止会话。</p>
+<p>检查客户端在退出时，是否向服务端发送终止会话请求。客户端退出后，还能否使用退</p>
+<p>出前的会话 id 访问登录后才能访问的页面。</p>
+<p><strong>威胁等级</strong></p>
+<p>若客户端退出登录时不会和服务器进行 Logout 的相关通信则为中风险，否则无风险。</p>
+<p><strong>安全建议</strong></p>
+<p>客户端退出时要做到和服务器进行 Logout 的相关通信。</p>
+<h3 id="密码修改验证"><a href="#密码修改验证" class="headerlink" title="密码修改验证"></a>密码修改验证</h3><p>测试客户端在修改密码时是否验证旧密码正确性。</p>
+<p><strong>威胁等级</strong></p>
+<p>当进行密码修改时是否要求输入旧密码 如果需要输入则无风险。不需要输入原密码中风险。</p>
+<p><strong>安全建议</strong></p>
+<p>修改密码需要验证原密码的正确性。</p>
 
       
     </div>
@@ -642,7 +825,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包签名"><span class="nav-number">1.</span> <span class="nav-text">安装包签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反编译保护"><span class="nav-number">2.</span> <span class="nav-text">反编译保护</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些工具的介绍"><span class="nav-number">1.</span> <span class="nav-text">一些工具的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端程序安全"><span class="nav-number">2.</span> <span class="nav-text">客户端程序安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装包签名"><span class="nav-number">2.1.</span> <span class="nav-text">安装包签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反编译保护"><span class="nav-number">2.2.</span> <span class="nav-text">反编译保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用完整性校验"><span class="nav-number">2.3.</span> <span class="nav-text">应用完整性校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#debug模式"><span class="nav-number">2.4.</span> <span class="nav-text">debug模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用程序数据可备份"><span class="nav-number">2.5.</span> <span class="nav-text">应用程序数据可备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用权限测试"><span class="nav-number">2.6.</span> <span class="nav-text">应用权限测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件安全"><span class="nav-number">3.</span> <span class="nav-text">组件安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Acitivity"><span class="nav-number">3.1.</span> <span class="nav-text">Acitivity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#敏感信息安全"><span class="nav-number">4.</span> <span class="nav-text">敏感信息安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据文件"><span class="nav-number">4.1.</span> <span class="nav-text">数据文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logcat日志"><span class="nav-number">4.2.</span> <span class="nav-text">Logcat日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#密码安全"><span class="nav-number">5.</span> <span class="nav-text">密码安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘劫持"><span class="nav-number">5.1.</span> <span class="nav-text">键盘劫持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机布局软键盘"><span class="nav-number">5.2.</span> <span class="nav-text">随机布局软键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕录像"><span class="nav-number">5.3.</span> <span class="nav-text">屏幕录像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全策略"><span class="nav-number">6.</span> <span class="nav-text">安全策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#密码强度检测"><span class="nav-number">6.1.</span> <span class="nav-text">密码强度检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#账号登陆限制"><span class="nav-number">6.2.</span> <span class="nav-text">账号登陆限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#账户锁定策略"><span class="nav-number">6.3.</span> <span class="nav-text">账户锁定策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题验证"><span class="nav-number">6.4.</span> <span class="nav-text">问题验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话安全"><span class="nav-number">6.5.</span> <span class="nav-text">会话安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#界面切换保护"><span class="nav-number">6.6.</span> <span class="nav-text">界面切换保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI信息泄露"><span class="nav-number">6.7.</span> <span class="nav-text">UI信息泄露</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证码安全"><span class="nav-number">6.8.</span> <span class="nav-text">验证码安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全退出"><span class="nav-number">6.9.</span> <span class="nav-text">安全退出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码修改验证"><span class="nav-number">6.10.</span> <span class="nav-text">密码修改验证</span></a></li></ol></li></ol></div>
             
 
           </div>

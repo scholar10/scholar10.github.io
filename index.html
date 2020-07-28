@@ -540,12 +540,9 @@
       
         
           
-          安装包签名使用 JDK 中的 jarsigner检查安装包的签名
-1jarsigner -verify dzhtest.apk -verbose -certs
-
-如上图，说明测试结果为安全。
-要说明的是，只有在使用直接客户的证书签名时，才认为安全。Debug 证书、第三方（如
-开发方）证书等等均认为
+          一些工具的介绍apktool   将APK转为smail代码，以供审计，其实就是反编译。
+jeb 安卓反编译工具，用于逆向工程或审计APK文件，可以提高效率减少许多工程师的分析时间，能将Dalvik字节码反编译为Java源代码
+adb  用来操作（调试）android设备（比如android手机）的
           ...
           <!--noindex-->
           <div class="post-button text-center">
