@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://image.3001.net/images/20200728/15959054199824.png">
 <meta property="og:image" content="https://image.3001.net/images/20200728/15959087223263.png">
 <meta property="og:image" content="https://image.3001.net/images/20200728/15959088657477.png">
-<meta property="og:updated_time" content="2020-07-28T06:14:27.071Z">
+<meta property="og:updated_time" content="2020-08-03T10:40:34.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APP渗透">
 <meta name="twitter:description" content="一些工具的介绍apktool   将APK转为smail代码，以供审计，其实就是反编译。 jeb 安卓反编译工具，用于逆向工程或审计APK文件，可以提高效率减少许多工程师的分析时间，能将Dalvik字节码反编译为Java源代码 adb  用来操作（调试）android设备（比如android手机）的一套指令集，例如adb shell 可以直接进入手机的命令行界面 drozer  移动端渗透测试框架">
@@ -503,8 +503,10 @@
 <p>最后如下图说明成功</p>
 <p><img src="https://image.3001.net/images/20200727/15958347184577.png" alt="image-20200727152516820"></p>
 <p>接下来简单说下如何去使用</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">run app<span class="selector-class">.package</span><span class="selector-class">.list</span> 列出设备中安装的包</span><br><span class="line">run app<span class="selector-class">.activity</span><span class="selector-class">.info</span> -<span class="selector-tag">a</span> 包名</span><br></pre></td></tr></table></figure>
-<p><strong>略。。。。。</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">run app<span class="selector-class">.package</span><span class="selector-class">.list</span> 列出设备中安装的包</span><br><span class="line">run app<span class="selector-class">.activity</span><span class="selector-class">.info</span> -<span class="selector-tag">a</span> 包名  查看组件信息</span><br><span class="line">run app<span class="selector-class">.activity</span><span class="selector-class">.start</span> --component &lt;packagename&gt; &lt;activity&gt;</span><br></pre></td></tr></table></figure>
+<p>页面，如果想访问他本来是有限制的，但是现在可以通过命令访问，那么就说明漏洞是存在的。</p>
+<p>adb连接模拟器</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mac 网易mumu</span></span><br><span class="line">adb <span class="keyword">connect</span> 127.0.0.1<span class="function">:5555</span></span><br><span class="line"><span class="comment"># mac 夜神</span></span><br><span class="line">adb <span class="keyword">connect</span> 127.0.0.1<span class="function">:62001</span></span><br><span class="line"></span><br><span class="line">adb shell</span><br><span class="line">adb push xxx.apk <span class="string">/sdcard/</span> 将本地xxx.apk传到模拟器的sdcard里面</span><br></pre></td></tr></table></figure>
 <h2 id="敏感信息安全"><a href="#敏感信息安全" class="headerlink" title="敏感信息安全"></a>敏感信息安全</h2><h3 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h3><p>检测客户端是否保存明文敏感信息，能否防止用户敏感信息的非授权访问</p>
 <p>文件敏感信息泄露以明文存储“记住密码”居多。一般来说，先将安卓设备中的文件复</p>
 <p>制到有鼠标的主机上，方便查看。</p>
@@ -722,7 +724,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -733,7 +735,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index-1.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -744,7 +746,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index-1.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/03/4754d4a61bdceebc.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/03/f0ee75ac6ef968d8.png">
 <meta property="og:image" content="https://ftp.bmp.ovh/imgs/2020/03/698792c802d27830.png">
-<meta property="og:updated_time" content="2020-03-16T14:44:24.000Z">
+<meta property="og:updated_time" content="2020-08-03T13:34:10.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh与frp实现内网穿透">
 <meta name="twitter:description" content="很多时候我们需要内网穿透来进行一些操作 因为我们本地是内网而且在没有端口转发的情况下 msf不能很好的去使用。所以今天来总结一下 利用ssh frp实现内网穿透后 利用msf的过程。 首先我们要准备一台公网vps。然后一台内网kali。一个目标（这里那我舍友的做实验） 12vps : 39.168.xxx.xkali: 192.168.221.128 frp内网穿透首先现在frp到vps和kali">
@@ -420,6 +420,28 @@
 <p><img src="https://ftp.bmp.ovh/imgs/2020/03/4754d4a61bdceebc.png" alt=""></p>
 <p>舍友双击以后反弹回了shell</p>
 <p><img src="https://ftp.bmp.ovh/imgs/2020/03/f0ee75ac6ef968d8.png" alt=""></p>
+<h2 id="ssh本地，远程，动态端口转发的区别"><a href="#ssh本地，远程，动态端口转发的区别" class="headerlink" title="ssh本地，远程，动态端口转发的区别"></a>ssh本地，远程，动态端口转发的区别</h2><p><strong>本地端口转发</strong></p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-L 本地端口转发</span></span><br></pre></td></tr></table></figure>
+<p>举个例子 例如我们 有一台服务器 server1 server2 local（本机）</p>
+<p>本机是无法访问 server2的9000端口的 但是 server1可以访问 本机又可以链接server1</p>
+<p>这时候我们</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-L</span> 80<span class="selector-pseudo">:server2_ip</span><span class="selector-pseudo">:9000</span> <span class="selector-tag">user</span>@<span class="keyword">server1_ip</span></span><br></pre></td></tr></table></figure>
+<p>这样访问80端口就是访问了server2的9000端口了。server1就充当了一个跳板。</p>
+<p>当然如果本地端口转发到server1的9000端口的话 直接把server2_ip换成127.0.0.1就好。</p>
+<p>常见场景就是 如果想远程访问server的3306端口 而且又不想对外公开这时候用到本地端口转发。</p>
+<p><strong>远程端口转发</strong></p>
+<p>内网穿透 </p>
+<p>ssh -R 7777:192.168.1.106:80 <a href="mailto:root@39.xxx.xxx.x" target="_blank" rel="noopener">root@39.xxx.xxx.x</a></p>
+<p>这就不多说了。用来上线🐴。或者比如自己本地搭建了一些东西 想让朋友访问就这样转发出来就好。</p>
+<p><strong>动态端口转发</strong></p>
+<p>和本地转发很像</p>
+<p>本地转发是定向访问。</p>
+<p>动态就不一样了。懂得都懂哈哈哈</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-D</span> 8002 <span class="selector-tag">user</span>@<span class="keyword">xx</span>.<span class="keyword">xx</span>.<span class="keyword">xxx</span>.<span class="keyword">xxx</span>-<span class="keyword">p</span> <span class="number">55133</span></span><br></pre></td></tr></table></figure>
+<p><strong>端口转发维持</strong></p>
+<p>因为长时间不操作 端口转发就会被终结，那么如何维持。</p>
+<p>autossh</p>
+<p>还有ssh -o ServerAliveInterval=60 user@ip （每隔60秒客户端就向远程服务器发起一个请求）比较常用</p>
 <h2 id="ssh内网穿透"><a href="#ssh内网穿透" class="headerlink" title="ssh内网穿透"></a>ssh内网穿透</h2><p>因为这里kali网络有点问题所以用ssh并没有成功。也懒得去搞桥接了 这里我用我本机来测试 把本机端口映射到公网上。和msf道理一样的。</p>
 <p>本机上执行</p>
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ssh -fCNR 7777:192.168.1.106:80 root@39.xxx.xxx.x</span><br><span class="line">-<span class="ruby">f 将连接送入后台执行 不占用当前shell</span></span><br><span class="line"><span class="ruby">-C 压缩传输 提高传输速度</span></span><br><span class="line"><span class="ruby">-N 建立隐藏链接 已经建立链接 但是看不到会话</span></span><br><span class="line"><span class="ruby">-R 远程端口转发</span></span><br><span class="line"><span class="ruby">-L 本地端口转发</span></span><br><span class="line"><span class="ruby">-D 动态端口转发</span></span><br><span class="line"><span class="ruby">-p 指定ssh端口</span></span><br><span class="line"><span class="ruby">把本地的<span class="number">80</span>端口 反弹到vps的<span class="number">7777</span>端口上</span></span><br></pre></td></tr></table></figure>
@@ -548,7 +570,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +581,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index-1.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -570,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index-1.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -651,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#frp内网穿透"><span class="nav-number">1.</span> <span class="nav-text">frp内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vps启动frps"><span class="nav-number">1.1.</span> <span class="nav-text">vps启动frps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kali启动frpc"><span class="nav-number">1.2.</span> <span class="nav-text">kali启动frpc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用msf测试木马上线"><span class="nav-number">1.3.</span> <span class="nav-text">使用msf测试木马上线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh内网穿透"><span class="nav-number">2.</span> <span class="nav-text">ssh内网穿透</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#frp内网穿透"><span class="nav-number">1.</span> <span class="nav-text">frp内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vps启动frps"><span class="nav-number">1.1.</span> <span class="nav-text">vps启动frps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kali启动frpc"><span class="nav-number">1.2.</span> <span class="nav-text">kali启动frpc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用msf测试木马上线"><span class="nav-number">1.3.</span> <span class="nav-text">使用msf测试木马上线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh本地，远程，动态端口转发的区别"><span class="nav-number">2.</span> <span class="nav-text">ssh本地，远程，动态端口转发的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh内网穿透"><span class="nav-number">3.</span> <span class="nav-text">ssh内网穿透</span></a></li></ol></div>
             
 
           </div>
