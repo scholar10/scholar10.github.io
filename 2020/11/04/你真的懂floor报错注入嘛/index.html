@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://image.3001.net/images/20201104/16044698906062.png">
 <meta property="og:image" content="https://image.3001.net/images/20201104/16044732358870.png">
 <meta property="og:image" content="https://image.3001.net/images/20201104/16044756201157.png">
-<meta property="og:updated_time" content="2020-11-04T07:51:58.737Z">
+<meta property="og:updated_time" content="2020-11-04T11:39:21.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你真的懂floor报错注入嘛">
 <meta name="twitter:description" content="好久好久没写博客了。。因为我在准备一个对我非常重要的考试，最近忽略了学习安全。今天抽时间回头重温了一下floor的报错注入，收获颇多 以前在研究SQL注入时只理解表面却不得精髓，很多原理都是一知半解。所以才有了本篇。。">
@@ -537,7 +537,7 @@
 </tbody>
 </table>
 <p>继续从from表中继续取下一条数据，再次计算floor(rand(0)<em>2)，结果为0，与database()拼接为<code>test0</code>。</em></p>
-<p>因为临时表的主键中并不存在test0，在插入前，floor(rand(0)*2)又计算一次，拼接后与secruity1，但是是直接插入，即使临时表中已经有了主键security1也硬要插入，从而导致主键重复报错</p>
+<p>因为临时表的主键中并不存在test0，在插入前，floor(rand(0)*2)又计算一次，拼接后与test1，但是是直接插入，即使临时表中已经有了主键test1也硬要插入，从而导致主键重复报错</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1062 (23000): Duplicate entry 'test1' for key '&lt;group_key&gt;'</span><br></pre></td></tr></table></figure>
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>网上大部分文章都说必须要有三条记录以上才可以报错。</p>
 <p>因为上面共从from的表中取了三条记录，因为<code>floor(rand(0)*2)</code>的值为011011…，但其实第三次计算的1可以不要的，如果某个<code>floor(rand(x)*2)</code>满足0101或1010，那么from的表中两条数据就是可以报错的。</p>
