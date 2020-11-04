@@ -391,13 +391,8 @@
 
       
         
-          
-          一般的floor的报错语句为
-1select count(*) from user group by concat(database(),floor(rand(0)*2));
-报错函数分析
-这个报错的意思就是它说group_key的主键test1重复了
-可以看到爆出数据库名test1但是我的数据库名
-          ...
+          <p>好久好久没写博客了。。因为我在准备一个对我非常重要的考试，最近忽略了学习安全。今天抽时间回头重温了一下floor的报错注入，收获颇多</p>
+<p>以前在研究SQL注入时只理解表面却不得精髓，很多原理都是一知半解。所以才有了本篇。。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/11/04/你真的懂floor报错注入嘛/" rel="contents">
