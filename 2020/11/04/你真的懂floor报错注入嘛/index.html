@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sql注入," />
 
 
 
@@ -79,13 +79,29 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sch0lar&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/PHP/index.html">
+<meta name="description" content="一般的floor的报错语句为 1select count(*) from user group by concat(database(),floor(rand(0)*2)); 报错函数分析 这个报错的意思就是它说group_key的主键test1重复了 可以看到爆出数据库名test1但是我的数据库名是test 那么这个1是哪里来的 1是来自floor(rand(0)*2)的。 randrand()">
+<meta name="keywords" content="sql注入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你真的懂floor报错注入嘛">
+<meta property="og:url" content="http://yoursite.com/2020/11/04/你真的懂floor报错注入嘛/index.html">
 <meta property="og:site_name" content="Sch0lar&#39;s Blog">
+<meta property="og:description" content="一般的floor的报错语句为 1select count(*) from user group by concat(database(),floor(rand(0)*2)); 报错函数分析 这个报错的意思就是它说group_key的主键test1重复了 可以看到爆出数据库名test1但是我的数据库名是test 那么这个1是哪里来的 1是来自floor(rand(0)*2)的。 randrand()">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://image.3001.net/images/20201104/16044719708170.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/16044597773068.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/16044604781913.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/1604460843678.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/16044610452024.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/1604461451954.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/16044616732133.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/16044698906062.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/16044732358870.png">
+<meta property="og:image" content="https://image.3001.net/images/20201104/16044756201157.png">
+<meta property="og:updated_time" content="2020-11-04T07:45:37.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sch0lar&#39;s Blog">
+<meta name="twitter:title" content="你真的懂floor报错注入嘛">
+<meta name="twitter:description" content="一般的floor的报错语句为 1select count(*) from user group by concat(database(),floor(rand(0)*2)); 报错函数分析 这个报错的意思就是它说group_key的主键test1重复了 可以看到爆出数据库名test1但是我的数据库名是test 那么这个1是哪里来的 1是来自floor(rand(0)*2)的。 randrand()">
+<meta name="twitter:image" content="https://image.3001.net/images/20201104/16044719708170.png">
 
 
 
@@ -115,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/PHP/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/11/04/你真的懂floor报错注入嘛/"/>
 
 
 
 
 
-  <title>标签: PHP | Sch0lar's Blog</title>
+  <title>你真的懂floor报错注入嘛 | Sch0lar's Blog</title>
   
 
 
@@ -140,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -284,110 +300,306 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>PHP<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/04/你真的懂floor报错注入嘛/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sch0lar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sch0lar's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/11/04/PHP安全/" itemprop="url">
-              
-                <span itemprop="name">PHP安全</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">你真的懂floor报错注入嘛</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-04T11:08:43+08:00"
-              content="2019-11-04" >
-          11-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-04T15:44:31+08:00">
+                2020-11-04
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/19/PHP反序列化漏洞/" itemprop="url">
-              
-                <span itemprop="name">PHP反序列化漏洞</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-19T09:12:28+08:00"
-              content="2019-09-19" >
-          09-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/06/php代码审计/" itemprop="url">
-              
-                <span itemprop="name">php代码审计</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-05-06T16:58:24+08:00"
-              content="2019-05-06" >
-          05-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>一般的floor的报错语句为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from user group by concat(database(),floor(rand(0)*2));</span><br></pre></td></tr></table></figure>
+<h2 id="报错函数分析"><a href="#报错函数分析" class="headerlink" title="报错函数分析"></a>报错函数分析</h2><p><img src="https://image.3001.net/images/20201104/16044719708170.png" alt="image-20201104143929317"></p>
+<p>这个报错的意思就是它说<code>group_key</code>的主键<code>test1</code>重复了</p>
+<p>可以看到爆出数据库名<code>test1</code>但是我的数据库名是<code>test</code> 那么这个1是哪里来的</p>
+<p>1是来自<code>floor(rand(0)*2)</code>的。</p>
+<h3 id="rand"><a href="#rand" class="headerlink" title="rand"></a>rand</h3><p>rand()是一个函数 这个函数在0和1之间产生一个随机数</p>
+<p>而它后面的<code>*2</code> ，则是选定获取数据的范围[0,2]，其实就是乘以2。</p>
+<p><img src="https://image.3001.net/images/20201104/16044597773068.png" alt="image-20201104111614914"></p>
+<p><code>rand(n)</code>这个n是种子值 每个种子产生的序列是不一样的</p>
+<p><img src="https://image.3001.net/images/20201104/16044604781913.png" alt="image-20201104112755685"></p>
+<h3 id="floor"><a href="#floor" class="headerlink" title="floor"></a>floor</h3><p>而<code>floor(n)</code>这个函数的功能时返回不大于n的整数，比如</p>
+<p><img src="https://image.3001.net/images/20201104/1604460843678.png" alt="image-20201104113402183"></p>
+<p><code>floor(rand(0)*2)</code>这样组合起来的话就会必定返回0或者1其中一个了</p>
+<p><img src="https://image.3001.net/images/20201104/16044610452024.png" alt="image-20201104113723911"></p>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><p><code>concat()</code>是字符串拼接函数</p>
+<p>返回结果为连接参数产生的字符串，如果有任何一个参数为null，则返回值为null。</p>
+<p><img src="https://image.3001.net/images/20201104/1604461451954.png" alt="image-20201104114409776"></p>
+<h3 id="count和group-by"><a href="#count和group-by" class="headerlink" title="count和group by"></a>count和group by</h3><p><code>count(*)</code>这个函数我一直给他理解为统计返回数值的函数.</p>
+<p><img src="https://image.3001.net/images/20201104/16044616732133.png" alt="image-20201104114752509"></p>
+<p>例如这个，表示user表下面会返回五条数值。</p>
+<p>而<code>group by</code>是分组。需要和<code>count</code>连用</p>
+<p><img src="https://image.3001.net/images/20201104/16044698906062.png" alt="image-20201104140449425">group by在执行时，会依次取出查询表中的记录并创建一个临时表，group by的对象便是该临时表的主键。如果临时表中已经存在该主键，则将值加1，如果不存在，则将该主键插入到临时表中，注意是插入！s</p>
+<p>具体是怎样一个过程呢</p>
+<p>username是admin发现表中没有这个主键，则将admin插入到主键 然后count(*)记为1。</p>
+<p>接着取第二条记录。第二条记录发现admin已经作为主键了所以直接讲count(*)加1最终结果为</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">key</th>
+<th style="text-align:center">count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">admin</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">root</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">test</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="再探payload"><a href="#再探payload" class="headerlink" title="再探payload"></a>再探payload</h2><p>这回我们回来看这个报错注入的payload</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">concat</span>(<span class="keyword">database</span>(),<span class="keyword">floor</span>(<span class="keyword">rand</span>(<span class="number">0</span>)*<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+<p>报错语句就是 <code>select count(*) from user group by test0</code>或者<code>select count(*) from user group by test1</code></p>
+<p>下图是 用0先初始化种子，然后以这个种子初始化随机数(每次执行这个的结果都是一样的)</p>
+<p><img src="https://image.3001.net/images/20201104/16044732358870.png" alt="image-20201104150027460"></p>
+<p><code>group by</code>创建临时表的时候过程是这样的 因为第一个是test0，第二个是test1 ，参考上图</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">key</th>
+<th style="text-align:center">Count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">test0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">test1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>最终结果应该是</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">key</th>
+<th style="text-align:center">count(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">test0</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">test1</td>
+<td style="text-align:center">6</td>
+</tr>
+</tbody>
+</table>
+<p>那么为什么不是这个结果而是会报错 爆出</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1062 (23000): Duplicate entry 'test1' for key '&lt;group_key&gt;'</span><br></pre></td></tr></table></figure>
+<p>因为还有一个最重要的特性，就是group by与rand()使用时，如果临时表中没有该主键，则在插入前rand()会再计算一次。</p>
+<p>当group by取第一条from记录时，group by的结果是 <code>test0</code>发现临时表中并没有<code>test0</code>这个主键，这个时候rand(0)*2会再算一次然后floor()后得到<code>test1</code>率先插入临时表的主键不是<code>test0</code>，而是<code>test1</code>，并计数1。</p>
+<p>然后取第二条记录group by中的0，1仍然由<code>floor(rand(0)*2)</code>计算获得，第二次得到的数是1，也就是，第二条记录得到的是<code>test1</code>。因为此时临时表里已经有<code>test1</code>了，所以count(*)直接加1就可以了。</p>
+<table>
+<thead>
+<tr>
+<th>第几条</th>
+<th>key</th>
+<th>count(*)</th>
+<th>Floor(rand(0)*2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一条</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>第一条</td>
+<td>test1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>第二条</td>
+<td>test1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>继续从from表中继续取下一条数据，再次计算floor(rand(0)<em>2)，结果为0，与database()拼接为<code>test0</code>。</em></p>
+<p>因为临时表的主键中并不存在test0，在插入前，floor(rand(0)*2)又计算一次，拼接后与secruity1，但是是直接插入，即使临时表中已经有了主键security1也硬要插入，从而导致主键重复报错</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1062 (23000): Duplicate entry 'test1' for key '&lt;group_key&gt;'</span><br></pre></td></tr></table></figure>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>网上大部分文章都说必须要有三条记录以上才可以报错。</p>
+<p>因为上面共从from的表中取了三条记录，因为<code>floor(rand(0)*2)</code>的值为011011…，但其实第三次计算的1可以不要的，如果某个<code>floor(rand(x)*2)</code>满足0101或1010，那么from的表中两条数据就是可以报错的。</p>
+<p>经测试floor(rand(14)*2)的序列为1010…….. </p>
+<p>也就是说 如果我们用floor(rand(14)*2)去尝试报错注入表里只要有两条数据以上就可以成功触发报错。这里我们尝试一下</p>
+<p><img src="https://image.3001.net/images/20201104/16044756201157.png" alt="image-20201104154009413"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结一下就是floor会报错的原因就是group by在向临时表插入数据时，插入重复主键导致的报错，又因为报错之前<code>concat()</code>里的<code>database()</code>语句已经执行过了所以说，会直接爆出concat函数里执行后的结果</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sql注入/" rel="tag"><i class="fa fa-tag"></i> sql注入</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/13/macOs下优雅的配置C语言环境/" rel="next" title="macOs下优雅的配置C语言环境">
+                <i class="fa fa-chevron-left"></i> macOs下优雅的配置C语言环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -395,6 +607,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -415,8 +631,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -528,6 +753,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#报错函数分析"><span class="nav-number">1.</span> <span class="nav-text">报错函数分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rand"><span class="nav-number">1.1.</span> <span class="nav-text">rand</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#floor"><span class="nav-number">1.2.</span> <span class="nav-text">floor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat"><span class="nav-number">1.3.</span> <span class="nav-text">concat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#count和group-by"><span class="nav-number">1.4.</span> <span class="nav-text">count和group by</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再探payload"><span class="nav-number">2.</span> <span class="nav-text">再探payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">3.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -668,6 +909,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
